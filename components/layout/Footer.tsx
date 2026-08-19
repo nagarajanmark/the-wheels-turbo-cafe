@@ -97,11 +97,11 @@ export const Footer: React.FC = () => {
           <Link
             href="/"
             className="relative px-5 py-2.5 sm:px-7 sm:py-3.5 rounded-[18px] sm:rounded-[20px] bg-[#0c0c0d]/90 backdrop-blur-md border-[1.5px] border-racing-red/40 shadow-[0_0_25px_rgba(225,6,0,0.35),inset_0_0_12px_rgba(225,6,0,0.15)] flex items-center justify-center cursor-pointer transition-transform duration-300 hover:scale-105 hover:border-racing-red hover:shadow-[0_0_35px_rgba(225,6,0,0.7)]"
-            aria-label="The Wheels Turbo Cafe"
+            aria-label="The Wheels Turbo Cafe Home"
           >
             <Image
               src="/logo.png"
-              alt="The Wheels Turbo Cafe"
+              alt="The Wheels Turbo Cafe - Motorsport Theme Cafe in Coimbatore"
               width={1774}
               height={887}
               className="h-9 sm:h-12 w-auto object-contain"

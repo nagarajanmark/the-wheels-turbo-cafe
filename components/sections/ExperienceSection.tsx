@@ -26,9 +26,9 @@ const EXPERIENCES: ExperienceCard[] = [
     code: "BAY 01",
     title: "THE GARAGE",
     category: "PADDOCK ATMOSPHERE",
-    placeholderLabel: "COIMBATORE BEST CAFE INTERIOR",
+    placeholderLabel: "GARAGE AMBIENCE // RS PURAM",
     src: "/images/about/coimbatore-best-cafe-wheels-turbo-interior.png",
-    alt: "The Wheels Turbo Cafe RS Puram Coimbatore - Best Cafe Interior with Tyre Seating and Racing Ambiance",
+    alt: "The Wheels Turbo Cafe dining area with custom racing tyre tables, bucket seating, and motorsport wall graphics in RS Puram Coimbatore",
     description: "Reclaimed racing slicks, carbon fiber high-tops, authentic telemetry dashboards, and ambient paddock redline lighting in RS Puram Coimbatore.",
     features: ["Bespoke Tyre Tables", "Pitlane Bar Counters", "Live Track Broadcasts"],
   },
@@ -37,9 +37,9 @@ const EXPERIENCES: ExperienceCard[] = [
     code: "BAY 02",
     title: "THE MACHINES",
     category: "RACING SIMULATORS & ARTIFACTS",
-    placeholderLabel: "COIMBATORE BEST CAFE MACHINES",
+    placeholderLabel: "RACING SIMULATORS & MACHINES",
     src: "/images/ajith/coimbatore-best-cafe-akr-porsche-901-track.jpg",
-    alt: "Ajith Kumar Racing #901 Porsche GT3 on track - The Wheels Turbo Cafe Coimbatore",
+    alt: "Ajith Kumar Racing Porsche 911 GT3 Cup on track - The Wheels Turbo Cafe Coimbatore tribute",
     description: "Formula 2 monocoque sim cockpit, authentic turbocharger cutaways, and historic motorsport gear displays.",
     features: ["Pro Racing Simulators", "Billet Turbo Wall", "Exhaust Art Installations"],
   },
@@ -48,9 +48,9 @@ const EXPERIENCES: ExperienceCard[] = [
     code: "BAY 03",
     title: "THE FOOD",
     category: "HIGH-OCTANE FLAVOURS",
-    placeholderLabel: "COIMBATORE BEST CAFE FOOD",
+    placeholderLabel: "ARTISANAL SMASH BURGERS & FOOD",
     src: "/images/menu/burger-01.jpg",
-    alt: "Gourmet V8 Smash Burger - The Wheels Turbo Cafe Coimbatore Best Food",
+    alt: "Double patty smash burger served fresh at The Wheels Turbo Cafe in Coimbatore",
     description: "Flame-seared smash burgers, nitrogen-charged cold brews, and podium-worthy gourmet desserts crafted for connoisseurs.",
     features: ["V8 Turbo Smash Burgers", "Nitro Coffee On Tap", "Podium Finish Desserts"],
   },
@@ -59,9 +59,9 @@ const EXPERIENCES: ExperienceCard[] = [
     code: "BAY 04",
     title: "THE LEGACY",
     category: "TRIBUTE & SPIRIT",
-    placeholderLabel: "COIMBATORE BEST CAFE TRIBUTE",
+    placeholderLabel: "MOTORSPORT LEGACY TRIBUTE",
     src: "/images/ajith/coimbatore-best-cafe-ajith-kumar-motorsport-montage.jpg",
-    alt: "Thala Ajith Kumar Racing Legacy Tribute Montage - The Wheels Turbo Cafe Coimbatore",
+    alt: "Thala Ajith Kumar Racing Legacy Tribute Montage at The Wheels Turbo Cafe Coimbatore",
     description: "Celebrating Indian motorsport achievements, international Formula racing heritage, and Ajith Kumar's championship racing journey.",
     features: ["F2 & F3 Racing Archives", "Helmets of Champions", "Fan Motorsport Community"],
   },
@@ -158,38 +158,26 @@ export const ExperienceSection: React.FC = () => {
                 />
               </div>
 
-              {/* Title & Description */}
-              <h3 className="font-display font-black text-2xl uppercase tracking-wider text-performance-white group-hover:text-turbo-orange transition-colors mb-3">
+              {/* Bay Title & Description */}
+              <h3 className="font-display font-black text-2xl uppercase tracking-wider text-performance-white mb-2 group-hover:text-turbo-orange transition-colors">
                 {exp.title}
               </h3>
-              <p className="font-sans text-xs md:text-sm text-metallic-silver/80 leading-relaxed mb-6">
+              <p className="font-sans text-xs text-metallic-silver/80 leading-relaxed mb-6">
                 {exp.description}
               </p>
 
               {/* Features List */}
-              <div className="space-y-2 border-t border-white/10 pt-4 mb-6 text-xs font-racing tracking-wider text-metallic-silver">
+              <div className="space-y-2 border-t border-white/10 pt-4">
                 {exp.features.map((feat, fIdx) => (
-                  <div key={fIdx} className="flex items-center gap-2">
+                  <div
+                    key={fIdx}
+                    className="flex items-center gap-2 text-xs font-racing text-metallic-silver"
+                  >
                     <span className="w-1.5 h-1.5 rounded-full bg-racing-red" />
                     <span>{feat}</span>
                   </div>
                 ))}
               </div>
-
-              {/* Bottom Card Action */}
-              <div className="pt-2">
-                <MagneticButton
-                  size="sm"
-                  variant="outline"
-                  href={exp.id === "exp-04" ? "/ajith-kumar" : exp.id === "exp-03" ? "/menu" : "/about"}
-                  cursorLabel="EXP"
-                >
-                  DISCOVER {exp.title}
-                </MagneticButton>
-              </div>
-
-              {/* Hover Speed Accent Line */}
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-racing-red via-turbo-orange to-velocity-yellow opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
           ))}
         </div>

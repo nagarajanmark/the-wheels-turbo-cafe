@@ -9,13 +9,14 @@ import { motion } from "framer-motion";
 export const HomeHero: React.FC = () => {
   return (
     <section className="relative min-h-screen w-full flex flex-col justify-between pt-28 pb-12 px-4 sm:px-6 lg:px-8 bg-turbo-black overflow-hidden select-none">
-      {/* Background Hero Image Placeholder with dark atmospheric overlay */}
+      {/* Background Hero Image with dark atmospheric overlay */}
       <div className="absolute inset-0 z-0">
         <ImagePlaceholder
           src="/images/hero/coimbatore-best-cafe-hero-main.png"
-          alt="The Wheels Turbo Cafe RS Puram Coimbatore - Best Cafe Experience and Motorsport Garage"
-          label="BEST CAFE IN COIMBATORE // THE WHEELS TURBO CAFE"
+          alt="The Wheels Turbo Cafe racing garage interior and dining atmosphere in RS Puram Coimbatore"
+          label="THE WHEELS TURBO CAFE // RS PURAM COIMBATORE"
           aspectRatio="auto"
+          priority={true}
           className="w-full h-full rounded-none border-none opacity-40"
         />
         {/* Cinematic Overlays: Black gradient, red ambient glow, orange speed lines */}
@@ -34,7 +35,7 @@ export const HomeHero: React.FC = () => {
           className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-garage-black/90 border border-racing-red/40 backdrop-blur-md text-racing-red text-xs font-racing font-bold tracking-[0.25em] uppercase shadow-[0_0_20px_rgba(225,6,0,0.2)]"
         >
           <span className="w-2 h-2 rounded-full bg-racing-red animate-ping" />
-          <span>DESTINATION COIMBATORE // 641018</span>
+          <span>DESTINATION COIMBATORE // RS PURAM</span>
         </motion.div>
       </div>
 
@@ -47,8 +48,8 @@ export const HomeHero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <h1 className="font-display font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tighter uppercase leading-[0.92] text-performance-white drop-shadow-2xl">
-             START <span className="text-transparent bg-clip-text bg-gradient-to-r from-racing-red via-turbo-orange to-velocity-yellow text-glow-red">
-              YOUR ENGINES.
+              START <span className="text-transparent bg-clip-text bg-gradient-to-r from-racing-red via-turbo-orange to-velocity-yellow text-glow-red">
+                YOUR ENGINES.
               </span>
             </h1>
           </motion.div>
@@ -59,7 +60,7 @@ export const HomeHero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-base sm:text-xl md:text-2xl font-sans text-metallic-silver/90 max-w-2xl leading-relaxed border-l-2 border-racing-red pl-4"
           >
-            Where automotive passion meets an unforgettable café experience. Entering a high-performance racing garage that happens to serve food.
+            Coimbatore&apos;s premier racing and Ajith Kumar themed cafe, created with sheer passion by an ardent racer Ajith fan girl. Entering an authentic racing garage that happens to serve extraordinary food in RS Puram.
           </motion.p>
 
           <motion.div
@@ -97,7 +98,7 @@ export const HomeHero: React.FC = () => {
         </div>
 
         <div className="hidden sm:flex items-center gap-4 font-mono text-[11px]">
-          <span>GRID: COIMBATORE</span>
+          <span>GRID: RS PURAM, COIMBATORE</span>
           <span>•</span>
           <span>STATUS: GREEN FLAG</span>
         </div>

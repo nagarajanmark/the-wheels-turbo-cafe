@@ -26,7 +26,7 @@ export const HomeIntro: React.FC = () => {
               </span>
             </>
           }
-          subtitle="From the smell of burning rubber at Kari Speedway to the rich aroma of fresh artisan roast, The Wheels Turbo Cafe was forged to honor the pure thrill of racing."
+          subtitle="From the thrill of Kari Motor Speedway to the rich aroma of fresh artisan coffee, The Wheels Turbo Cafe in RS Puram was forged to honor the unyielding spirit of racing."
         />
 
         {/* Editorial Split Layout */}
@@ -41,7 +41,7 @@ export const HomeIntro: React.FC = () => {
               </h3>
               
               <p className="font-sans text-sm md:text-base text-metallic-silver/80 leading-relaxed mb-6">
-                We didn&apos;t build a typical cafe with generic tables. We engineered an immersive racing garage. Custom-fabricated brake rotor tables, race-spec bucket seating, authentic helmet galleries, and turbocharger sculptures bring the paddock straight to your dining experience.
+                We didn&apos;t build a typical cafe with generic tables. We engineered an immersive racing theme restaurant and unique cafe in Coimbatore. Custom-fabricated brake rotor tables, race-spec bucket seating, authentic helmet galleries, and turbocharger sculptures bring the paddock straight to your dining experience.
               </p>
 
               <div className="grid grid-cols-2 gap-4 border-t border-white/10 pt-6 font-racing text-xs tracking-wider">
@@ -81,8 +81,8 @@ export const HomeIntro: React.FC = () => {
             <div className="relative group">
               <ImagePlaceholder
                 src="/images/about/coimbatore-best-cafe-wheels-turbo-interior.png"
-                alt="The Wheels Turbo Cafe RS Puram Coimbatore - Best Cafe Interior with Tyre Seating and Racing Ambiance"
-                label="COIMBATORE BEST CAFE // PADDOCK INTERIOR"
+                alt="Handcrafted racing tyre tables and ambient paddock seating at The Wheels Turbo Cafe in RS Puram Coimbatore"
+                label="PADDOCK GARAGE INTERIOR // RS PURAM"
                 aspectRatio="4/3"
                 badgeText="RS PURAM COIMBATORE"
                 className="w-full shadow-2xl"
@@ -98,7 +98,7 @@ export const HomeIntro: React.FC = () => {
                   100% PASSION
                 </div>
                 <p className="text-[10px] text-metallic-silver/70 font-sans mt-0.5">
-                  Inspired by racing circuits and Ajith Kumar&apos;s relentless spirit.
+                  Inspired by circuit racing and Thala Ajith&apos;s relentless spirit.
                 </p>
               </div>
             </div>

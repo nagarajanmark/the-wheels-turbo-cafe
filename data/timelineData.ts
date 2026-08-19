@@ -23,8 +23,8 @@ export const RACING_TIMELINE: TimelineMilestone[] = [
       { label: "Discipline", value: "Single-Seater" },
     ],
     imageSrc: "/images/ajith/coimbatore-best-cafe-ajith-kumar-pitlane-portrait.jpg",
-    imageLabel: "COIMBATORE BEST CAFE — PITLANE FOCUS",
-    altText: "Ajith Kumar pitlane helmet focus during racing championship - The Wheels Turbo Cafe Coimbatore tribute",
+    imageLabel: "PITLANE FOCUS // FORMULA ASIA",
+    altText: "Ajith Kumar in pitlane with racing helmet during single-seater championship",
   },
   {
     year: "2004",
@@ -38,8 +38,8 @@ export const RACING_TIMELINE: TimelineMilestone[] = [
       { label: "Tracks", value: "Silverstone, Donington" },
     ],
     imageSrc: "/images/ajith/coimbatore-best-cafe-ajith-kumar-podium-indian-flag.jpg",
-    imageLabel: "COIMBATORE BEST CAFE — BRITISH F3 PODIUM TRIUMPH",
-    altText: "Ajith Kumar on the British F3 racing podium holding the Indian Tricolour flag - The Wheels Turbo Cafe Coimbatore",
+    imageLabel: "BRITISH F3 PODIUM CELEBRATION",
+    altText: "Ajith Kumar on the British F3 racing podium holding the Indian Tricolour flag",
   },
   {
     year: "2010",
@@ -53,8 +53,8 @@ export const RACING_TIMELINE: TimelineMilestone[] = [
       { label: "Circuits", value: "Monza, Spa, Valencia" },
     ],
     imageSrc: "/images/ajith/coimbatore-best-cafe-ajith-kumar-creventic-24h.jpg",
-    imageLabel: "COIMBATORE BEST CAFE — FIA FORMULA 2 WORLD STAGE",
-    altText: "Ajith Kumar in racing suit with helmet at international championship - The Wheels Turbo Cafe Coimbatore",
+    imageLabel: "FIA FORMULA 2 WORLD CHAMPIONSHIP",
+    altText: "Ajith Kumar in FIA Formula 2 championship paddock with team",
   },
   {
     year: "2024+",
@@ -68,7 +68,7 @@ export const RACING_TIMELINE: TimelineMilestone[] = [
       { label: "Motto", value: "Never Give Up" },
     ],
     imageSrc: "/images/ajith/coimbatore-best-cafe-ajith-kumar-porsche-racecar.jpg",
-    imageLabel: "COIMBATORE BEST CAFE — AKR 24H GT PORSCHE",
-    altText: "Ajith Kumar with #901 Porsche GT3 racecar in the paddock - The Wheels Turbo Cafe Coimbatore tribute",
+    imageLabel: "AKR 24H GT PORSCHE 911",
+    altText: "Ajith Kumar with #901 Porsche 911 GT3 Cup racecar in the international endurance paddock",
   },
 ];

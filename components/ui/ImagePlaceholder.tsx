@@ -84,6 +84,7 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
             src={src}
             alt={alt}
             fill={fill}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             priority={priority}
             unoptimized={src.startsWith("http")}
             className={`transition-transform duration-700 group-hover:scale-105 ${

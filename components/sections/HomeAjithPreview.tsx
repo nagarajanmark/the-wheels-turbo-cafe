@@ -13,8 +13,8 @@ export const HomeAjithPreview: React.FC = () => {
       <div className="absolute inset-0 z-0">
         <ImagePlaceholder
           src="/images/ajith/coimbatore-best-cafe-ajith-kumar-supercar-tribute.jpg"
-          alt="Thala Ajith Kumar Supercar Tribute - The Wheels Turbo Cafe Coimbatore"
-          label="COIMBATORE BEST CAFE — AJITH KUMAR TRIBUTE"
+          alt="Thala Ajith Kumar motorsport tribute at The Wheels Turbo Cafe Coimbatore"
+          label="AJITH KUMAR MOTORSPORT TRIBUTE"
           aspectRatio="auto"
           className="w-full h-full rounded-none border-none opacity-20"
         />
@@ -45,7 +45,7 @@ export const HomeAjithPreview: React.FC = () => {
             </h2>
 
             <p className="text-sm md:text-base font-sans text-metallic-silver/90 max-w-xl leading-relaxed">
-              Thala Ajith Kumar&apos;s relentless dedication to international motorsport—from British F3 and FIA Formula 2 to 24H Endurance GT racing—embodies the fearless ethos behind The Wheels Turbo Cafe in Coimbatore.
+              As a dedicated Ajith Kumar themed cafe in Coimbatore, we celebrate Thala&apos;s relentless pursuit of motorsport excellence—from British F3 and FIA Formula 2 to 24H Endurance GT racing across international circuits.
             </p>
 
             {/* Racing Credentials Badges */}
@@ -83,7 +83,7 @@ export const HomeAjithPreview: React.FC = () => {
               <div className="transform sm:-rotate-2 hover:rotate-0 transition-transform duration-500 shadow-2xl">
                 <ImagePlaceholder
                   src="/images/ajith/coimbatore-best-cafe-ajith-kumar-motorsport-montage.jpg"
-                  alt="Ajith Kumar motorsport career montage tribute - The Wheels Turbo Cafe Coimbatore"
+                  alt="Ajith Kumar motorsport career montage tribute at The Wheels Turbo Cafe Coimbatore"
                   label="AJITH KUMAR — MOTORSPORT ICON"
                   aspectRatio="4/3"
                   badgeText="MOTORSPORT ICON"
@@ -95,7 +95,7 @@ export const HomeAjithPreview: React.FC = () => {
               <div className="hidden sm:block absolute -bottom-10 -right-6 w-3/5 transform rotate-3 hover:rotate-0 transition-transform duration-500 shadow-2xl z-20">
                 <ImagePlaceholder
                   src="/images/ajith/coimbatore-best-cafe-akr-porsche-901-track.jpg"
-                  alt="Ajith Kumar Racing #901 Porsche on track - The Wheels Turbo Cafe Coimbatore"
+                  alt="Ajith Kumar Racing #901 Porsche on track tribute at The Wheels Turbo Cafe Coimbatore"
                   label="AKR 901 PORSCHE GT3"
                   aspectRatio="16/9"
                   badgeText="TRACK ACTION"

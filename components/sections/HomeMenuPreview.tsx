@@ -35,7 +35,7 @@ export const HomeMenuPreview: React.FC = () => {
                 </span>
               </>
             }
-            subtitle="Explore our genuine cafe menu featuring signature Mutka pizzas, loaded burgers, hot dogs, pastas, momos, and chilled mocktails."
+            subtitle="Discover the best food cafe experience in Coimbatore with signature Mutka pizzas, loaded smash burgers, artisanal pastas, and refreshing mocktails in RS Puram."
             className="mb-0"
           />
 
@@ -71,6 +71,7 @@ export const HomeMenuPreview: React.FC = () => {
                 <div className="mb-4">
                   <ImagePlaceholder
                     src={item.imageSrc}
+                    alt={`${item.name} served fresh at The Wheels Turbo Cafe in RS Puram Coimbatore`}
                     label={item.imageLabel}
                     aspectRatio="4/3"
                     badgeText={item.category}

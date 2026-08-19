@@ -40,7 +40,7 @@ export const HomeGallery: React.FC = () => {
         />
 
         {/* Filter Pills */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-10 no-scrollbar">
+        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-10 no-scrollbar" role="group" aria-label="Gallery category filters">
           {filterTags.map((tag) => (
             <button
               key={tag}
@@ -67,6 +67,9 @@ export const HomeGallery: React.FC = () => {
               className={`${item.colSpan || "col-span-12 md:col-span-6"} group cursor-pointer relative rounded-2xl overflow-hidden bg-garage-black border border-metallic-silver/20 hover:border-racing-red/70 transition-all duration-500 shadow-xl`}
               data-cursor-hover
               data-cursor-text="ZOOM"
+              role="button"
+              tabIndex={0}
+              aria-label={`View full image: ${item.title}`}
             >
               <div className="relative overflow-hidden">
                 <ImagePlaceholder
@@ -85,9 +88,9 @@ export const HomeGallery: React.FC = () => {
                       <span className="text-[10px] font-racing font-bold text-velocity-yellow tracking-widest uppercase">
                         {item.tag}
                       </span>
-                      <h4 className="font-display font-black text-lg md:text-xl text-performance-white uppercase">
+                      <h3 className="font-display font-black text-lg md:text-xl text-performance-white uppercase">
                         {item.title}
-                      </h4>
+                      </h3>
                       <p className="text-xs text-metallic-silver/80 line-clamp-1 mt-1 font-sans">
                         {item.caption}
                       </p>
