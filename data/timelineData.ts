@@ -7,6 +7,7 @@ export interface TimelineMilestone {
   stats: { label: string; value: string }[];
   imageSrc: string;
   imageLabel: string;
+  altText: string;
 }
 
 export const RACING_TIMELINE: TimelineMilestone[] = [
@@ -21,8 +22,9 @@ export const RACING_TIMELINE: TimelineMilestone[] = [
       { label: "Circuits", value: "Sepang & National" },
       { label: "Discipline", value: "Single-Seater" },
     ],
-    imageSrc: "/images/ajith/timeline-01.jpg",
-    imageLabel: "TRIBUTE — FORMULA ASIA DEBUT",
+    imageSrc: "/images/ajith/coimbatore-best-cafe-ajith-kumar-pitlane-portrait.jpg",
+    imageLabel: "COIMBATORE BEST CAFE — PITLANE FOCUS",
+    altText: "Ajith Kumar pitlane helmet focus during racing championship - The Wheels Turbo Cafe Coimbatore tribute",
   },
   {
     year: "2004",
@@ -35,8 +37,9 @@ export const RACING_TIMELINE: TimelineMilestone[] = [
       { label: "Podiums", value: "2 Podium Finishes" },
       { label: "Tracks", value: "Silverstone, Donington" },
     ],
-    imageSrc: "/images/ajith/timeline-02.jpg",
-    imageLabel: "TRIBUTE — BRITISH F3 PODIUM",
+    imageSrc: "/images/ajith/coimbatore-best-cafe-ajith-kumar-podium-indian-flag.jpg",
+    imageLabel: "COIMBATORE BEST CAFE — BRITISH F3 PODIUM TRIUMPH",
+    altText: "Ajith Kumar on the British F3 racing podium holding the Indian Tricolour flag - The Wheels Turbo Cafe Coimbatore",
   },
   {
     year: "2010",
@@ -49,21 +52,23 @@ export const RACING_TIMELINE: TimelineMilestone[] = [
       { label: "Power", value: "425 BHP @ 8500 RPM" },
       { label: "Circuits", value: "Monza, Spa, Valencia" },
     ],
-    imageSrc: "/images/ajith/timeline-03.jpg",
-    imageLabel: "TRIBUTE — FIA FORMULA 2 CHAMPIONSHIP",
+    imageSrc: "/images/ajith/coimbatore-best-cafe-ajith-kumar-creventic-24h.jpg",
+    imageLabel: "COIMBATORE BEST CAFE — FIA FORMULA 2 WORLD STAGE",
+    altText: "Ajith Kumar in racing suit with helmet at international championship - The Wheels Turbo Cafe Coimbatore",
   },
   {
     year: "2024+",
     stage: "SECTOR 04 — CONTINUOUS PURSUIT",
     title: "Ajith Kumar Racing Team & International GT",
-    subtitle: "Paddock Ownership & Mentorship",
+    subtitle: "Paddock Ownership & 24H Endurance",
     description: "Founding Ajith Kumar Racing team to compete in international endurance and 24-hour GT championships, inspiring thousands of motorsport fans across India and around the globe.",
     stats: [
       { label: "Format", value: "24H GT Endurance" },
-      { label: "Team", value: "Ajith Kumar Racing" },
+      { label: "Car", value: "Porsche 911 GT3 Cup" },
       { label: "Motto", value: "Never Give Up" },
     ],
-    imageSrc: "/images/ajith/timeline-04.jpg",
-    imageLabel: "TRIBUTE — AJITH KUMAR RACING GT",
+    imageSrc: "/images/ajith/coimbatore-best-cafe-ajith-kumar-porsche-racecar.jpg",
+    imageLabel: "COIMBATORE BEST CAFE — AKR 24H GT PORSCHE",
+    altText: "Ajith Kumar with #901 Porsche GT3 racecar in the paddock - The Wheels Turbo Cafe Coimbatore tribute",
   },
 ];

@@ -207,3 +207,40 @@ html.lenis, html.lenis body {
 .animate-redline {
   animation: redlineShake 0.08s infinite ease-in-out;
 }
+
+/* Reviews Auto Scroll Marquee */
+@keyframes marqueeLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marqueeRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee-left {
+  display: flex;
+  width: max-content;
+  animation: marqueeLeft 38s linear infinite;
+}
+
+.animate-marquee-right {
+  display: flex;
+  width: max-content;
+  animation: marqueeRight 42s linear infinite;
+}
+
+.pause-marquee:hover .animate-marquee-left,
+.pause-marquee:hover .animate-marquee-right {
+  animation-play-state: paused;
+}
+

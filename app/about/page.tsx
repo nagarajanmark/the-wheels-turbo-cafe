@@ -5,45 +5,51 @@ import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { LightboxModal } from "@/components/ui/LightboxModal";
-import { Gauge, Flame, Wrench, Shield, Flag, Users, Coffee, Sparkles } from "lucide-react";
+import { Gauge, Flame, Wrench, Shield, Flag, Users, Sparkles, Heart, Award, Newspaper, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 
 const GARAGE_TOUR = [
   {
-    title: "MAIN COCKPIT DINING",
-    label: "CAFE INTERIOR 01",
-    src: "/images/about/about-01.jpg",
-    caption: "Bespoke carbon fiber tables engineered with genuine brake rotors as centerpiece fixtures.",
+    title: "MAIN COCKPIT & TYRE SEATING",
+    label: "COIMBATORE BEST CAFE INTERIOR",
+    src: "/images/about/coimbatore-best-cafe-wheels-turbo-interior.png",
+    alt: "The Wheels Turbo Cafe RS Puram Coimbatore - Best Cafe Interior with Tyre Tables and Racing Wall Graphics",
+    caption: "Bespoke handcrafted racing tyre tables, redline paddock lounge seating, and immersive full-wall motorsport murals in RS Puram, Coimbatore.",
   },
   {
-    title: "PADDOCK ESPRESSO BAR",
-    label: "CAFE INTERIOR 02",
-    src: "/images/about/about-02.jpg",
-    caption: "High-pressure multi-boiler Slayer machine tuned like a racing engine to extract flawless espresso crema.",
+    title: "FOUNDER WITH AJITH TRIBUTE STANDEE",
+    label: "COIMBATORE BEST CAFE OWNER AKILANDESHWARI SUNDER",
+    src: "/images/owner/coimbatore-best-cafe-founder-akhila-sundar-ajith-kumar.png",
+    alt: "Founder Akilandeshwari Sunder at The Wheels Turbo Cafe RS Puram Coimbatore with Thala Ajith Kumar Racing tribute standee",
+    caption: "Founder Akilandeshwari Sunder at the cafe posing with the life-sized Thala Ajith Kumar Racing suit standee.",
   },
   {
-    title: "CHAMPIONS HELMET REPLICA",
-    label: "RACING HELMET",
-    src: "/images/gallery/helmet-wall.jpg",
-    caption: "Hand-painted race helmets celebrating international Formula racing and Indian circuit heroes.",
+    title: "DINAMALAR NEWSPAPER FEATURE",
+    label: "COIMBATORE BEST CAFE IN NEWS",
+    src: "/images/about/coimbatore-best-cafe-wheels-turbo-newspaper-feature.png",
+    alt: "Dinamalar Tamil newspaper article featuring Akilandeshwari Sunder and The Wheels Turbo Cafe in RS Puram Coimbatore",
+    caption: "Dinamalar Tamil news feature: 'ரேசிங்கை ரசித்த பெண்... இன்று ரேசிங் கஃபே ஓனர்' celebrating Coimbatore's trending motorsport cafe.",
   },
   {
-    title: "SLICK TYRE LOUNGE",
-    label: "TYRE SEATING",
-    src: "/images/about/tyre-seating.jpg",
-    caption: "Genuine racing slicks repurposed into ultra-comfortable paddock lounge seating.",
+    title: "AJITH KUMAR RACING #901 PORSCHE",
+    label: "COIMBATORE BEST CAFE RACING HERITAGE",
+    src: "/images/ajith/coimbatore-best-cafe-akr-porsche-901-track.jpg",
+    alt: "Ajith Kumar Racing Porsche GT3 901 cornering on circuit track - The Wheels Turbo Cafe Coimbatore tribute",
+    caption: "Authentic international endurance racing visual showcasing Thala Ajith's #901 Porsche on the track.",
   },
   {
-    title: "TURBOCHARGER WALL ART",
-    label: "WALL ART",
-    src: "/images/gallery/turbo-art.jpg",
-    caption: "Exploded engineering diagrams and backlit billet aluminum turbocharger sculptures.",
+    title: "INDIAN TRICOLOUR PODIUM MOMENT",
+    label: "COIMBATORE BEST CAFE PODIUM TRIBUTE",
+    src: "/images/ajith/coimbatore-best-cafe-ajith-kumar-podium-indian-flag.jpg",
+    alt: "Ajith Kumar hoisting Indian Tricolour flag on motorsport podium - The Wheels Turbo Cafe Coimbatore tribute",
+    caption: "The proud moment Ajith Kumar held the Indian flag aloft on the international championship podium.",
   },
   {
-    title: "COMMUNITY PODIUM WALL",
-    label: "MEMORIES",
-    src: "/images/gallery/night-lounge.jpg",
-    caption: "Photographs, signed racing gloves, and memories from South India's automotive brotherhood.",
+    title: "THALA AJITH MOTORSPORT SUIT POSTER",
+    label: "COIMBATORE BEST CAFE THALA TRIBUTE",
+    src: "/images/ajith/coimbatore-best-cafe-thala-ajith-kumar-racing-suit.jpg",
+    alt: "Thala Ajith Kumar Porsche Motorsport Suit Poster - Best Cafe in Coimbatore",
+    caption: "Signature Porsche Motorsport race gear and helmet tribute wall inside The Wheels Turbo Cafe.",
   },
 ];
 
@@ -62,16 +68,16 @@ const FOUR_PILLARS = [
     title: "EXPLORE.",
     subtitle: "Authentic Motorsport Heritage",
     description:
-      "Step into a living paddock. Explore real turbochargers, sim cockpits, aerodynamic wings, and tribute walls that celebrate racing history.",
+      "Step into a living paddock. Explore real tyre tables, Hotwheels diecast displays, aerodynamic posters, and tribute walls that celebrate racing history.",
     icon: Gauge,
     color: "from-turbo-orange to-velocity-yellow",
   },
   {
     num: "03",
     title: "CONNECT.",
-    subtitle: "The Petrolhead Sanctuary",
+    subtitle: "The Coimbatore Petrolhead Sanctuary",
     description:
-      "A home base for automotive enthusiasts. Weekend track-day briefings, live Grand Prix screenings, and community engine talks under one roof.",
+      "A home base for automotive enthusiasts. Weekend car meets, bike club pitstops, live Grand Prix screenings, and community engine talks under one roof.",
     icon: Users,
     color: "from-velocity-yellow to-racing-red",
   },
@@ -80,7 +86,7 @@ const FOUR_PILLARS = [
     title: "REMEMBER.",
     subtitle: "Unforgettable Track Memories",
     description:
-      "Every visit leaves a mark. From late-night coffee runs to post-drive victory feasts, make your moments part of our garage legacy.",
+      "Every visit leaves a mark. From late-night coffee runs to post-drive victory feasts, make your moments part of our Coimbatore garage legacy.",
     icon: Flag,
     color: "from-racing-red via-turbo-orange to-velocity-yellow",
   },
@@ -91,6 +97,7 @@ export default function AboutPage() {
     title: string;
     label: string;
     src: string;
+    alt?: string;
     caption: string;
   } | null>(null);
 
@@ -104,7 +111,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto w-full relative z-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-garage-black border border-racing-red/40 text-racing-red text-xs font-racing font-bold tracking-[0.25em] uppercase mb-6">
             <span className="w-2 h-2 rounded-full bg-racing-red animate-ping" />
-            ABOUT THE GARAGE // COIMBATORE
+            ABOUT THE GARAGE // RS PURAM, COIMBATORE
           </div>
 
           <h1 className="font-display font-black text-5xl sm:text-7xl lg:text-8xl uppercase tracking-tight text-performance-white leading-none">
@@ -115,7 +122,7 @@ export default function AboutPage() {
           </h1>
 
           <p className="mt-6 font-sans text-base sm:text-xl text-metallic-silver/90 max-w-2xl leading-relaxed border-l-2 border-turbo-orange pl-4">
-            Built around passion, motorsport and unforgettable memories. We engineered a space where the energy of the track meets world-class culinary flavour.
+            India&apos;s first-ever Hotwheels and Thala Ajith themed motorsport cafe in RS Puram, Coimbatore. Engineered where the energy of the track meets world-class culinary flavour.
           </p>
         </div>
       </section>
@@ -140,13 +147,13 @@ export default function AboutPage() {
 
             <div className="space-y-4 font-sans text-sm md:text-base text-metallic-silver/80 leading-relaxed pt-2">
               <p>
-                Coimbatore holds a revered position in Indian motorsport history—the home of iconic racing circuits, legendary tuners, and generations of speed enthusiasts.
+                Coimbatore holds a revered position in Indian motorsport history—the home of Kari Motor Speedway, legendary tuners, and generations of speed enthusiasts.
               </p>
               <p>
-                The Wheels Turbo Cafe was born from a singular obsession: to create an authentic paddock environment where automotive lovers can gather, refuel with artisanal food and specialty coffee, and celebrate the unyielding spirit of racing.
+                <strong className="text-performance-white font-semibold">The Wheels Turbo Cafe</strong> was born from a singular obsession: to create an authentic paddock environment where automotive lovers and families can gather, refuel with artisanal food and specialty coffee, and celebrate the unyielding spirit of racing in the heart of RS Puram, Coimbatore.
               </p>
               <p>
-                Drawing deep inspiration from Ajith Kumar&apos;s celebrated racing career in Formula 3 and FIA Formula 2, our garage embodies the core racing principles: discipline, uncompromising precision, and an unquenchable thirst for performance.
+                Drawing deep inspiration from Thala Ajith Kumar&apos;s celebrated racing career in British F3, FIA Formula 2, and 24H GT endurance racing, our garage embodies the core racing principles: discipline, uncompromising precision, and an unquenchable thirst for performance.
               </p>
             </div>
           </div>
@@ -154,25 +161,27 @@ export default function AboutPage() {
           {/* Right Dual Image Showcase */}
           <div className="lg:col-span-6 space-y-6">
             <ImagePlaceholder
-              src="/images/about/about-01.jpg"
-              label="ABOUT — RACING DNA"
+              src="/images/about/coimbatore-best-cafe-wheels-turbo-interior.png"
+              alt="The Wheels Turbo Cafe RS Puram Coimbatore - Best Cafe Interior and Tyre Seating"
+              label="COIMBATORE BEST CAFE — GARAGE INTERIOR"
               aspectRatio="16/9"
-              badgeText="GARAGE FOUNDATION"
+              badgeText="RS PURAM COIMBATORE"
               className="w-full shadow-2xl"
             />
             <div className="grid grid-cols-2 gap-4">
               <ImagePlaceholder
-                src="/images/about/about-02.jpg"
-                label="ABOUT — PADDOCK BREW"
+                src="/images/owner/coimbatore-best-cafe-founder-akhila-sundar-ajith-kumar.png"
+                alt="Founder Akilandeshwari Sunder at The Wheels Turbo Cafe Coimbatore with Ajith Kumar Standee"
+                label="FOUNDER & RACING SPIRIT"
                 aspectRatio="4/3"
-                badgeText="ARTISAN ROAST"
+                badgeText="FOUNDER TRIBUTE"
               />
               <div className="p-6 rounded-xl bg-garage-black border border-racing-red/40 flex flex-col justify-center text-center">
                 <span className="font-display font-black text-3xl text-velocity-yellow">
-                  100%
+                  #1
                 </span>
                 <span className="font-racing font-bold text-xs text-metallic-silver uppercase tracking-wider mt-1">
-                  PETROLHEAD SOUL
+                  BEST THEMED CAFE IN COIMBATORE
                 </span>
               </div>
             </div>
@@ -180,11 +189,117 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 3. INSIDE THE GARAGE (Interactive Tour) */}
-      <section className="relative py-24 bg-garage-black border-t border-b border-white/10 px-4 sm:px-6 lg:px-8">
+      {/* 3. FOUNDER & OWNER STORY SPOTLIGHT */}
+      <section className="relative py-24 bg-carbon-black border-t border-b border-white/10 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <SectionHeading
             sectorNumber="02"
+            tag="THE FOUNDER'S JOURNEY"
+            title={
+              <>
+                MEET THE FOUNDER: <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-racing-red via-turbo-orange to-velocity-yellow">
+                  AKILANDESHWARI SUNDER.
+                </span>
+              </>
+            }
+            subtitle="From fearless passion to building Coimbatore's most talked-about motorsport cafe in RS Puram."
+          />
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-garage-black/80 border border-white/10 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl relative overflow-hidden">
+            {/* Ambient Background Glow */}
+            <div className="absolute top-0 right-0 w-80 h-80 bg-racing-red/10 rounded-full blur-[140px] pointer-events-none" />
+
+            {/* Left: Founder Photos Grid */}
+            <div className="lg:col-span-6 space-y-6">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-metallic-silver/20 group">
+                <ImagePlaceholder
+                  src="/images/owner/coimbatore-best-cafe-founder-akhila-sundar-ajith-kumar.png"
+                  alt="Akilandeshwari Sunder founder of The Wheels Turbo Cafe in Coimbatore posing with Ajith Kumar Standee"
+                  label="FOUNDER AKILANDESHWARI SUNDER // THE WHEELS TURBO CAFE"
+                  aspectRatio="4/3"
+                  badgeText="CAFE FOUNDER"
+                />
+              </div>
+
+              {/* Newspaper Clipping Preview */}
+              <div
+                onClick={() =>
+                  setSelectedPhoto({
+                    title: "DINAMALAR NEWSPAPER FEATURE",
+                    label: "COIMBATORE BEST CAFE IN PRESS",
+                    src: "/images/about/coimbatore-best-cafe-wheels-turbo-newspaper-feature.png",
+                    alt: "Dinamalar news story on Akilandeshwari Sunder starting The Wheels Turbo Cafe in Coimbatore",
+                    caption:
+                      "Dinamalar feature story: 'ரேசிங்கை ரசித்த பெண்... இன்று ரேசிங் கஃபே ஓனர்' documenting Akilandeshwari Sunder's inspiring story and the success of Wheels Turbo Cafe in RS Puram Coimbatore.",
+                  })
+                }
+                className="p-4 rounded-xl bg-turbo-black/90 border border-velocity-yellow/30 hover:border-velocity-yellow flex items-center justify-between cursor-pointer group transition-all"
+                data-cursor-hover
+                data-cursor-text="READ NEWS"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="p-2.5 rounded-lg bg-velocity-yellow/10 text-velocity-yellow">
+                    <Newspaper className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="font-racing font-bold text-xs text-velocity-yellow uppercase tracking-wider">
+                      FEATURED IN DINAMALAR TAMIL DAILY
+                    </div>
+                    <div className="font-sans text-xs text-metallic-silver/80">
+                      &ldquo;ரேசிங்கை ரசித்த பெண்... இன்று ரேசிங் கஃபே ஓனர்&rdquo;
+                    </div>
+                  </div>
+                </div>
+                <ExternalLink className="w-4 h-4 text-velocity-yellow group-hover:translate-x-0.5 transition-transform shrink-0" />
+              </div>
+            </div>
+
+            {/* Right: Inspiring Story Content */}
+            <div className="lg:col-span-6 space-y-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-racing-red/10 border border-racing-red/30 text-racing-red text-xs font-racing font-bold tracking-widest uppercase">
+                <Heart className="w-3.5 h-3.5 text-racing-red" />
+                <span>INSPIRING ENTREPRENEURIAL STORY</span>
+              </div>
+
+              <h3 className="font-display font-black text-2xl sm:text-4xl uppercase tracking-tight text-performance-white leading-tight">
+                &ldquo;If You Turbocharge Your Dreams, <br />
+                <span className="text-turbo-orange">Life Itself Becomes A Race.&rdquo;</span>
+              </h3>
+
+              <div className="space-y-4 font-sans text-sm md:text-base text-metallic-silver/80 leading-relaxed">
+                <p>
+                  Hailing from a village near Bengaluru, <strong className="text-performance-white">Akilandeshwari Sunder</strong> overcame immense personal life hurdles with sheer resilience and unwavering determination. For four years, she carved her own path, working in modeling while holding onto a burning dream: to create an unforgettable sanctuary built on speed and community.
+                </p>
+                <p>
+                  Inspired not just by Ajith Kumar&apos;s cinematic stardom, but by his genuine motorsport dedication, intense discipline, and love for circuit racing, Akilandeshwari decided to translate that passion into a real destination: <strong className="text-performance-white">The Wheels Turbo Cafe in RS Puram, Coimbatore</strong>.
+                </p>
+                <p>
+                  From designing custom tyre tables and brake disc wall fixtures by hand to engineering a fresh-to-order continental menu and hotwheels diecast collections, Akilandeshwari has established Coimbatore&apos;s go-to hotspot for youth, families, and motorsport enthusiasts alike.
+                </p>
+              </div>
+
+              <div className="pt-2 flex flex-wrap gap-3 font-racing text-xs tracking-wider">
+                <span className="px-3 py-1.5 rounded-lg bg-turbo-black border border-white/15 text-metallic-silver">
+                  📍 AROKIASAMY RD W, RS PURAM
+                </span>
+                <span className="px-3 py-1.5 rounded-lg bg-turbo-black border border-racing-red/30 text-racing-red">
+                  🏁 HOTWHEELS & THALA THEMED
+                </span>
+                <span className="px-3 py-1.5 rounded-lg bg-turbo-black border border-velocity-yellow/30 text-velocity-yellow">
+                  🍔 FRESH PREP ON ORDER
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. INSIDE THE GARAGE (Interactive Tour) */}
+      <section className="relative py-24 bg-garage-black border-b border-white/10 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <SectionHeading
+            sectorNumber="03"
             tag="PADDOCK TOUR"
             title={
               <>
@@ -194,7 +309,7 @@ export default function AboutPage() {
                 </span>
               </>
             }
-            subtitle="Explore the automotive details and custom engineering that makes our Coimbatore cafe truly one-of-a-kind."
+            subtitle="Explore the real automotive aesthetics, tribute walls, and custom engineering that make our Coimbatore cafe best in class."
           />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -209,6 +324,7 @@ export default function AboutPage() {
                 <div className="mb-3 overflow-hidden rounded-lg">
                   <ImagePlaceholder
                     src={item.src}
+                    alt={item.alt || item.title}
                     label={item.label}
                     aspectRatio="16/9"
                     badgeText={`ZONE 0${idx + 1}`}
@@ -226,10 +342,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 4. THE FOUR PILLARS */}
+      {/* 5. THE FOUR PILLARS */}
       <section className="relative py-24 md:py-36 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <SectionHeading
-          sectorNumber="03"
+          sectorNumber="04"
           tag="CORE ETHOS"
           title={
             <>
@@ -239,7 +355,7 @@ export default function AboutPage() {
               </span>
             </>
           }
-          subtitle="Every detail in our cafe was tuned to deliver an unmatched motorsport sanctuary."
+          subtitle="Every detail in our Coimbatore cafe was tuned to deliver an unmatched motorsport sanctuary."
           align="center"
         />
 

@@ -12,8 +12,9 @@ export const HomeHero: React.FC = () => {
       {/* Background Hero Image Placeholder with dark atmospheric overlay */}
       <div className="absolute inset-0 z-0">
         <ImagePlaceholder
-          src="/images/hero/hero-main.jpg"
-          label="HERO — RACING CAFE EXPERIENCE"
+          src="/images/hero/coimbatore-best-cafe-hero-main.png"
+          alt="The Wheels Turbo Cafe RS Puram Coimbatore - Best Cafe Experience and Motorsport Garage"
+          label="BEST CAFE IN COIMBATORE // THE WHEELS TURBO CAFE"
           aspectRatio="auto"
           className="w-full h-full rounded-none border-none opacity-40"
         />
@@ -46,9 +47,8 @@ export const HomeHero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <h1 className="font-display font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tighter uppercase leading-[0.92] text-performance-white drop-shadow-2xl">
-              COIMBATORE, <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-racing-red via-turbo-orange to-velocity-yellow text-glow-red">
-                START YOUR ENGINES.
+             START <span className="text-transparent bg-clip-text bg-gradient-to-r from-racing-red via-turbo-orange to-velocity-yellow text-glow-red">
+              YOUR ENGINES.
               </span>
             </h1>
           </motion.div>

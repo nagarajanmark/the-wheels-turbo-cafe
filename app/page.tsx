@@ -6,6 +6,7 @@ import { ExperienceSection } from "@/components/sections/ExperienceSection";
 import { HomeMenuPreview } from "@/components/sections/HomeMenuPreview";
 import { HomeAjithPreview } from "@/components/sections/HomeAjithPreview";
 import { HomeGallery } from "@/components/sections/HomeGallery";
+import { GoogleReviewsSection } from "@/components/sections/GoogleReviewsSection";
 
 export default function HomePage() {
   return (
@@ -32,6 +33,11 @@ export default function HomePage() {
 
       {/* 7. Masonry Paddock Gallery Archive */}
       <HomeGallery />
+
+      {/* 8. Verified Google Reviews Showcase */}
+      <div className="border-t border-white/10 bg-carbon-black/60">
+        <GoogleReviewsSection />
+      </div>
     </div>
   );
 }

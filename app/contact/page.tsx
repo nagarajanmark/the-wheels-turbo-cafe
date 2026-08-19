@@ -5,6 +5,7 @@ import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { CAFE_DATA } from "@/data/cafeData";
+import { GoogleReviewsSection } from "@/components/sections/GoogleReviewsSection";
 import {
   MapPin,
   Phone,
@@ -340,42 +341,64 @@ export default function ContactPage() {
             </div>
 
             {/* Map Area Experience */}
-            <div className="relative rounded-2xl overflow-hidden bg-carbon-black border border-metallic-silver/20 p-4">
+            <div className="relative rounded-2xl overflow-hidden bg-garage-black border-2 border-racing-red/40 hover:border-racing-red transition-all duration-300 p-4 sm:p-5 shadow-[0_0_35px_rgba(225,6,0,0.15)]">
+              {/* Corner Calipers */}
+              <div className="absolute top-2.5 left-2.5 w-3.5 h-3.5 border-t-2 border-l-2 border-racing-red pointer-events-none z-10" />
+              <div className="absolute top-2.5 right-2.5 w-3.5 h-3.5 border-t-2 border-r-2 border-racing-red pointer-events-none z-10" />
+              <div className="absolute bottom-2.5 left-2.5 w-3.5 h-3.5 border-b-2 border-l-2 border-racing-red pointer-events-none z-10" />
+              <div className="absolute bottom-2.5 right-2.5 w-3.5 h-3.5 border-b-2 border-r-2 border-racing-red pointer-events-none z-10" />
+
               <div className="flex items-center justify-between mb-3">
-                <span className="text-[10px] font-racing font-bold text-velocity-yellow uppercase tracking-widest flex items-center gap-1.5">
-                  <Navigation className="w-3.5 h-3.5 text-racing-red" />
-                  GOOGLE MAP RADAR
+                <span className="text-xs font-racing font-bold text-velocity-yellow uppercase tracking-widest flex items-center gap-1.5">
+                  <Navigation className="w-4 h-4 text-racing-red animate-pulse" />
+                  LIVE GOOGLE MAP RADAR
                 </span>
-                <span className="text-[10px] font-mono text-metallic-silver/60">
+                <span className="text-[11px] font-mono text-metallic-silver/80 bg-turbo-black px-2 py-0.5 rounded border border-white/10">
                   {CAFE_DATA.coordinates.lat}, {CAFE_DATA.coordinates.lng}
                 </span>
               </div>
 
-              <ImagePlaceholder
-                src="/images/about/map-preview.jpg"
-                label="GOOGLE MAP — THE WHEELS TURBO CAFE"
-                aspectRatio="16/9"
-                badgeText="RADAR GRID"
-              />
+              {/* Embedded Google Maps iFrame */}
+              <div className="relative w-full h-[320px] sm:h-[380px] rounded-xl overflow-hidden border border-white/10 bg-carbon-black">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3916.438643882638!2d76.94330307504518!3d11.00567898915737!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTHCsDAwJzIwLjQiTiA3NsKwNTYnNDUuMiJF!5e0!3m2!1sen!2sin!4v1787159435268!5m2!1sen!2sin"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  title="The Wheels Turbo Cafe Location Map"
+                  className="w-full h-full"
+                />
+              </div>
 
-              <div className="mt-3 flex items-center justify-between">
-                <span className="text-[10px] font-mono text-metallic-silver/70">
-                  SECTOR 07 // COIMBATORE
-                </span>
+              <div className="mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-3 border-t border-white/10">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+                  <span className="text-xs font-mono text-metallic-silver/80">
+                    SECTOR 07 // COIMBATORE PADDOCK
+                  </span>
+                </div>
                 <a
-                  href={`https://maps.google.com/?q=${encodeURIComponent(CAFE_DATA.address)}`}
+                  href="https://www.google.com/maps/dir/?api=1&destination=11.00567898915737,76.945888"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[11px] font-racing font-bold text-turbo-orange hover:text-white uppercase tracking-wider flex items-center gap-1"
+                  className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-racing-red to-turbo-orange text-white font-racing font-bold text-xs uppercase tracking-wider shadow-[0_0_15px_rgba(225,6,0,0.5)] hover:scale-105 transition-all"
                 >
-                  <span>LAUNCH GPS NAV</span>
-                  <Navigation className="w-3 h-3" />
+                  <span>GET DIRECTIONS ON MAPS</span>
+                  <Navigation className="w-3.5 h-3.5" />
                 </a>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* 3. REAL GOOGLE REVIEWS SHOWCASE */}
+      <div className="border-t border-white/10 bg-carbon-black/60">
+        <GoogleReviewsSection />
+      </div>
     </div>
   );
 }

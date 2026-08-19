@@ -15,6 +15,7 @@ interface ExperienceCard {
   category: string;
   placeholderLabel: string;
   src: string;
+  alt?: string;
   description: string;
   features: string[];
 }
@@ -25,9 +26,10 @@ const EXPERIENCES: ExperienceCard[] = [
     code: "BAY 01",
     title: "THE GARAGE",
     category: "PADDOCK ATMOSPHERE",
-    placeholderLabel: "CAFE INTERIOR",
-    src: "/images/about/about-01.jpg",
-    description: "Reclaimed racing slicks, carbon fiber high-tops, authentic telemetry dashboards, and ambient paddock redline lighting.",
+    placeholderLabel: "COIMBATORE BEST CAFE INTERIOR",
+    src: "/images/about/coimbatore-best-cafe-wheels-turbo-interior.png",
+    alt: "The Wheels Turbo Cafe RS Puram Coimbatore - Best Cafe Interior with Tyre Seating and Racing Ambiance",
+    description: "Reclaimed racing slicks, carbon fiber high-tops, authentic telemetry dashboards, and ambient paddock redline lighting in RS Puram Coimbatore.",
     features: ["Bespoke Tyre Tables", "Pitlane Bar Counters", "Live Track Broadcasts"],
   },
   {
@@ -35,8 +37,9 @@ const EXPERIENCES: ExperienceCard[] = [
     code: "BAY 02",
     title: "THE MACHINES",
     category: "RACING SIMULATORS & ARTIFACTS",
-    placeholderLabel: "AUTOMOTIVE / RACING",
-    src: "/images/gallery/machine-f2.jpg",
+    placeholderLabel: "COIMBATORE BEST CAFE MACHINES",
+    src: "/images/ajith/coimbatore-best-cafe-akr-porsche-901-track.jpg",
+    alt: "Ajith Kumar Racing #901 Porsche GT3 on track - The Wheels Turbo Cafe Coimbatore",
     description: "Formula 2 monocoque sim cockpit, authentic turbocharger cutaways, and historic motorsport gear displays.",
     features: ["Pro Racing Simulators", "Billet Turbo Wall", "Exhaust Art Installations"],
   },
@@ -45,8 +48,9 @@ const EXPERIENCES: ExperienceCard[] = [
     code: "BAY 03",
     title: "THE FOOD",
     category: "HIGH-OCTANE FLAVOURS",
-    placeholderLabel: "FOOD EXPERIENCE",
+    placeholderLabel: "COIMBATORE BEST CAFE FOOD",
     src: "/images/menu/burger-01.jpg",
+    alt: "Gourmet V8 Smash Burger - The Wheels Turbo Cafe Coimbatore Best Food",
     description: "Flame-seared smash burgers, nitrogen-charged cold brews, and podium-worthy gourmet desserts crafted for connoisseurs.",
     features: ["V8 Turbo Smash Burgers", "Nitro Coffee On Tap", "Podium Finish Desserts"],
   },
@@ -55,8 +59,9 @@ const EXPERIENCES: ExperienceCard[] = [
     code: "BAY 04",
     title: "THE LEGACY",
     category: "TRIBUTE & SPIRIT",
-    placeholderLabel: "AJITH KUMAR TRIBUTE",
-    src: "/images/ajith/racing-01.jpg",
+    placeholderLabel: "COIMBATORE BEST CAFE TRIBUTE",
+    src: "/images/ajith/coimbatore-best-cafe-ajith-kumar-motorsport-montage.jpg",
+    alt: "Thala Ajith Kumar Racing Legacy Tribute Montage - The Wheels Turbo Cafe Coimbatore",
     description: "Celebrating Indian motorsport achievements, international Formula racing heritage, and Ajith Kumar's championship racing journey.",
     features: ["F2 & F3 Racing Archives", "Helmets of Champions", "Fan Motorsport Community"],
   },
@@ -146,6 +151,7 @@ export const ExperienceSection: React.FC = () => {
               <div className="mb-6 overflow-hidden rounded-xl">
                 <ImagePlaceholder
                   src={exp.src}
+                  alt={exp.alt}
                   label={exp.placeholderLabel}
                   aspectRatio="16/9"
                   badgeText={exp.code}

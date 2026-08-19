@@ -80,10 +80,11 @@ export const HomeIntro: React.FC = () => {
           <div className="lg:col-span-6 relative">
             <div className="relative group">
               <ImagePlaceholder
-                src="/images/about/about-01.jpg"
-                label="ABOUT THE CAFE IMAGE"
+                src="/images/about/coimbatore-best-cafe-wheels-turbo-interior.png"
+                alt="The Wheels Turbo Cafe RS Puram Coimbatore - Best Cafe Interior with Tyre Seating and Racing Ambiance"
+                label="COIMBATORE BEST CAFE // PADDOCK INTERIOR"
                 aspectRatio="4/3"
-                badgeText="PADDOCK VIEW"
+                badgeText="RS PURAM COIMBATORE"
                 className="w-full shadow-2xl"
               />
 

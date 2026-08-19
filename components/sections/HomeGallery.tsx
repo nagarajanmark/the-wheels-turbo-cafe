@@ -71,6 +71,7 @@ export const HomeGallery: React.FC = () => {
               <div className="relative overflow-hidden">
                 <ImagePlaceholder
                   src={item.imageSrc}
+                  alt={item.altText || item.title}
                   label={item.imageLabel}
                   aspectRatio={item.aspectRatio}
                   badgeText={item.tag}

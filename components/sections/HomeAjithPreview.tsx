@@ -12,8 +12,9 @@ export const HomeAjithPreview: React.FC = () => {
       {/* Background Hero Layer with dark motorsport lighting */}
       <div className="absolute inset-0 z-0">
         <ImagePlaceholder
-          src="/images/ajith/ajith-01.jpg"
-          label="AJITH KUMAR RACING IMAGE"
+          src="/images/ajith/coimbatore-best-cafe-ajith-kumar-supercar-tribute.jpg"
+          alt="Thala Ajith Kumar Supercar Tribute - The Wheels Turbo Cafe Coimbatore"
+          label="COIMBATORE BEST CAFE — AJITH KUMAR TRIBUTE"
           aspectRatio="auto"
           className="w-full h-full rounded-none border-none opacity-20"
         />
@@ -44,7 +45,7 @@ export const HomeAjithPreview: React.FC = () => {
             </h2>
 
             <p className="text-sm md:text-base font-sans text-metallic-silver/90 max-w-xl leading-relaxed">
-              Ajith Kumar&apos;s relentless dedication to international motorsport—from British F3 and FIA Formula 2 to 24H Endurance GT racing—embodies the fearless ethos behind The Wheels Turbo Cafe.
+              Thala Ajith Kumar&apos;s relentless dedication to international motorsport—from British F3 and FIA Formula 2 to 24H Endurance GT racing—embodies the fearless ethos behind The Wheels Turbo Cafe in Coimbatore.
             </p>
 
             {/* Racing Credentials Badges */}
@@ -81,8 +82,9 @@ export const HomeAjithPreview: React.FC = () => {
               {/* Main Tribute Card */}
               <div className="transform sm:-rotate-2 hover:rotate-0 transition-transform duration-500 shadow-2xl">
                 <ImagePlaceholder
-                  src="/images/ajith/ajith-02.jpg"
-                  label="AJITH KUMAR — RACING SPIRIT"
+                  src="/images/ajith/coimbatore-best-cafe-ajith-kumar-motorsport-montage.jpg"
+                  alt="Ajith Kumar motorsport career montage tribute - The Wheels Turbo Cafe Coimbatore"
+                  label="AJITH KUMAR — MOTORSPORT ICON"
                   aspectRatio="4/3"
                   badgeText="MOTORSPORT ICON"
                   className="w-full border-racing-red/50 shadow-2xl"
@@ -92,10 +94,11 @@ export const HomeAjithPreview: React.FC = () => {
               {/* Overlapping Secondary Card */}
               <div className="hidden sm:block absolute -bottom-10 -right-6 w-3/5 transform rotate-3 hover:rotate-0 transition-transform duration-500 shadow-2xl z-20">
                 <ImagePlaceholder
-                  src="/images/ajith/racing-01.jpg"
-                  label="COCKPIT TELEMETRY"
+                  src="/images/ajith/coimbatore-best-cafe-akr-porsche-901-track.jpg"
+                  alt="Ajith Kumar Racing #901 Porsche on track - The Wheels Turbo Cafe Coimbatore"
+                  label="AKR 901 PORSCHE GT3"
                   aspectRatio="16/9"
-                  badgeText="TRACK DISCIPLINE"
+                  badgeText="TRACK ACTION"
                   className="w-full border-velocity-yellow/50 shadow-2xl"
                 />
               </div>

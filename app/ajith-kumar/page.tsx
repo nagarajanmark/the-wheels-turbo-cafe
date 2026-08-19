@@ -12,45 +12,51 @@ import { motion } from "framer-motion";
 const MEMORIES_WALL = [
   {
     id: "mem-01",
-    label: "MEMORY 01",
-    title: "PODIUM CELEBRATION BRITISH F3",
-    src: "/images/ajith/memory-01.jpg",
-    caption: "Holding the Indian tricolor aloft on the podium at historic British racing circuits.",
+    label: "COIMBATORE BEST CAFE — PODIUM MOMENT",
+    title: "PODIUM CELEBRATION WITH INDIAN FLAG",
+    src: "/images/ajith/coimbatore-best-cafe-ajith-kumar-podium-indian-flag.jpg",
+    alt: "Ajith Kumar holding the Indian Flag on the racing podium with confetti - The Wheels Turbo Cafe Coimbatore",
+    caption: "Holding the Indian tricolor aloft on the podium during international racing championships with showering confetti.",
   },
   {
     id: "mem-02",
-    label: "MEMORY 02",
-    title: "FIA FORMULA 2 COCKPIT INTENSITY",
-    src: "/images/ajith/memory-02.jpg",
-    caption: "Focused telemetry check before unleashing 425+ BHP at Monza speedway.",
+    label: "COIMBATORE BEST CAFE — PORSCHE GT3",
+    title: "AKR #901 PORSCHE 911 GT3 RACECAR",
+    src: "/images/ajith/coimbatore-best-cafe-ajith-kumar-porsche-racecar.jpg",
+    alt: "Ajith Kumar standing with #901 Porsche 911 GT3 racecar - The Wheels Turbo Cafe Coimbatore tribute",
+    caption: "Ajith Kumar standing proudly beside his #901 endurance racecar with helmet resting on the roof.",
   },
   {
     id: "mem-03",
-    label: "MEMORY 03",
-    title: "RACE GEAR & SAFETY HARNESS",
-    src: "/images/ajith/memory-03.jpg",
-    caption: "Precision safety equipment, customized race suit, and aero-tested helmets.",
+    label: "COIMBATORE BEST CAFE — THALA RACING SUIT",
+    title: "THALA AJITH PORSCHE MOTORSPORT SUIT",
+    src: "/images/ajith/coimbatore-best-cafe-thala-ajith-kumar-racing-suit.jpg",
+    alt: "Thala Ajith Kumar Porsche Motorsport Racing Suit Poster at The Wheels Turbo Cafe Coimbatore",
+    caption: "Precision safety gear, HRX racing suit, and aerodynamic helmet design celebrating Thala's motorsport prowess.",
   },
   {
     id: "mem-04",
-    label: "MEMORY 04",
-    title: "ENDURANCE 24H GT PREPARATION",
-    src: "/images/ajith/memory-04.jpg",
-    caption: "Leading the Ajith Kumar Racing GT team through grueling nighttime pitstop drills.",
+    label: "COIMBATORE BEST CAFE — 24H ENDURANCE",
+    title: "CREVENTIC 24H SERIES GT PREPARATION",
+    src: "/images/ajith/coimbatore-best-cafe-ajith-kumar-creventic-24h.jpg",
+    alt: "Ajith Kumar 24H Endurance GT racing poster - The Wheels Turbo Cafe Coimbatore tribute",
+    caption: "Leading the Ajith Kumar Racing GT squad through grueling endurance championships across international circuits.",
   },
   {
     id: "mem-05",
-    label: "MEMORY 05",
-    title: "KARI SPEEDWAY PADDOCK BRIEFING",
-    src: "/images/ajith/memory-05.jpg",
-    caption: "Mentoring emerging racing talents and mechanics right here in Coimbatore.",
+    label: "COIMBATORE BEST CAFE — VICTORY CELEBRATION",
+    title: "24H SERIES TRICOLOUR TRIUMPH",
+    src: "/images/ajith/coimbatore-best-cafe-ajith-kumar-24h-victory.jpg",
+    alt: "Ajith Kumar 24H Series Tricolour Victory Celebration - The Wheels Turbo Cafe Coimbatore",
+    caption: "A montage of triumph, celebration, and devotion to motorsport excellence on the world stage.",
   },
   {
     id: "mem-06",
-    label: "MEMORY 06",
-    title: "THE UNBROKEN SPIRIT",
-    src: "/images/ajith/memory-06.jpg",
-    caption: "A testament to resilience, recovering from high-speed crashes to race again.",
+    label: "COIMBATORE BEST CAFE — FAN TRIBUTE",
+    title: "PADDOCK PASSION & FAN DEVOTION",
+    src: "/images/ajith/coimbatore-best-cafe-ajith-kumar-fan-love-tribute.jpg",
+    alt: "Ajith Kumar fan love tribute poster at The Wheels Turbo Cafe in RS Puram Coimbatore",
+    caption: "Heartfelt tributes celebrating the deep bond between motorsport fans, Thala admirers, and racing culture in Coimbatore.",
   },
 ];
 
@@ -59,6 +65,7 @@ export default function AjithKumarTributePage() {
     title: string;
     label: string;
     src: string;
+    alt?: string;
     caption: string;
   } | null>(null);
 
@@ -69,8 +76,9 @@ export default function AjithKumarTributePage() {
         {/* Background Image Placeholder */}
         <div className="absolute inset-0 z-0">
           <ImagePlaceholder
-            src="/images/ajith/ajith-01.jpg"
-            label="AJITH KUMAR — HERO"
+            src="/images/ajith/coimbatore-best-cafe-ajith-kumar-supercar-tribute.jpg"
+            alt="Ajith Kumar supercar photoshoot tribute - The Wheels Turbo Cafe Coimbatore"
+            label="COIMBATORE BEST CAFE — AJITH KUMAR HERO TRIBUTE"
             aspectRatio="auto"
             className="w-full h-full rounded-none border-none opacity-25"
           />
@@ -82,7 +90,7 @@ export default function AjithKumarTributePage() {
           {/* Fan Disclaimer Tag */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-garage-black/90 border border-racing-red/40 text-racing-red text-xs font-racing font-bold tracking-[0.2em] uppercase mb-8 shadow-[0_0_20px_rgba(225,6,0,0.2)]">
             <ShieldAlert className="w-4 h-4 text-turbo-orange" />
-            <span>INDEPENDENT FAN MOTORSPORT TRIBUTE // NOT AN OFFICIAL ENDORSEMENT</span>
+            <span>INDEPENDENT FAN MOTORSPORT TRIBUTE // THE WHEELS TURBO CAFE COIMBATORE</span>
           </div>
 
           <h1 className="font-display font-black text-5xl sm:text-7xl lg:text-9xl uppercase tracking-tighter text-performance-white leading-none">
@@ -93,7 +101,7 @@ export default function AjithKumarTributePage() {
           </h1>
 
           <p className="mt-6 font-sans text-base sm:text-xl text-metallic-silver/90 max-w-2xl leading-relaxed border-l-2 border-velocity-yellow pl-4">
-            Celebrating Ajith Kumar&apos;s extraordinary pursuit of motorsport excellence—from national single-seaters to the global FIA Formula 2 grid.
+            Celebrating Thala Ajith Kumar&apos;s extraordinary pursuit of motorsport excellence—from national single-seaters to the global FIA Formula 2 and 24H GT endurance circuits.
           </p>
         </div>
       </section>
@@ -117,13 +125,13 @@ export default function AjithKumarTributePage() {
 
             <div className="space-y-4 font-sans text-sm md:text-base text-metallic-silver/80 leading-relaxed">
               <p>
-                In an era where many admire racing from afar, Ajith Kumar strapped himself into formula cockpits, braved high-speed G-forces, and competed shoulder-to-shoulder with the finest drivers on the planet.
+                In an era where many admire racing from afar, Ajith Kumar strapped himself into formula cockpits, braved intense lateral G-forces, and competed shoulder-to-shoulder with the finest drivers on the planet.
               </p>
               <p>
-                His journey is not about fame; it is about pure, unfiltered passion for the track. The intense physical discipline, the mental resilience required to conquer high-speed apexes, and the humility in the paddock are the very values we built into The Wheels Turbo Cafe.
+                His journey is not about fame; it is about pure, unfiltered passion for the asphalt. The rigorous physical training, the mental fortitude required to hit high-speed apexes, and his humble paddock demeanor are the exact values that inspired <strong className="text-performance-white">The Wheels Turbo Cafe in Coimbatore</strong>.
               </p>
               <p>
-                When you step into our Coimbatore cafe, the roar of the engines, the smell of fresh brews, and the metallic aesthetics reflect this relentless pursuit of greatness.
+                When you step into our cafe in RS Puram, the roar of engines, the smell of fresh artisan roasts, and the handcrafted tyre decor honor this relentless pursuit of greatness.
               </p>
             </div>
 
@@ -149,7 +157,8 @@ export default function AjithKumarTributePage() {
           {/* Right Dual Visuals */}
           <div className="lg:col-span-5 space-y-6">
             <ImagePlaceholder
-              src="/images/ajith/ajith-02.jpg"
+              src="/images/ajith/coimbatore-best-cafe-ajith-kumar-motorsport-montage.jpg"
+              alt="Ajith Kumar Motorsport montage in racing suit with bike and car - The Wheels Turbo Cafe Coimbatore"
               label="AJITH KUMAR — MOTORSPORT ICON"
               aspectRatio="4/3"
               badgeText="PADDOCK DISCIPLINE"
@@ -232,10 +241,11 @@ export default function AjithKumarTributePage() {
                     </div>
                   </div>
 
-                  {/* Right Image Placeholder */}
+                  {/* Right Image */}
                   <div className="lg:col-span-5">
                     <ImagePlaceholder
                       src={milestone.imageSrc}
+                      alt={milestone.altText}
                       label={milestone.imageLabel}
                       aspectRatio="16/9"
                       badgeText={milestone.year}
@@ -261,7 +271,7 @@ export default function AjithKumarTributePage() {
               </span>
             </>
           }
-          subtitle="A visual tribute capturing iconic moments, cockpit telemetry, and racing milestones."
+          subtitle="A visual tribute capturing iconic moments, cockpit telemetry, and racing milestones displayed at The Wheels Turbo Cafe in Coimbatore."
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -276,9 +286,10 @@ export default function AjithKumarTributePage() {
               <div className="mb-3 overflow-hidden rounded-lg">
                 <ImagePlaceholder
                   src={mem.src}
+                  alt={mem.alt}
                   label={mem.label}
                   aspectRatio="16/9"
-                  badgeText={mem.label}
+                  badgeText="ARCHIVE"
                   className="w-full transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
@@ -306,7 +317,7 @@ export default function AjithKumarTributePage() {
             DISCLAIMER & INTEGRITY NOTICE
           </div>
           <p className="font-sans text-xs text-metallic-silver/80 leading-relaxed">
-            This is an independent fan-inspired tribute and is not an official website or endorsement. We celebrate motorsport achievements and the passion that connects petrolheads across the globe.
+            This is an independent fan-inspired tribute and is not an official website or endorsement. We celebrate motorsport achievements and the passion that connects petrolheads across Coimbatore and the globe.
           </p>
         </div>
       </section>

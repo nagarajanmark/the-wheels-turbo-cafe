@@ -8,8 +8,13 @@ import { MENU_ITEMS } from "@/data/menuData";
 import { Flame, Gauge, Zap, Sparkles } from "lucide-react";
 
 export const HomeMenuPreview: React.FC = () => {
-  // Grab top 4 highlights
-  const previewItems = MENU_ITEMS.slice(0, 4);
+  // Grab top 4 iconic highlights
+  const previewItems = [
+    MENU_ITEMS.find((i) => i.id === "chicken-mutka-pizza") || MENU_ITEMS[0],
+    MENU_ITEMS.find((i) => i.id === "double-patty-chicken-burger") || MENU_ITEMS[1],
+    MENU_ITEMS.find((i) => i.id === "peri-peri-fries") || MENU_ITEMS[2],
+    MENU_ITEMS.find((i) => i.id === "blue-stab-mojito") || MENU_ITEMS[3],
+  ];
 
   return (
     <section className="relative py-24 md:py-36 bg-turbo-black text-performance-white overflow-hidden select-none">
@@ -30,7 +35,7 @@ export const HomeMenuPreview: React.FC = () => {
                 </span>
               </>
             }
-            subtitle="Engineered with chef-level precision, flame-seared meats, and high-performance ingredients to power your day."
+            subtitle="Explore our genuine cafe menu featuring signature Mutka pizzas, loaded burgers, hot dogs, pastas, momos, and chilled mocktails."
             className="mb-0"
           />
 
@@ -40,13 +45,13 @@ export const HomeMenuPreview: React.FC = () => {
             href="/menu"
             cursorLabel="ALL"
           >
-            VIEW FULL MENU →
+            VIEW FULL MENU (100 ITEMS) →
           </MagneticButton>
         </div>
 
         {/* 4 Dashboard Item Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {previewItems.map((item, idx) => (
+          {previewItems.map((item) => (
             <div
               key={item.id}
               className="bg-garage-black border border-metallic-silver/20 hover:border-racing-red/70 rounded-xl p-5 transition-all duration-500 group shadow-xl flex flex-col justify-between"
@@ -72,10 +77,15 @@ export const HomeMenuPreview: React.FC = () => {
                   />
                 </div>
 
-                {/* Item Name */}
-                <h3 className="font-display font-black text-lg uppercase tracking-wider text-performance-white group-hover:text-turbo-orange transition-colors mb-2 line-clamp-1">
-                  {item.name}
-                </h3>
+                {/* Item Name & Price */}
+                <div className="flex items-baseline justify-between gap-2 mb-2">
+                  <h3 className="font-display font-black text-base sm:text-lg uppercase tracking-wider text-performance-white group-hover:text-turbo-orange transition-colors line-clamp-1">
+                    {item.name}
+                  </h3>
+                  <span className="font-racing font-black text-lg text-velocity-yellow shrink-0">
+                    ₹{item.price}
+                  </span>
+                </div>
 
                 {/* Description */}
                 <p className="font-sans text-xs text-metallic-silver/70 line-clamp-2 leading-relaxed mb-4">
