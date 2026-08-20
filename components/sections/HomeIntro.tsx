@@ -80,7 +80,7 @@ export const HomeIntro: React.FC = () => {
           <div className="lg:col-span-6 relative">
             <div className="relative group">
               <ImagePlaceholder
-                src="/images/about/coimbatore-best-cafe-wheels-turbo-interior.png"
+                src="/images/gallery/20260623_151626.jpg"
                 alt="Handcrafted racing tyre tables and ambient paddock seating at The Wheels Turbo Cafe in RS Puram Coimbatore"
                 label="PADDOCK GARAGE INTERIOR // RS PURAM"
                 aspectRatio="4/3"

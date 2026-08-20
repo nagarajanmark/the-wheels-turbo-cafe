@@ -12,9 +12,23 @@ const GARAGE_TOUR = [
   {
     title: "MAIN COCKPIT & TYRE SEATING",
     label: "CAFE GARAGE INTERIOR // RS PURAM",
-    src: "/images/about/coimbatore-best-cafe-wheels-turbo-interior.png",
+    src: "/images/gallery/cafe-garage-view-01.jpg",
     alt: "Handcrafted racing tyre tables and ambient paddock seating at The Wheels Turbo Cafe in RS Puram, Coimbatore",
     caption: "Bespoke handcrafted racing tyre tables, redline paddock lounge seating, and immersive full-wall motorsport murals in RS Puram, Coimbatore.",
+  },
+  {
+    title: "FOUNDER AKILANDESHWARI SUNDER",
+    label: "FOUNDER & OWNER PORTRAIT",
+    src: "/images/owner/founder-akilandeshwari-portrait.jpg",
+    alt: "Portrait of Founder Akilandeshwari Sunder of The Wheels Turbo Cafe in Coimbatore",
+    caption: "Founder Akilandeshwari Sunder, driving the vision of Coimbatore's premier motorsport and Ajith Kumar tribute cafe.",
+  },
+  {
+    title: "CUSTOM RACING TYRE TABLES",
+    label: "PADDOCK COCKPIT SEATING",
+    src: "/images/gallery/cafe-garage-view-02.jpg",
+    alt: "Racing tyre dining tables and bucket seats at The Wheels Turbo Cafe in RS Puram Coimbatore",
+    caption: "Authentic racing tyre tables custom fabricated to give diners a true motorsport paddock feel.",
   },
   {
     title: "FOUNDER WITH AJITH TRIBUTE STANDEE",
@@ -24,32 +38,18 @@ const GARAGE_TOUR = [
     caption: "Founder Akilandeshwari Sunder at the cafe posing with the life-sized Thala Ajith Kumar Racing suit standee.",
   },
   {
+    title: "NEON NIGHT AMBIENCE",
+    label: "NIGHT TRACK LOUNGE",
+    src: "/images/gallery/cafe-garage-view-05.jpg",
+    alt: "Night ambiance with neon lights and racing aesthetics at The Wheels Turbo Cafe in RS Puram Coimbatore",
+    caption: "Evening neon atmosphere where friends and car enthusiasts gather for late-night coffee and burgers.",
+  },
+  {
     title: "DINAMALAR NEWSPAPER FEATURE",
     label: "PRESS COVERAGE IN DINAMALAR",
-    src: "/images/about/coimbatore-best-cafe-wheels-turbo-newspaper-feature.png",
+    src: "/images/owner/coimbatore-best-cafe-newspaper-dinamalar.png",
     alt: "Dinamalar Tamil daily newspaper feature article covering Akilandeshwari Sunder and The Wheels Turbo Cafe in RS Puram Coimbatore",
     caption: "Dinamalar Tamil news feature: 'ரேசிங்கை ரசித்த பெண்... இன்று ரேசிங் கஃபே ஓனர்' celebrating Coimbatore's motorsport themed cafe.",
-  },
-  {
-    title: "AJITH KUMAR RACING #901 PORSCHE",
-    label: "AKR #901 PORSCHE GT3 ON TRACK",
-    src: "/images/ajith/coimbatore-best-cafe-akr-porsche-901-track.jpg",
-    alt: "Ajith Kumar Racing Porsche 911 GT3 cornering on circuit track - The Wheels Turbo Cafe tribute",
-    caption: "Authentic international endurance racing visual showcasing Thala Ajith's #901 Porsche on the track.",
-  },
-  {
-    title: "INDIAN TRICOLOUR PODIUM MOMENT",
-    label: "PODIUM TRIUMPH WITH INDIAN FLAG",
-    src: "/images/ajith/coimbatore-best-cafe-ajith-kumar-podium-indian-flag.jpg",
-    alt: "Ajith Kumar celebrating on the motorsport podium holding the Indian Tricolour flag",
-    caption: "The proud moment Ajith Kumar held the Indian flag aloft on the international championship podium.",
-  },
-  {
-    title: "THALA AJITH MOTORSPORT SUIT POSTER",
-    label: "PORSCHE MOTORSPORT SUIT TRIBUTE",
-    src: "/images/ajith/coimbatore-best-cafe-thala-ajith-kumar-racing-suit.jpg",
-    alt: "Thala Ajith Kumar in Porsche motorsport racing suit on the circuit grid",
-    caption: "Signature Porsche Motorsport race gear and helmet tribute wall inside The Wheels Turbo Cafe.",
   },
 ];
 
@@ -161,7 +161,7 @@ export function AboutClient() {
           {/* Right Dual Image Showcase */}
           <div className="lg:col-span-6 space-y-6">
             <ImagePlaceholder
-              src="/images/about/coimbatore-best-cafe-wheels-turbo-interior.png"
+              src="/images/gallery/cafe-garage-view-01.jpg"
               alt="Handcrafted racing tyre tables and ambient paddock seating at The Wheels Turbo Cafe in RS Puram, Coimbatore"
               label="GARAGE INTERIOR // RS PURAM COIMBATORE"
               aspectRatio="16/9"
@@ -170,11 +170,11 @@ export function AboutClient() {
             />
             <div className="grid grid-cols-2 gap-4">
               <ImagePlaceholder
-                src="/images/owner/coimbatore-best-cafe-founder-akhila-sundar-ajith-kumar.png"
-                alt="Founder Akilandeshwari Sunder at The Wheels Turbo Cafe in RS Puram Coimbatore posing with Thala Ajith Kumar racing suit standee"
+                src="/images/owner/founder-akilandeshwari-portrait.jpg"
+                alt="Portrait of Founder Akilandeshwari Sunder at The Wheels Turbo Cafe in RS Puram Coimbatore"
                 label="FOUNDER & RACING SPIRIT"
                 aspectRatio="4/3"
-                badgeText="FOUNDER TRIBUTE"
+                badgeText="FOUNDER PORTRAIT"
               />
               <div className="p-6 rounded-xl bg-garage-black border border-racing-red/40 flex flex-col justify-center text-center">
                 <span className="font-display font-black text-2xl sm:text-3xl text-velocity-yellow">
@@ -212,14 +212,25 @@ export function AboutClient() {
 
             {/* Left: Founder Photos Grid */}
             <div className="lg:col-span-6 space-y-6">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-metallic-silver/20 group">
-                <ImagePlaceholder
-                  src="/images/owner/coimbatore-best-cafe-founder-akhila-sundar-ajith-kumar.png"
-                  alt="Akilandeshwari Sunder founder of The Wheels Turbo Cafe in Coimbatore with Ajith Kumar Standee"
-                  label="FOUNDER AKILANDESHWARI SUNDER // THE WHEELS TURBO CAFE"
-                  aspectRatio="4/3"
-                  badgeText="CAFE FOUNDER"
-                />
+              <div className="grid grid-cols-2 gap-4">
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-metallic-silver/20 group">
+                  <ImagePlaceholder
+                    src="/images/owner/founder-akilandeshwari-portrait.jpg"
+                    alt="Portrait of Akilandeshwari Sunder founder of The Wheels Turbo Cafe in Coimbatore"
+                    label="FOUNDER AKILANDESHWARI SUNDER"
+                    aspectRatio="3/4"
+                    badgeText="CAFE FOUNDER"
+                  />
+                </div>
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-metallic-silver/20 group">
+                  <ImagePlaceholder
+                    src="/images/owner/coimbatore-best-cafe-founder-akhila-sundar-ajith-kumar.png"
+                    alt="Akilandeshwari Sunder founder of The Wheels Turbo Cafe in Coimbatore with Ajith Kumar Standee"
+                    label="FOUNDER WITH AJITH TRIBUTE"
+                    aspectRatio="3/4"
+                    badgeText="AJITH TRIBUTE"
+                  />
+                </div>
               </div>
 
               {/* Newspaper Clipping Preview */}
@@ -228,7 +239,7 @@ export function AboutClient() {
                   setSelectedPhoto({
                     title: "DINAMALAR NEWSPAPER FEATURE",
                     label: "PRESS COVERAGE IN DINAMALAR",
-                    src: "/images/about/coimbatore-best-cafe-wheels-turbo-newspaper-feature.png",
+                    src: "/images/owner/coimbatore-best-cafe-newspaper-dinamalar.png",
                     alt: "Dinamalar Tamil daily newspaper feature article covering Akilandeshwari Sunder and The Wheels Turbo Cafe in RS Puram Coimbatore",
                     caption:
                       "Dinamalar feature story: 'ரேசிங்கை ரசித்த பெண்... இன்று ரேசிங் கஃபே ஓனர்' documenting Akilandeshwari Sunder's inspiring story and the success of Wheels Turbo Cafe in RS Puram Coimbatore.",

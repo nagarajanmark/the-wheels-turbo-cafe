@@ -103,12 +103,43 @@ export const MagneticButton: React.FC<MagneticButtonProps> = ({
     </motion.div>
   );
 
+  const handleClick = (e: React.MouseEvent) => {
+    if (disabled) {
+      e.preventDefault();
+      return;
+    }
+    if (onClick) {
+      onClick();
+    }
+    if (href && href.startsWith("#")) {
+      e.preventDefault();
+      const targetId = href.substring(1);
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
   if (href) {
-    return <Link href={href} className="inline-block focus:outline-none">{innerContent}</Link>;
+    return (
+      <Link
+        href={href}
+        onClick={handleClick}
+        className={`inline-block focus:outline-none ${disabled ? "pointer-events-none" : ""}`}
+      >
+        {innerContent}
+      </Link>
+    );
   }
 
   return (
-    <button type={type} onClick={onClick} disabled={disabled} className="inline-block focus:outline-none bg-transparent p-0 border-0">
+    <button
+      type={type}
+      onClick={handleClick}
+      disabled={disabled}
+      className="inline-block focus:outline-none bg-transparent p-0 border-0 cursor-pointer"
+    >
       {innerContent}
     </button>
   );

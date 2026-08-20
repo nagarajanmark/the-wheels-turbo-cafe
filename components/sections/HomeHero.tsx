@@ -12,7 +12,7 @@ export const HomeHero: React.FC = () => {
       {/* Background Hero Image with dark atmospheric overlay */}
       <div className="absolute inset-0 z-0">
         <ImagePlaceholder
-          src="/images/hero/coimbatore-best-cafe-hero-main.png"
+          src="/images/gallery/coimbatore-best-cafe-garage-ambience.jpeg"
           alt="The Wheels Turbo Cafe racing garage interior and dining atmosphere in RS Puram Coimbatore"
           label="THE WHEELS TURBO CAFE // RS PURAM COIMBATORE"
           aspectRatio="auto"
@@ -20,7 +20,7 @@ export const HomeHero: React.FC = () => {
           className="w-full h-full rounded-none border-none opacity-40"
         />
         {/* Cinematic Overlays: Black gradient, red ambient glow, orange speed lines */}
-        <div className="absolute inset-0 bg-gradient-to-t from-turbo-black via-turbo-black/70 to-turbo-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-turbo-black via-turbo-black/50 to-turbo-black/50" />
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-racing-red/20 blur-[160px] pointer-events-none" />
         <div className="absolute bottom-10 right-10 w-[400px] h-[400px] rounded-full bg-turbo-orange/15 blur-[140px] pointer-events-none" />
         <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent,transparent_60px,rgba(225,6,0,0.03)_61px,transparent_62px)] pointer-events-none" />

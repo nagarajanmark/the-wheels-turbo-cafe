@@ -50,15 +50,16 @@ export const HeroScrollSequence: React.FC = () => {
 
       // STAGE 01 -> STAGE 02
       tl.to(stage1Ref.current, {
-        opacity: 0,
+        autoAlpha: 0,
         scale: 0.9,
         filter: "blur(8px)",
+        pointerEvents: "none",
         duration: 1,
       })
       .fromTo(
         stage2Ref.current,
-        { opacity: 0, scale: 1.15, filter: "blur(12px)" },
-        { opacity: 1, scale: 1, filter: "blur(0px)", duration: 1 },
+        { autoAlpha: 0, scale: 1.15, filter: "blur(12px)", pointerEvents: "none" },
+        { autoAlpha: 1, scale: 1, filter: "blur(0px)", pointerEvents: "auto", duration: 1 },
         "-=0.4"
       )
       .to(bgGlowRef.current, {
@@ -73,15 +74,16 @@ export const HeroScrollSequence: React.FC = () => {
 
       // STAGE 02 -> STAGE 03
       tl.to(stage2Ref.current, {
-        opacity: 0,
+        autoAlpha: 0,
         y: -40,
         filter: "blur(8px)",
+        pointerEvents: "none",
         duration: 1,
       })
       .fromTo(
         stage3Ref.current,
-        { opacity: 0, scale: 0.85, filter: "blur(10px)" },
-        { opacity: 1, scale: 1, filter: "blur(0px)", duration: 1 },
+        { autoAlpha: 0, scale: 0.85, filter: "blur(10px)", pointerEvents: "none" },
+        { autoAlpha: 1, scale: 1, filter: "blur(0px)", pointerEvents: "auto", duration: 1 },
         "-=0.4"
       )
       .to(bgGlowRef.current, {
@@ -92,28 +94,30 @@ export const HeroScrollSequence: React.FC = () => {
 
       // STAGE 03 -> STAGE 04 (Floating petrolhead placeholders)
       tl.to(stage3Ref.current, {
-        opacity: 0,
+        autoAlpha: 0,
         scale: 1.2,
+        pointerEvents: "none",
         duration: 1,
       })
       .fromTo(
         stage4Ref.current,
-        { opacity: 0, scale: 0.9 },
-        { opacity: 1, scale: 1, duration: 1 },
+        { autoAlpha: 0, scale: 0.9, pointerEvents: "none" },
+        { autoAlpha: 1, scale: 1, pointerEvents: "auto", duration: 1 },
         "-=0.4"
       );
 
       // STAGE 04 -> STAGE 05 (Grand Wheels Turbo Cafe reveal)
       tl.to(stage4Ref.current, {
-        opacity: 0,
+        autoAlpha: 0,
         y: -50,
         filter: "blur(10px)",
+        pointerEvents: "none",
         duration: 1,
       })
       .fromTo(
         stage5Ref.current,
-        { opacity: 0, scale: 0.9, y: 30 },
-        { opacity: 1, scale: 1, y: 0, duration: 1.2 },
+        { autoAlpha: 0, scale: 0.9, y: 30, pointerEvents: "none" },
+        { autoAlpha: 1, scale: 1, y: 0, pointerEvents: "auto", duration: 1.2 },
         "-=0.3"
       )
       .to(bgGlowRef.current, {
@@ -312,7 +316,7 @@ export const HeroScrollSequence: React.FC = () => {
          ======================================================== */}
       <div
         ref={stage5Ref}
-        className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-4 opacity-0 pointer-events-none"
+        className="absolute inset-0 z-30 flex flex-col items-center justify-center text-center px-4 opacity-0 pointer-events-none"
       >
         <div className="inline-flex items-center gap-2 px-4 py-1 rounded bg-racing-red/20 border border-racing-red text-velocity-yellow text-xs font-racing font-black tracking-[0.3em] uppercase mb-4 shadow-[0_0_20px_rgba(225,6,0,0.5)]">
           <Flame className="w-4 h-4 text-racing-red" />
@@ -330,7 +334,7 @@ export const HeroScrollSequence: React.FC = () => {
           Coimbatore&apos;s premier motorsport sanctuary. Step inside the racing garage and experience culinary horsepower.
         </p>
 
-        <div className="mt-8 flex flex-col sm:flex-row items-center gap-4">
+        <div className="mt-8 flex flex-col sm:flex-row items-center gap-4 relative z-50 pointer-events-auto">
           <MagneticButton
             size="lg"
             variant="gold"

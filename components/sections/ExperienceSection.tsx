@@ -27,7 +27,7 @@ const EXPERIENCES: ExperienceCard[] = [
     title: "THE GARAGE",
     category: "PADDOCK ATMOSPHERE",
     placeholderLabel: "GARAGE AMBIENCE // RS PURAM",
-    src: "/images/about/coimbatore-best-cafe-wheels-turbo-interior.png",
+    src: "/images/gallery/cafe-garage-view-01.jpg",
     alt: "The Wheels Turbo Cafe dining area with custom racing tyre tables, bucket seating, and motorsport wall graphics in RS Puram Coimbatore",
     description: "Reclaimed racing slicks, carbon fiber high-tops, authentic telemetry dashboards, and ambient paddock redline lighting in RS Puram Coimbatore.",
     features: ["Bespoke Tyre Tables", "Pitlane Bar Counters", "Live Track Broadcasts"],

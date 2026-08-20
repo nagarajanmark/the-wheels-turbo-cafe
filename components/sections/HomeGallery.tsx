@@ -7,6 +7,8 @@ import { LightboxModal } from "../ui/LightboxModal";
 import { GALLERY_ITEMS, GalleryItem } from "@/data/galleryData";
 import { Maximize2, Flame } from "lucide-react";
 
+import ThreeDParallaxGallery from "../ui/3d-parallax-unfurling-gallery";
+
 export const HomeGallery: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<string>("ALL");
   const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
@@ -18,16 +20,18 @@ export const HomeGallery: React.FC = () => {
       ? GALLERY_ITEMS
       : GALLERY_ITEMS.filter((item) => item.tag === activeFilter);
 
+  const parallaxImages = GALLERY_ITEMS.map((item) => item.imageSrc);
+
   return (
-    <section className="relative py-24 md:py-36 bg-turbo-black text-performance-white overflow-hidden select-none">
+    <section className="relative bg-turbo-black text-performance-white select-none">
       {/* Background Subtle Ambience */}
       <div className="absolute inset-0 bg-racing-grid opacity-20 pointer-events-none" />
-      <div className="absolute bottom-0 right-1/3 w-96 h-96 bg-turbo-orange/10 rounded-full blur-[160px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      {/* 1. Header Intro */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 md:pt-32 relative z-10">
         <SectionHeading
           sectorNumber="06"
-          tag="VISUAL ARCHIVE"
+          tag="VISUAL ARCHIVE & 3D MATRIX"
           title={
             <>
               THE PADDOCK <br />
@@ -36,8 +40,27 @@ export const HomeGallery: React.FC = () => {
               </span>
             </>
           }
-          subtitle="A cinematic glimpse into our Coimbatore paddock—where horsepower, culinary craftsmanship, and petrolhead camaraderie converge."
+          subtitle="Scroll down to experience our 3D parallax paddock matrix, followed by the complete curated visual vault of Coimbatore's premier racing cafe."
         />
+      </div>
+
+      {/* 2. 3D Parallax Unfurling Gallery Matrix */}
+      <div className="w-full relative my-8">
+        <ThreeDParallaxGallery images={parallaxImages} height="300vh" />
+      </div>
+
+      {/* 3. Filterable Masonry Vault */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 md:pb-36 relative z-10">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10 border-b border-white/10 pb-6">
+          <div>
+            <h3 className="font-display font-black text-2xl text-performance-white tracking-wide">
+              FILTER ARCHIVE BY CATEGORY
+            </h3>
+            <p className="text-sm text-metallic-silver">
+              Explore garage ambience, artisanal menu items, racing tributes, and fan moments.
+            </p>
+          </div>
+        </div>
 
         {/* Filter Pills */}
         <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-10 no-scrollbar" role="group" aria-label="Gallery category filters">
