@@ -24,11 +24,27 @@ export const HeroScrollSequence: React.FC = () => {
     gsap.registerPlugin(ScrollTrigger);
 
     // Prevent mobile address bar height toggling from thrashing ScrollTrigger calculations
-    ScrollTrigger.config({ ignoreMobileResize: true });
+    ScrollTrigger.config({
+      ignoreMobileResize: true,
+      autoRefreshEvents: "visibilitychange,DOMContentLoaded,load,resize",
+    });
 
     if (!containerRef.current) return;
 
+    // Detect iOS devices (iPhone, iPad, iPod) for WebKit specific scroll fixes
+    const isIOS =
+      typeof window !== "undefined" &&
+      (/iPad|iPhone|iPod/.test(navigator.userAgent) ||
+        (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1));
+
     const ctx = gsap.context(() => {
+      // Initialize initial states explicitly for WebKit hardware compositing
+      if (stage1Ref.current) gsap.set(stage1Ref.current, { autoAlpha: 1, scale: 1 });
+      if (stage2Ref.current) gsap.set(stage2Ref.current, { autoAlpha: 0, scale: 1.06 });
+      if (stage3Ref.current) gsap.set(stage3Ref.current, { autoAlpha: 0, scale: 0.92 });
+      if (stage4Ref.current) gsap.set(stage4Ref.current, { autoAlpha: 0, scale: 0.94 });
+      if (stage5Ref.current) gsap.set(stage5Ref.current, { autoAlpha: 0, scale: 0.95, y: 15 });
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
@@ -36,10 +52,12 @@ export const HeroScrollSequence: React.FC = () => {
           end: "+=180%",
           pin: true,
           pinSpacing: true,
-          scrub: 0.3, // Fast, instant touch response on mobile
-          anticipatePin: 1,
+          pinType: isIOS ? "transform" : "fixed", // Eliminates iOS Safari fixed-position detachment
+          scrub: 0.3, // Instant, lag-free response on touch screens
+          anticipatePin: isIOS ? 0 : 1,
           invalidateOnRefresh: true,
           fastScrollEnd: true,
+          preventOverlaps: true,
           onUpdate: (self) => {
             const progress = self.progress;
             const computedRpm = Math.round(1200 + progress * 7600);
@@ -139,7 +157,13 @@ export const HeroScrollSequence: React.FC = () => {
   return (
     <section
       ref={containerRef}
-      className="relative w-full h-[100dvh] min-h-[580px] bg-turbo-black text-performance-white overflow-hidden select-none border-t border-b border-white/5"
+      style={{
+        WebkitTransform: "translate3d(0,0,0)",
+        transform: "translate3d(0,0,0)",
+        WebkitBackfaceVisibility: "hidden",
+        backfaceVisibility: "hidden",
+      }}
+      className="relative w-full h-screen min-h-[580px] bg-turbo-black text-performance-white overflow-hidden select-none border-t border-b border-white/5 will-change-transform"
     >
       {/* Dynamic Background Volumetric Glow */}
       <div

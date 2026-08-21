@@ -115,14 +115,14 @@ export const ExperienceSection: React.FC = () => {
     <section
       ref={sectionRef}
       id="garage-intro"
-      className="relative w-full bg-carbon-black text-performance-white pt-24 pb-16 lg:py-0 lg:h-screen lg:flex lg:flex-col lg:justify-between select-none border-t border-b border-white/5 overflow-hidden"
+      className="relative w-full bg-carbon-black text-performance-white py-16 lg:py-8 lg:min-h-screen lg:flex lg:flex-col lg:justify-center select-none border-t border-b border-white/5 overflow-hidden"
     >
       {/* Background Volumetric Glows */}
       <div className="absolute top-0 right-10 w-[500px] h-[500px] rounded-full bg-turbo-orange/10 blur-[150px] pointer-events-none" />
       <div className="absolute bottom-0 left-10 w-[500px] h-[500px] rounded-full bg-racing-red/10 blur-[150px] pointer-events-none" />
 
       {/* Header Container (Compact for seamless vertical alignment) */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-4 lg:pt-24 shrink-0 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-2 lg:pt-4 shrink-0 relative z-10">
         <SectionHeading
           sectorNumber="03"
           tag="PADDOCK BAYS"
@@ -135,12 +135,12 @@ export const ExperienceSection: React.FC = () => {
             </>
           }
           subtitle="Explore the four interactive zones that define The Wheels Turbo Cafe in Coimbatore."
-          className="mb-4 md:mb-6"
+          className="mb-3 md:mb-5"
         />
       </div>
 
       {/* Horizontal Scroll Track (Pinned on Desktop) */}
-      <div className="w-full overflow-x-auto lg:overflow-visible no-scrollbar relative z-10 pb-4 lg:pb-12 shrink-0">
+      <div className="w-full overflow-x-auto lg:overflow-visible no-scrollbar relative z-10 pb-2 lg:pb-6 shrink-0">
         <div
           ref={scrollTrackRef}
           className="flex flex-col lg:flex-row gap-5 px-4 sm:px-6 lg:px-8 lg:w-max items-stretch"
@@ -148,7 +148,7 @@ export const ExperienceSection: React.FC = () => {
           {EXPERIENCES.map((exp) => (
             <div
               key={exp.id}
-              className="w-full lg:w-[410px] shrink-0 bg-garage-black border border-metallic-silver/20 hover:border-racing-red/60 rounded-xl p-4 sm:p-5 relative group transition-all duration-300 shadow-xl flex flex-col justify-between"
+              className="w-full lg:w-[390px] shrink-0 bg-garage-black border border-metallic-silver/20 hover:border-racing-red/60 rounded-xl p-4 sm:p-5 relative group transition-all duration-300 shadow-xl flex flex-col justify-between"
             >
               {/* Corner Calipers */}
               <div className="absolute top-2.5 left-2.5 w-2 h-2 border-t-2 border-l-2 border-racing-red/50 group-hover:border-racing-red transition-colors" />
@@ -156,7 +156,7 @@ export const ExperienceSection: React.FC = () => {
 
               <div>
                 {/* Top Card Race Bay Tag */}
-                <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center justify-between mb-2.5">
                   <span className="text-[10px] font-racing font-black text-velocity-yellow tracking-[0.2em] bg-turbo-black px-2.5 py-0.5 rounded border border-velocity-yellow/30">
                     {exp.code}
                   </span>
@@ -172,7 +172,6 @@ export const ExperienceSection: React.FC = () => {
                     alt={exp.alt}
                     label={exp.placeholderLabel}
                     aspectRatio="16/9"
-                    badgeText={exp.code}
                   />
                 </div>
 
