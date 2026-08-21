@@ -5,8 +5,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ImagePlaceholder } from "../ui/ImagePlaceholder";
 import { SectionHeading } from "../ui/SectionHeading";
-import { MagneticButton } from "../ui/MagneticButton";
-import { Wrench, Shield, Utensils, Award, ArrowRight } from "lucide-react";
 
 interface ExperienceCard {
   id: string;
@@ -77,40 +75,54 @@ export const ExperienceSection: React.FC = () => {
     if (!sectionRef.current || !scrollTrackRef.current) return;
 
     const ctx = gsap.context(() => {
-      // Only do pinned horizontal scroll on desktop (screens >= 1024px)
       const mm = gsap.matchMedia();
 
+      // Pinned horizontal scroll on desktop (screens >= 1024px)
       mm.add("(min-width: 1024px)", () => {
-        const totalWidth = scrollTrackRef.current!.scrollWidth - window.innerWidth + 120;
+        const track = scrollTrackRef.current;
+        const section = sectionRef.current;
+        if (!track || !section) return;
 
-        gsap.to(scrollTrackRef.current, {
-          x: () => -totalWidth,
+        const getDistance = () => track.scrollWidth - window.innerWidth + 100;
+
+        gsap.to(track, {
+          x: () => -getDistance(),
           ease: "none",
           scrollTrigger: {
-            trigger: sectionRef.current,
+            trigger: section,
             start: "top top",
-            end: () => `+=${totalWidth}`,
+            end: () => `+=${Math.max(1200, getDistance() * 1.2)}`,
             pin: true,
-            scrub: 1,
+            scrub: 0.8,
+            anticipatePin: 1,
             invalidateOnRefresh: true,
           },
         });
       });
     }, sectionRef);
 
-    return () => ctx.revert();
+    const timer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 400);
+
+    return () => {
+      clearTimeout(timer);
+      ctx.revert();
+    };
   }, []);
 
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen bg-carbon-black text-performance-white py-24 lg:py-0 lg:flex lg:flex-col lg:justify-center overflow-hidden select-none border-t border-b border-white/5"
+      id="garage-intro"
+      className="relative w-full bg-carbon-black text-performance-white pt-24 pb-16 lg:py-0 lg:h-screen lg:flex lg:flex-col lg:justify-between select-none border-t border-b border-white/5 overflow-hidden"
     >
-      {/* Top Background Atmosphere */}
+      {/* Background Volumetric Glows */}
       <div className="absolute top-0 right-10 w-[500px] h-[500px] rounded-full bg-turbo-orange/10 blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-0 left-10 w-[500px] h-[500px] rounded-full bg-racing-red/10 blur-[150px] pointer-events-none" />
 
-      {/* Header Container */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mb-8 lg:mb-12">
+      {/* Header Container (Compact for seamless vertical alignment) */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-4 lg:pt-24 shrink-0 relative z-10">
         <SectionHeading
           sectorNumber="03"
           tag="PADDOCK BAYS"
@@ -123,57 +135,64 @@ export const ExperienceSection: React.FC = () => {
             </>
           }
           subtitle="Explore the four interactive zones that define The Wheels Turbo Cafe in Coimbatore."
+          className="mb-4 md:mb-6"
         />
       </div>
 
-      {/* Horizontal Scroll Track Container */}
-      <div className="w-full overflow-x-auto lg:overflow-visible no-scrollbar">
+      {/* Horizontal Scroll Track (Pinned on Desktop) */}
+      <div className="w-full overflow-x-auto lg:overflow-visible no-scrollbar relative z-10 pb-4 lg:pb-12 shrink-0">
         <div
           ref={scrollTrackRef}
-          className="flex flex-col lg:flex-row gap-6 px-4 sm:px-6 lg:px-8 lg:w-max pb-8 lg:pb-0"
+          className="flex flex-col lg:flex-row gap-5 px-4 sm:px-6 lg:px-8 lg:w-max items-stretch"
         >
-          {EXPERIENCES.map((exp, idx) => (
+          {EXPERIENCES.map((exp) => (
             <div
               key={exp.id}
-              className="w-full lg:w-[480px] shrink-0 bg-garage-black border border-metallic-silver/20 rounded-2xl p-6 relative group hover:border-racing-red/60 transition-all duration-500 shadow-xl overflow-hidden"
+              className="w-full lg:w-[410px] shrink-0 bg-garage-black border border-metallic-silver/20 hover:border-racing-red/60 rounded-xl p-4 sm:p-5 relative group transition-all duration-300 shadow-xl flex flex-col justify-between"
             >
-              {/* Top Card Race Bay Tag */}
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-[11px] font-racing font-black text-velocity-yellow tracking-[0.25em] bg-turbo-black px-3 py-1 rounded border border-velocity-yellow/30">
-                  {exp.code}
-                </span>
-                <span className="text-[10px] font-mono text-metallic-silver/60 uppercase">
-                  {exp.category}
-                </span>
-              </div>
+              {/* Corner Calipers */}
+              <div className="absolute top-2.5 left-2.5 w-2 h-2 border-t-2 border-l-2 border-racing-red/50 group-hover:border-racing-red transition-colors" />
+              <div className="absolute top-2.5 right-2.5 w-2 h-2 border-t-2 border-r-2 border-racing-red/50 group-hover:border-racing-red transition-colors" />
 
-              {/* Placeholder Visual */}
-              <div className="mb-6 overflow-hidden rounded-xl">
-                <ImagePlaceholder
-                  src={exp.src}
-                  alt={exp.alt}
-                  label={exp.placeholderLabel}
-                  aspectRatio="16/9"
-                  badgeText={exp.code}
-                />
-              </div>
+              <div>
+                {/* Top Card Race Bay Tag */}
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-[10px] font-racing font-black text-velocity-yellow tracking-[0.2em] bg-turbo-black px-2.5 py-0.5 rounded border border-velocity-yellow/30">
+                    {exp.code}
+                  </span>
+                  <span className="text-[10px] font-mono text-metallic-silver/60 uppercase tracking-wider">
+                    {exp.category}
+                  </span>
+                </div>
 
-              {/* Bay Title & Description */}
-              <h3 className="font-display font-black text-2xl uppercase tracking-wider text-performance-white mb-2 group-hover:text-turbo-orange transition-colors">
-                {exp.title}
-              </h3>
-              <p className="font-sans text-xs text-metallic-silver/80 leading-relaxed mb-6">
-                {exp.description}
-              </p>
+                {/* Visual */}
+                <div className="mb-3 overflow-hidden rounded-lg">
+                  <ImagePlaceholder
+                    src={exp.src}
+                    alt={exp.alt}
+                    label={exp.placeholderLabel}
+                    aspectRatio="16/9"
+                    badgeText={exp.code}
+                  />
+                </div>
+
+                {/* Bay Title & Description */}
+                <h3 className="font-display font-black text-lg sm:text-xl uppercase tracking-wider text-performance-white mb-1.5 group-hover:text-turbo-orange transition-colors">
+                  {exp.title}
+                </h3>
+                <p className="font-sans text-[11px] sm:text-xs text-metallic-silver/80 leading-relaxed mb-3 line-clamp-3">
+                  {exp.description}
+                </p>
+              </div>
 
               {/* Features List */}
-              <div className="space-y-2 border-t border-white/10 pt-4">
+              <div className="space-y-1.5 border-t border-white/10 pt-2.5 mt-1">
                 {exp.features.map((feat, fIdx) => (
                   <div
                     key={fIdx}
-                    className="flex items-center gap-2 text-xs font-racing text-metallic-silver"
+                    className="flex items-center gap-2 text-[11px] font-racing text-metallic-silver"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-racing-red" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-racing-red shrink-0" />
                     <span>{feat}</span>
                   </div>
                 ))}
@@ -185,3 +204,6 @@ export const ExperienceSection: React.FC = () => {
     </section>
   );
 };
+
+
+

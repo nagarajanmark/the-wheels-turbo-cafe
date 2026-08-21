@@ -310,7 +310,7 @@ export function AboutClient() {
 
               <div className="pt-2 flex flex-wrap gap-3 font-racing text-xs tracking-wider">
                 <span className="px-3 py-1.5 rounded-lg bg-turbo-black border border-white/15 text-metallic-silver">
-                  📍 AROKIASAMY RD W, RS PURAM
+                  📍 WEST AROKIASAMY RD, RS PURAM (OPP. YAMAHA)
                 </span>
                 <span className="px-3 py-1.5 rounded-lg bg-turbo-black border border-racing-red/30 text-racing-red">
                   🏁 HOTWHEELS & THALA THEMED

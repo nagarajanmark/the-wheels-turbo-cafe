@@ -1,3 +1,10 @@
+export interface ScheduleDay {
+  day: string;
+  shortDay: string;
+  hours: string;
+  isOpen: boolean;
+}
+
 export interface CafeInfo {
   name: string;
   tagline: string;
@@ -17,13 +24,14 @@ export interface CafeInfo {
     days: string;
     hours: string;
     pitstopNote: string;
+    schedule: ScheduleDay[];
   };
 }
 
 export const CAFE_DATA: CafeInfo = {
   name: "THE WHEELS TURBO CAFE",
   tagline: "Where Automotive Passion Meets Unforgettable Flavour",
-  location: "Arokiasamy Road West, R.S. Puram",
+  location: "West Arokiasamy Road, R.S. Puram (Opp. Yamaha Showroom)",
   city: "Coimbatore",
   state: "Tamil Nadu",
   country: "India",
@@ -31,13 +39,23 @@ export const CAFE_DATA: CafeInfo = {
     lat: "11°00'20.4\" N",
     lng: "76°56'45.2\" E",
   },
-  address: "1053, Arokiasamy Rd W, R.S. Puram, Coimbatore, Tamil Nadu 641002, India",
-  phone: "+91 98422 88726",
+  address: "West Arokiasamy Road, R.S. Puram, Coimbatore (Opposite to Yamaha Showroom), Tamil Nadu 641002, India",
+  phone: "+91 81470 12883",
   email: "pitstop@thewheelsturbocafe.com",
   instagram: "@the_wheels_turbo_cafe",
   timing: {
     days: "Monday — Saturday (Sunday Closed)",
-    hours: "11:00 AM — 11:30 PM",
+    hours: "Mon–Fri: 11:00 AM – 11:00 PM | Sat: 11:00 AM – 11:30 PM",
     pitstopNote: "Special Evening Track Hangouts & AK Fan Gatherings",
+    schedule: [
+      { day: "Monday", shortDay: "Mon", hours: "11:00 AM – 11:00 PM", isOpen: true },
+      { day: "Tuesday", shortDay: "Tue", hours: "11:00 AM – 11:00 PM", isOpen: true },
+      { day: "Wednesday", shortDay: "Wed", hours: "11:00 AM – 11:00 PM", isOpen: true },
+      { day: "Thursday", shortDay: "Thu", hours: "11:00 AM – 11:00 PM", isOpen: true },
+      { day: "Friday", shortDay: "Fri", hours: "11:00 AM – 11:00 PM", isOpen: true },
+      { day: "Saturday", shortDay: "Sat", hours: "11:00 AM – 11:30 PM", isOpen: true },
+      { day: "Sunday", shortDay: "Sun", hours: "Closed (Track Maintenance)", isOpen: false },
+    ],
   },
 };
+

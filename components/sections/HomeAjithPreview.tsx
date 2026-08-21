@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { ImagePlaceholder } from "../ui/ImagePlaceholder";
 import { SectionHeading } from "../ui/SectionHeading";
 import { MagneticButton } from "../ui/MagneticButton";
@@ -9,16 +10,17 @@ import { Award, ShieldAlert, Zap, Flag, Trophy } from "lucide-react";
 export const HomeAjithPreview: React.FC = () => {
   return (
     <section className="relative py-28 md:py-40 bg-garage-black text-performance-white overflow-hidden select-none border-t border-b border-white/10">
-      {/* Background Hero Layer with dark motorsport lighting */}
+      {/* Background Hero Layer with motorsport lighting */}
       <div className="absolute inset-0 z-0">
-        <ImagePlaceholder
+        <Image
           src="/images/ajith/thala-ajith-supercar-racing-legacy-coimbatore.jpg"
           alt="Thala Ajith Kumar motorsport tribute at The Wheels Turbo Cafe Coimbatore"
-          label="AJITH KUMAR MOTORSPORT TRIBUTE"
-          aspectRatio="auto"
-          className="w-full h-full rounded-none border-none opacity-20"
+          fill
+          sizes="100vw"
+          quality={88}
+          className="object-cover object-[center_20%] opacity-65"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-turbo-black via-turbo-black/90 to-turbo-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-turbo-black/95 via-turbo-black/75 to-turbo-black/40" />
         <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-racing-red/15 blur-[160px] pointer-events-none" />
       </div>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { MagneticButton } from "@/components/ui/MagneticButton";
@@ -73,17 +74,21 @@ export function AjithKumarClient() {
     <div className="w-full bg-turbo-black text-performance-white select-none">
       {/* 1. HERO SECTION */}
       <section className="relative min-h-[80vh] flex flex-col justify-center pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-carbon-black overflow-hidden border-b border-white/10">
-        {/* Background Image Placeholder */}
+        {/* Background Image Layer */}
         <div className="absolute inset-0 z-0">
-          <ImagePlaceholder
-            src="/images/ajith/thala-ajith-supercar-racing-legacy-coimbatore.jpg"
+          <Image
+            src="/images/ajith/ajithkumarracing.com-track-test-barcelona-akr-tracktest-13-scaled.jpg"
             alt="Thala Ajith Kumar motorsport tribute at The Wheels Turbo Cafe Coimbatore"
-            label="AJITH KUMAR MOTORSPORT HERO TRIBUTE"
-            aspectRatio="auto"
-            className="w-full h-full rounded-none border-none opacity-25"
+            fill
+            priority
+            quality={90}
+            sizes="100vw"
+            className="object-cover object-[center_15%] opacity-85"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-turbo-black via-turbo-black/80 to-transparent" />
-          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-racing-red/20 blur-[170px] pointer-events-none" />
+          {/* Subtle Directional Gradients for Readability without washing out image */}
+          <div className="absolute inset-0 bg-gradient-to-r from-turbo-black/95 via-turbo-black/65 to-turbo-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-turbo-black via-transparent to-turbo-black/40" />
+          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-racing-red/15 blur-[170px] pointer-events-none" />
         </div>
 
         <div className="max-w-7xl mx-auto w-full relative z-10">

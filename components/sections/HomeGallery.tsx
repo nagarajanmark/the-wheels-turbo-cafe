@@ -42,9 +42,9 @@ export const HomeGallery: React.FC = () => {
         />
       </div>
 
-      {/* 2. 3D Parallax Unfurling Gallery Matrix */}
-      <div className="w-full relative my-8">
-        <ThreeDParallaxGallery images={PARALLAX_MATRIX_IMAGES} height="300vh" />
+      {/* 2. 3D Parallax Unfurling Gallery Matrix (Desktop Only to ensure instant mobile speed) */}
+      <div className="w-full relative my-8 hidden md:block">
+        <ThreeDParallaxGallery images={PARALLAX_MATRIX_IMAGES} height="240vh" />
       </div>
 
       {/* 3. Filterable Masonry Vault */}

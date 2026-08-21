@@ -164,7 +164,7 @@ export default function RootLayout({
     ],
     address: {
       "@type": "PostalAddress",
-      streetAddress: "1053, Arokiasamy Rd W, R.S. Puram",
+      streetAddress: "West Arokiasamy Road, R.S. Puram (Opposite Yamaha Showroom)",
       addressLocality: "Coimbatore",
       addressRegion: "Tamil Nadu",
       postalCode: "641002",
@@ -184,8 +184,13 @@ export default function RootLayout({
           "Wednesday",
           "Thursday",
           "Friday",
-          "Saturday",
         ],
+        opens: "11:00",
+        closes: "23:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Saturday"],
         opens: "11:00",
         closes: "23:30",
       },

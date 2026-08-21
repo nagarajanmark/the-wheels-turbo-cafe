@@ -486,23 +486,62 @@ export function ContactClient() {
                   </div>
                 </div>
 
-                {/* Timings */}
+                {/* Day-Wise Track Hours */}
                 <div className="flex items-start gap-3 border-t border-white/10 pt-4">
                   <div className="p-2.5 rounded-lg bg-carbon-black border border-velocity-yellow/40 text-velocity-yellow shrink-0 mt-0.5">
                     <Clock className="w-5 h-5" />
                   </div>
-                  <div>
-                    <span className="font-racing font-bold text-velocity-yellow text-xs tracking-wider uppercase block">
-                      TRACK HOURS
-                    </span>
-                    <p className="text-metallic-silver/90 font-medium">
-                      {CAFE_DATA.timing.days}
-                    </p>
-                    <p className="text-metallic-silver/70 font-mono text-xs">
-                      {CAFE_DATA.timing.hours}
-                    </p>
-                    <span className="text-[10px] text-turbo-orange block mt-1">
-                      {CAFE_DATA.timing.pitstopNote}
+                  <div className="w-full">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="font-racing font-bold text-velocity-yellow text-xs tracking-wider uppercase">
+                        TRACK HOURS // DAY-WISE
+                      </span>
+                      <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-500/15 border border-emerald-500/40 text-emerald-400 text-[10px] font-mono font-bold uppercase">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                        PADDOCK GRID
+                      </span>
+                    </div>
+
+                    {/* Day-by-Day Schedule */}
+                    <div className="space-y-1.5 bg-carbon-black/60 rounded-xl p-3 border border-white/10">
+                      {CAFE_DATA.timing.schedule.map((item) => {
+                        const todayName = new Date().toLocaleDateString("en-US", { weekday: "long" });
+                        const isToday = todayName === item.day;
+                        return (
+                          <div
+                            key={item.day}
+                            className={`flex items-center justify-between text-xs py-1 px-2 rounded transition-colors ${
+                              isToday
+                                ? "bg-racing-red/20 border border-racing-red/50 text-performance-white font-bold"
+                                : "text-metallic-silver/80"
+                            }`}
+                          >
+                            <div className="flex items-center gap-1.5">
+                              <span>{item.day}</span>
+                              {isToday && (
+                                <span className="text-[9px] font-racing text-velocity-yellow bg-turbo-black px-1.5 py-0.5 rounded border border-velocity-yellow/40">
+                                  TODAY
+                                </span>
+                              )}
+                            </div>
+                            <span
+                              className={`font-mono text-[11px] ${
+                                item.isOpen
+                                  ? isToday
+                                    ? "text-emerald-400 font-bold"
+                                    : "text-metallic-silver/90"
+                                  : "text-racing-red font-bold"
+                              }`}
+                            >
+                              {item.hours}
+                            </span>
+                          </div>
+                        );
+                      })}
+                    </div>
+
+                    <span className="text-[10px] text-turbo-orange block mt-2">
+                      ⚡ {CAFE_DATA.timing.pitstopNote}
                     </span>
                   </div>
                 </div>
@@ -555,7 +594,7 @@ export function ContactClient() {
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
               <span className="text-xs font-mono text-metallic-silver/90">
-                SECTOR 07 // AROKIASAMY RD W, RS PURAM, COIMBATORE, TAMIL NADU 641002
+                SECTOR 07 // WEST AROKIASAMY RD (OPP. YAMAHA SHOWROOM), RS PURAM, COIMBATORE, TAMIL NADU 641002
               </span>
             </div>
             <a

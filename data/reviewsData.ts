@@ -35,7 +35,7 @@ export interface GoogleReviewsSummary {
 export const GOOGLE_REVIEWS_SUMMARY: GoogleReviewsSummary = {
   overallRating: 4.7,
   totalReviews: 44,
-  address: "1053, Arokiasamy Rd W, R.S. Puram, Coimbatore, Tamil Nadu 641002, India",
+  address: "West Arokiasamy Road, R.S. Puram, Coimbatore (Opposite to Yamaha Showroom), Tamil Nadu 641002, India",
   ratingBreakdown: [
     { stars: 5, percentage: 86 },
     { stars: 4, percentage: 11 },

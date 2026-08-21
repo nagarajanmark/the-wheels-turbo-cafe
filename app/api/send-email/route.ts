@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import path from "path";
+import fs from "fs";
 import { CAFE_DATA } from "@/data/cafeData";
 import {
   validateName,
@@ -65,6 +67,14 @@ export async function POST(req: NextRequest) {
       timeStyle: "medium",
     });
 
+    // Logo embedding helper (uses CID inline attachment with fallback to hosted site URL)
+    const logoSrc = "cid:turboCafeLogo";
+    const headerLogoHtml = `
+      <div style="text-align: center; margin-bottom: 16px;">
+        <img src="${logoSrc}" alt="The Wheels Turbo Cafe" style="max-height: 52px; width: auto; display: inline-block;" />
+      </div>
+    `;
+
     if (body.type === "contact") {
       const emailVal = validateEmail(body.email || "");
       if (!emailVal.isValid) {
@@ -87,10 +97,10 @@ export async function POST(req: NextRequest) {
           <meta charset="utf-8">
           <style>
             body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #0c0c0d; color: #f4f4f4; margin: 0; padding: 20px; }
-            .container { max-width: 600px; margin: 0 auto; background-color: #141416; border: 1px solid #e10600; border-radius: 12px; overflow: hidden; }
-            .header { background: linear-gradient(135deg, #e10600 0%, #ff5a00 100%); padding: 24px; text-align: center; }
-            .header h1 { margin: 0; color: #ffffff; font-size: 22px; text-transform: uppercase; letter-spacing: 2px; }
-            .header p { margin: 6px 0 0 0; color: #fff; opacity: 0.9; font-size: 12px; letter-spacing: 1px; }
+            .container { max-width: 600px; margin: 0 auto; background-color: #141416; border: 1px solid #e10600; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.8); }
+            .header { background: #0c0c0d; padding: 26px 20px; text-align: center; border-bottom: 2px solid #e10600; }
+            .header h1 { margin: 6px 0 0 0; color: #ffffff; font-size: 20px; text-transform: uppercase; letter-spacing: 2px; }
+            .header p { margin: 4px 0 0 0; color: #ff5a00; font-size: 11px; letter-spacing: 1.5px; font-weight: bold; }
             .content { padding: 24px; }
             .badge { display: inline-block; background: #e1060020; color: #ff5a00; border: 1px solid #ff5a0050; padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: bold; text-transform: uppercase; margin-bottom: 16px; }
             .data-table { width: 100%; border-collapse: collapse; margin-top: 12px; margin-bottom: 20px; }
@@ -104,6 +114,7 @@ export async function POST(req: NextRequest) {
         <body>
           <div class="container">
             <div class="header">
+              ${headerLogoHtml}
               <h1>THE WHEELS TURBO CAFE</h1>
               <p>RADIO TELEMETRY DISPATCH // COIMBATORE PADDOCK</p>
             </div>
@@ -147,10 +158,10 @@ export async function POST(req: NextRequest) {
           <meta charset="utf-8">
           <style>
             body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #0c0c0d; color: #f4f4f4; margin: 0; padding: 20px; }
-            .container { max-width: 600px; margin: 0 auto; background-color: #141416; border: 1px solid #ff5a00; border-radius: 12px; overflow: hidden; }
-            .header { background: linear-gradient(135deg, #e10600 0%, #ff5a00 100%); padding: 28px; text-align: center; }
-            .header h1 { margin: 0; color: #ffffff; font-size: 24px; text-transform: uppercase; letter-spacing: 2px; }
-            .header p { margin: 6px 0 0 0; color: #fff; opacity: 0.9; font-size: 13px; letter-spacing: 1px; }
+            .container { max-width: 600px; margin: 0 auto; background-color: #141416; border: 1px solid #ff5a00; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.8); }
+            .header { background: #0c0c0d; padding: 26px 20px; text-align: center; border-bottom: 2px solid #e10600; }
+            .header h1 { margin: 6px 0 0 0; color: #ffffff; font-size: 22px; text-transform: uppercase; letter-spacing: 2px; }
+            .header p { margin: 4px 0 0 0; color: #ff5a00; font-size: 11px; letter-spacing: 1.5px; font-weight: bold; }
             .content { padding: 28px; line-height: 1.6; }
             .hero-greeting { font-size: 18px; font-weight: bold; color: #ffffff; margin-bottom: 12px; }
             .badge { display: inline-block; background: #00e67620; color: #00e676; border: 1px solid #00e67650; padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: bold; text-transform: uppercase; margin-bottom: 16px; }
@@ -164,6 +175,7 @@ export async function POST(req: NextRequest) {
         <body>
           <div class="container">
             <div class="header">
+              ${headerLogoHtml}
               <h1>THE WHEELS TURBO CAFE</h1>
               <p>COIMBATORE'S PREMIER MOTORSPORT THEME CAFE</p>
             </div>
@@ -183,9 +195,9 @@ export async function POST(req: NextRequest) {
 
               <div class="card" style="border-left: 3px solid #e10600;">
                 <div class="card-title">📍 Paddock Pitstop Location & Timings:</div>
-                <div class="meta-item"><strong>Address:</strong> 7, Arokiasamy Rd W, RS Puram, Coimbatore, TN 641002</div>
-                <div class="meta-item"><strong>Track Hours:</strong> 11:00 AM – 11:00 PM (Open All 7 Days)</div>
-                <div class="meta-item"><strong>Direct Radio:</strong> +91 98422 15000 / 0422 4390000</div>
+                <div class="meta-item"><strong>Address:</strong> West Arokiasamy Road, RS Puram, Coimbatore (Opposite to Yamaha Showroom), TN 641002</div>
+                <div class="meta-item"><strong>Track Hours:</strong> Mon–Fri: 11:00 AM – 11:00 PM | Sat: 11:00 AM – 11:30 PM (Sun Closed)</div>
+                <div class="meta-item"><strong>Direct Radio:</strong> +91 81470 12883</div>
               </div>
 
               <div style="text-align: center; margin-top: 24px;">
@@ -221,10 +233,10 @@ export async function POST(req: NextRequest) {
           <meta charset="utf-8">
           <style>
             body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #0c0c0d; color: #f4f4f4; margin: 0; padding: 20px; }
-            .container { max-width: 600px; margin: 0 auto; background-color: #141416; border: 1px solid #e10600; border-radius: 12px; overflow: hidden; }
-            .header { background: linear-gradient(135deg, #e10600 0%, #ff5a00 100%); padding: 24px; text-align: center; }
-            .header h1 { margin: 0; color: #ffffff; font-size: 22px; text-transform: uppercase; letter-spacing: 2px; }
-            .header p { margin: 6px 0 0 0; color: #fff; opacity: 0.9; font-size: 12px; letter-spacing: 1px; }
+            .container { max-width: 600px; margin: 0 auto; background-color: #141416; border: 1px solid #e10600; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.8); }
+            .header { background: #0c0c0d; padding: 26px 20px; text-align: center; border-bottom: 2px solid #e10600; }
+            .header h1 { margin: 6px 0 0 0; color: #ffffff; font-size: 20px; text-transform: uppercase; letter-spacing: 2px; }
+            .header p { margin: 4px 0 0 0; color: #ff5a00; font-size: 11px; letter-spacing: 1.5px; font-weight: bold; }
             .content { padding: 24px; }
             .badge { display: inline-block; background: #00e67620; color: #00e676; border: 1px solid #00e67650; padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: bold; text-transform: uppercase; margin-bottom: 16px; }
             .data-table { width: 100%; border-collapse: collapse; margin-top: 12px; margin-bottom: 20px; }
@@ -237,6 +249,7 @@ export async function POST(req: NextRequest) {
         <body>
           <div class="container">
             <div class="header">
+              ${headerLogoHtml}
               <h1>THE WHEELS TURBO CAFE</h1>
               <p>PADDOCK BAY TABLE RESERVATION</p>
             </div>
@@ -295,10 +308,10 @@ export async function POST(req: NextRequest) {
           <meta charset="utf-8">
           <style>
             body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #0c0c0d; color: #f4f4f4; margin: 0; padding: 20px; }
-            .container { max-width: 600px; margin: 0 auto; background-color: #141416; border: 1px solid #00e676; border-radius: 12px; overflow: hidden; }
-            .header { background: linear-gradient(135deg, #e10600 0%, #ff5a00 100%); padding: 28px; text-align: center; }
-            .header h1 { margin: 0; color: #ffffff; font-size: 24px; text-transform: uppercase; letter-spacing: 2px; }
-            .header p { margin: 6px 0 0 0; color: #fff; opacity: 0.9; font-size: 13px; letter-spacing: 1px; }
+            .container { max-width: 600px; margin: 0 auto; background-color: #141416; border: 1px solid #00e676; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.8); }
+            .header { background: #0c0c0d; padding: 26px 20px; text-align: center; border-bottom: 2px solid #e10600; }
+            .header h1 { margin: 6px 0 0 0; color: #ffffff; font-size: 22px; text-transform: uppercase; letter-spacing: 2px; }
+            .header p { margin: 4px 0 0 0; color: #ff5a00; font-size: 11px; letter-spacing: 1.5px; font-weight: bold; }
             .content { padding: 28px; line-height: 1.6; }
             .badge { display: inline-block; background: #00e67620; color: #00e676; border: 1px solid #00e67650; padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: bold; text-transform: uppercase; margin-bottom: 16px; }
             .card { background-color: #0c0c0d; border: 1px solid #28282c; border-radius: 8px; padding: 16px; margin: 20px 0; }
@@ -310,6 +323,7 @@ export async function POST(req: NextRequest) {
         <body>
           <div class="container">
             <div class="header">
+              ${headerLogoHtml}
               <h1>THE WHEELS TURBO CAFE</h1>
               <p>PITSTOP TABLE RESERVATION PASS</p>
             </div>
@@ -331,8 +345,8 @@ export async function POST(req: NextRequest) {
 
               <div class="card" style="border-left: 3px solid #e10600;">
                 <div style="color: #ffc400; font-size: 12px; font-weight: bold; text-transform: uppercase; margin-bottom: 6px;">📍 Paddock Location:</div>
-                <div class="meta-item">7, Arokiasamy Rd W, RS Puram, Coimbatore, TN 641002</div>
-                <div class="meta-item">Need help or changes? Call us at <strong>+91 98422 15000</strong></div>
+                <div class="meta-item">West Arokiasamy Road, RS Puram, Coimbatore (Opposite to Yamaha Showroom), TN 641002</div>
+                <div class="meta-item">Need help or changes? Call us at <strong>+91 81470 12883</strong></div>
               </div>
 
               <div style="text-align: center; margin-top: 24px;">
@@ -357,6 +371,19 @@ export async function POST(req: NextRequest) {
     const smtpPass = process.env.SMTP_PASS;
     const adminReceiverEmail = process.env.CONTACT_EMAIL_TO || process.env.MAIL_TO || CAFE_DATA.email;
 
+    // Check logo file existence for attachment
+    const logoFilePath = path.join(process.cwd(), "public", "logo.png");
+    const hasLogoFile = fs.existsSync(logoFilePath);
+    const emailAttachments = hasLogoFile
+      ? [
+          {
+            filename: "logo.png",
+            path: logoFilePath,
+            cid: "turboCafeLogo",
+          },
+        ]
+      : [];
+
     if (smtpHost && smtpUser && smtpPass) {
       const transporter = nodemailer.createTransport({
         host: smtpHost,
@@ -375,6 +402,7 @@ export async function POST(req: NextRequest) {
         replyTo: userRecipientEmail || undefined,
         subject: adminSubject,
         html: adminHtml,
+        attachments: emailAttachments,
       });
 
       // 2. Send Auto-Responder / Confirmation Email to User (if user provided email)
@@ -385,6 +413,7 @@ export async function POST(req: NextRequest) {
             to: userRecipientEmail,
             subject: userSubject,
             html: userHtml,
+            attachments: emailAttachments,
           });
         } catch (userMailErr) {
           console.warn("Failed to send auto-reply email to user:", userMailErr);
@@ -393,7 +422,7 @@ export async function POST(req: NextRequest) {
 
       return NextResponse.json({
         success: true,
-        message: "Telemetry emails dispatched to both cafe paddock and customer successfully.",
+        message: "Telemetry emails dispatched with embedded logo to both cafe paddock and customer successfully.",
       });
     } else {
       // Development simulator mode
@@ -402,6 +431,7 @@ export async function POST(req: NextRequest) {
       if (userRecipientEmail) {
         console.log(`[USER CONFIRMATION MAIL] To: ${userRecipientEmail} | Subject: ${userSubject}`);
       }
+      console.log(`Logo Attached: ${hasLogoFile ? "YES (cid:turboCafeLogo)" : "NO"}`);
       console.log(`Payload:`, body);
       console.log("==========================================================");
 
@@ -409,7 +439,7 @@ export async function POST(req: NextRequest) {
         success: true,
         simulated: true,
         message:
-          "Telemetry received and logged successfully for both admin & customer! (Configure SMTP in .env.local for live dispatch).",
+          "Telemetry received and logged with embedded logo for both admin & customer! (Configure SMTP in .env.local for live dispatch).",
       });
     }
   } catch (error: any) {

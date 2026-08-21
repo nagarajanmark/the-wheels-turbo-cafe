@@ -68,13 +68,15 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
             src={src}
             alt={alt}
             fill={fill}
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 400px"
             priority={priority}
+            loading={priority ? "eager" : "lazy"}
+            quality={82}
             unoptimized={src.startsWith("http")}
             onLoad={() => setIsLoaded(true)}
             onError={() => setHasError(true)}
-            className={`transition-all duration-700 group-hover:scale-105 ${
-              isLoaded ? "opacity-100" : "opacity-80"
+            className={`transition-opacity duration-300 ${
+              isLoaded ? "opacity-100" : "opacity-0"
             } ${objectFit === "contain" ? "object-contain" : "object-cover"} ${objectPosition}`}
           />
           {/* Subtle Ambient Racing Vignette */}

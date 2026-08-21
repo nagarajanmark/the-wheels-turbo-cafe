@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { BrandLogo } from "./BrandLogo";
-import { Flame } from "lucide-react";
+import { Flame, FastForward } from "lucide-react";
 
 interface PreloaderProps {
   onComplete?: () => void;
@@ -11,55 +11,61 @@ interface PreloaderProps {
 
 export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
   const [rpm, setRpm] = useState<number>(0);
-  const [stage, setStage] = useState<"IDLE" | "REV_1" | "REV_2" | "REV_3" | "REDLINE" | "FINISHED">("IDLE");
+  const [stage, setStage] = useState<"IDLE" | "REV" | "REDLINE" | "FINISHED">("IDLE");
   const [isVisible, setIsVisible] = useState<boolean>(true);
 
+  const finishPreloader = useCallback(() => {
+    setRpm(8800);
+    setStage("FINISHED");
+    setIsVisible(false);
+    if (onComplete) onComplete();
+  }, [onComplete]);
+
   useEffect(() => {
-    // Stage 1: Initial Ignition (0000 -> 2500 RPM)
-    const t1 = setTimeout(() => {
-      setRpm(2500);
-      setStage("REV_1");
-    }, 400);
+    const startTime = performance.now();
+    const duration = 1600; // 1.6s smooth tachometer rev to full 8800 RPM
+    let animationFrameId: number;
 
-    // Stage 2: Spooling Turbo (2500 -> 4500 RPM)
-    const t2 = setTimeout(() => {
-      setRpm(4500);
-      setStage("REV_2");
-    }, 900);
+    const animateRpm = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(1, elapsed / duration);
 
-    // Stage 3: Boost Climax (4500 -> 6500 RPM)
-    const t3 = setTimeout(() => {
-      setRpm(6500);
-      setStage("REV_3");
-    }, 1400);
+      // Supercar throttle ramp curve
+      const easeProgress = Math.pow(progress, 1.5);
+      const currentRpm = Math.round(easeProgress * 8800);
 
-    // Stage 4: REDLINE OVERDRIVE
-    const t4 = setTimeout(() => {
-      setRpm(8800);
-      setStage("REDLINE");
-    }, 1900);
+      setRpm(currentRpm);
 
-    // Stage 5: Website Reveal
-    const t5 = setTimeout(() => {
-      setStage("FINISHED");
-      setTimeout(() => {
-        setIsVisible(false);
-        if (onComplete) onComplete();
-      }, 700);
-    }, 2800);
+      if (currentRpm >= 7500) {
+        setStage("REDLINE");
+      } else if (currentRpm > 400) {
+        setStage("REV");
+      }
+
+      if (progress < 1) {
+        animationFrameId = requestAnimationFrame(animateRpm);
+      } else {
+        // Full RPM 8800 achieved! Hold peak redline briefly then reveal website
+        setRpm(8800);
+        setStage("REDLINE");
+        setTimeout(() => {
+          finishPreloader();
+        }, 220);
+      }
+    };
+
+    animationFrameId = requestAnimationFrame(animateRpm);
 
     return () => {
-      clearTimeout(t1);
-      clearTimeout(t2);
-      clearTimeout(t3);
-      clearTimeout(t4);
-      clearTimeout(t5);
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
     };
-  }, [onComplete]);
+  }, [finishPreloader, onComplete]);
 
   if (!isVisible) return null;
 
   const rpmProgress = Math.min(100, (rpm / 8800) * 100);
+
+
 
   return (
     <AnimatePresence>
@@ -69,49 +75,45 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
           initial={{ opacity: 1 }}
           exit={{
             opacity: 0,
-            scale: 1.05,
-            filter: "blur(20px)",
-            transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] },
+            scale: 1.02,
+            transition: { duration: 0.4, ease: "easeOut" },
           }}
           className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-turbo-black overflow-hidden select-none"
         >
           {/* Ambient Red & Orange Radial Glow */}
-          <div className="absolute w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-racing-red/20 via-turbo-orange/15 to-transparent blur-[120px] pointer-events-none animate-pulse" />
+          <div className="absolute w-[450px] h-[450px] sm:w-[600px] sm:h-[600px] rounded-full bg-gradient-to-tr from-racing-red/25 via-turbo-orange/15 to-transparent blur-[80px] pointer-events-none" />
 
           {/* Flash Racing Lines at Redline */}
           {stage === "REDLINE" && (
-            <>
-              <div className="absolute inset-0 bg-racing-red/15 animate-ping pointer-events-none" />
-              <div className="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(255,90,0,0.2)_3px,transparent_4px)] pointer-events-none" />
-            </>
+            <div className="absolute inset-0 bg-racing-red/10 pointer-events-none animate-pulse" />
           )}
 
           {/* Center Brand Identity & RPM Dashboard */}
-          <div className="relative z-10 flex flex-col items-center text-center px-4 max-w-lg w-full">
+          <div className="relative z-10 flex flex-col items-center text-center px-4 max-w-md w-full">
             {/* Logo */}
             <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
+              initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="mb-8"
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="mb-6"
             >
               <BrandLogo size="hero" showTagline={true} isLink={false} />
             </motion.div>
 
             {/* Tachometer Display Box */}
-            <div className="w-full bg-carbon-black/80 border border-metallic-silver/20 rounded-xl p-6 backdrop-blur-md relative overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.8)]">
+            <div className="w-full bg-carbon-black/90 border border-metallic-silver/20 rounded-xl p-5 backdrop-blur-sm relative overflow-hidden shadow-[0_0_30px_rgba(0,0,0,0.8)]">
               {/* Corner Calipers */}
-              <div className="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-racing-red" />
-              <div className="absolute top-2 right-2 w-3 h-3 border-t-2 border-r-2 border-racing-red" />
-              <div className="absolute bottom-2 left-2 w-3 h-3 border-b-2 border-l-2 border-racing-red" />
-              <div className="absolute bottom-2 right-2 w-3 h-3 border-b-2 border-r-2 border-racing-red" />
+              <div className="absolute top-2 left-2 w-2.5 h-2.5 border-t-2 border-l-2 border-racing-red" />
+              <div className="absolute top-2 right-2 w-2.5 h-2.5 border-t-2 border-r-2 border-racing-red" />
+              <div className="absolute bottom-2 left-2 w-2.5 h-2.5 border-b-2 border-l-2 border-racing-red" />
+              <div className="absolute bottom-2 right-2 w-2.5 h-2.5 border-b-2 border-r-2 border-racing-red" />
 
               {/* Digital RPM Counter */}
-              <div className="flex items-baseline justify-center gap-2 mb-4">
+              <div className="flex items-baseline justify-center gap-2 mb-3">
                 <span
-                  className={`font-display text-4xl md:text-5xl font-black tracking-wider transition-colors duration-150 ${
+                  className={`font-display text-4xl sm:text-5xl font-black tracking-wider transition-colors duration-150 ${
                     stage === "REDLINE"
-                      ? "text-racing-red text-glow-red animate-redline"
+                      ? "text-racing-red text-glow-red"
                       : "text-performance-white"
                   }`}
                 >
@@ -123,11 +125,11 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
               </div>
 
               {/* Tachometer Bar Gauge */}
-              <div className="relative w-full h-3.5 bg-garage-black rounded-full overflow-hidden border border-white/10 p-0.5 mb-4">
+              <div className="relative w-full h-3 bg-garage-black rounded-full overflow-hidden border border-white/10 p-0.5 mb-3">
                 <motion.div
                   className="h-full rounded-full bg-gradient-to-r from-velocity-yellow via-turbo-orange to-racing-red"
                   style={{ width: `${rpmProgress}%` }}
-                  transition={{ ease: "easeOut", duration: 0.3 }}
+                  transition={{ ease: "easeOut", duration: 0.15 }}
                 />
               </div>
 
@@ -145,34 +147,30 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
             </div>
 
             {/* Cinematic Action Text */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="mt-8 space-y-1"
-            >
+            <div className="mt-6 space-y-1">
               <h2
-                className={`font-display text-xl md:text-2xl font-black tracking-[0.25em] uppercase transition-all duration-300 ${
+                className={`font-display text-lg sm:text-xl font-black tracking-[0.2em] uppercase transition-all duration-200 ${
                   stage === "REDLINE"
-                    ? "text-transparent bg-clip-text bg-gradient-to-r from-racing-red via-turbo-orange to-velocity-yellow text-glow-red scale-105"
+                    ? "text-transparent bg-clip-text bg-gradient-to-r from-racing-red via-turbo-orange to-velocity-yellow text-glow-red"
                     : "text-performance-white"
                 }`}
               >
                 START YOUR ENGINES.
               </h2>
-              <p className="text-[11px] font-racing tracking-[0.3em] text-metallic-silver/70 uppercase">
+              <p className="text-[10px] font-racing tracking-[0.25em] text-metallic-silver/70 uppercase">
                 COIMBATORE MOTORSPORT PADDOCK CAFE
               </p>
-            </motion.div>
+            </div>
           </div>
 
           {/* Bottom Telemetry Bar */}
-          <div className="absolute bottom-6 inset-x-8 flex justify-between items-center text-[10px] font-mono text-metallic-silver/40 border-t border-white/5 pt-3">
-            <span>SYSTEM: READY // BOOST: MAXIMUM</span>
-            <span>LAT: 11.0168° N | LNG: 76.9558° E</span>
+          <div className="absolute bottom-4 inset-x-6 flex justify-between items-center text-[9px] font-mono text-metallic-silver/40 border-t border-white/5 pt-2">
+            <span>SYSTEM: IGNITION ON // MAX BOOST AT 8800 RPM</span>
+            <span>RS PURAM, COIMBATORE</span>
           </div>
         </motion.div>
       )}
     </AnimatePresence>
   );
 };
+

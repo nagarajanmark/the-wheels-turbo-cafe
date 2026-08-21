@@ -6,14 +6,14 @@ import { CAFE_DATA } from "@/data/cafeData";
 export const metadata: Metadata = {
   title: "Contact & Location | Best Hangout Place & Theme Restaurant in Coimbatore",
   description:
-    "Visit The Wheels Turbo Cafe in RS Puram, Coimbatore — known as a top hangout place and racing theme restaurant created by an ardent racer Ajith fan girl. Get directions, contact phone (+91 98422 88726), track hours (11:00 AM - 11:30 PM), and table reservations.",
+    "Visit The Wheels Turbo Cafe in RS Puram, Coimbatore — known as a top hangout place and racing theme restaurant created by an ardent racer Ajith fan girl. Get directions, contact phone (+91 81470 12883), track hours (11:00 AM - 11:30 PM), and table reservations.",
   alternates: {
     canonical: "https://thewheelsturbocafe.com/contact",
   },
   openGraph: {
     title: "Contact & Location | The Wheels Turbo Cafe Coimbatore",
     description:
-      "Find The Wheels Turbo Cafe on Arokiasamy Road West, RS Puram, Coimbatore. Contact details, maps radar, and track hours.",
+      "Find The Wheels Turbo Cafe on West Arokiasamy Road (Opposite Yamaha Showroom), RS Puram, Coimbatore. Contact details, maps radar, and track hours.",
     url: "https://thewheelsturbocafe.com/contact",
     siteName: "The Wheels Turbo Cafe",
     locale: "en_IN",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Contact & Location | The Wheels Turbo Cafe Coimbatore",
     description:
-      "Find The Wheels Turbo Cafe on Arokiasamy Road West, RS Puram, Coimbatore. Contact details, maps radar, and track hours.",
+      "Find The Wheels Turbo Cafe on West Arokiasamy Road (Opposite Yamaha Showroom), RS Puram, Coimbatore. Contact details, maps radar, and track hours.",
     images: ["/logo.png"],
   },
 };
@@ -50,7 +50,7 @@ export default function ContactPage() {
       email: CAFE_DATA.email,
       address: {
         "@type": "PostalAddress",
-        streetAddress: "1053, Arokiasamy Rd W, R.S. Puram",
+        streetAddress: "West Arokiasamy Road, R.S. Puram (Opposite Yamaha Showroom)",
         addressLocality: "Coimbatore",
         addressRegion: "Tamil Nadu",
         postalCode: "641002",
@@ -70,8 +70,13 @@ export default function ContactPage() {
             "Wednesday",
             "Thursday",
             "Friday",
-            "Saturday",
           ],
+          opens: "11:00",
+          closes: "23:00",
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Saturday"],
           opens: "11:00",
           closes: "23:30",
         },
