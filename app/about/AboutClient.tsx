@@ -127,12 +127,12 @@ export function AboutClient() {
             priority
             quality={95}
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw"
-            className="object-cover object-[center_top] sm:object-[center_12%]"
+            className="object-cover object-[center_top] sm:object-[center_12%] opacity-40 sm:opacity-100"
           />
-          {/* Full dark shadow & gradient overlay on mobile for perfect readability */}
-          <div className="absolute inset-0 bg-carbon-black/85 sm:bg-carbon-black/10" />
-          <div className="absolute inset-0 bg-gradient-to-b from-carbon-black/95 via-carbon-black/85 to-carbon-black sm:hidden" />
-          <div className="absolute inset-0 bg-gradient-to-r from-carbon-black via-carbon-black/90 to-carbon-black/70 sm:hidden" />
+          {/* Mobile gentle shadow & gradient overlay so image is visible while text stays readable */}
+          <div className="absolute inset-0 bg-carbon-black/30 sm:bg-carbon-black/10" />
+          <div className="absolute inset-0 bg-gradient-to-b from-carbon-black/60 via-transparent to-carbon-black sm:hidden" />
+          <div className="absolute inset-0 bg-gradient-to-r from-carbon-black/80 via-carbon-black/40 to-transparent sm:hidden" />
 
           {/* Smooth shadow & edge gradients blending cleanly into dark theme on desktop/laptop */}
           <div className="absolute inset-y-0 left-0 w-24 sm:w-36 lg:w-48 bg-gradient-to-r from-carbon-black to-transparent hidden sm:block" />
@@ -146,25 +146,25 @@ export function AboutClient() {
         <div className="max-w-7xl mx-auto w-full relative z-10">
           {/* Fan Dedication & Story Badge */}
           <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
-            <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-garage-black border border-racing-red/40 text-racing-red text-[10px] sm:text-xs font-racing font-bold tracking-[0.2em] sm:tracking-[0.25em] uppercase">
+            <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-garage-black/90 backdrop-blur-md border border-racing-red/40 text-racing-red text-[10px] sm:text-xs font-racing font-bold tracking-[0.2em] sm:tracking-[0.25em] uppercase shadow-lg">
               <span className="w-2 h-2 rounded-full bg-racing-red animate-ping" />
               FOUNDER STORY // THE WHEELS TURBO CAFE
             </div>
 
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-velocity-yellow/10 border border-velocity-yellow/30 text-velocity-yellow text-[10px] sm:text-[11px] font-racing font-bold tracking-wider uppercase">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-garage-black/90 backdrop-blur-md border border-velocity-yellow/40 text-velocity-yellow text-[10px] sm:text-[11px] font-racing font-bold tracking-wider uppercase shadow-lg">
               <Heart className="w-3 h-3 text-racing-red fill-racing-red" />
               CURATED WITH LOVE BY AN AJITH KUMAR FAN GIRL
             </div>
           </div>
 
-          <h1 className="font-display font-black text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl uppercase tracking-tight text-performance-white leading-tight">
+          <h1 className="font-display font-black text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl uppercase tracking-tight text-performance-white leading-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]">
             BORN FROM <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-racing-red via-turbo-orange to-velocity-yellow text-glow-red">
               PURE PASSION.
             </span>
           </h1>
 
-          <p className="mt-3 sm:mt-5 font-sans text-xs sm:text-sm md:text-base text-metallic-silver/90 max-w-xl leading-relaxed border-l-2 border-racing-red pl-3 sm:pl-4">
+          <p className="mt-3 sm:mt-5 font-sans text-xs sm:text-sm md:text-base text-metallic-silver/95 max-w-xl leading-relaxed border-l-2 border-racing-red pl-3 sm:pl-4 bg-carbon-black/40 sm:bg-transparent backdrop-blur-[2px] sm:backdrop-blur-none rounded-r-lg sm:rounded-none py-1 sm:py-0">
             Founded by ardent motorsport racer and Ajith Kumar fan girl <strong className="text-performance-white">Akilandeshwari Sunder</strong>, The Wheels Turbo Cafe was built to give Coimbatore an authentic motorsport sanctuary where high-octane racing spirit meets handcrafted flavours.
           </p>
         </div>
@@ -218,7 +218,7 @@ export function AboutClient() {
                 label="FOUNDER & AJITH TRIBUTE"
                 aspectRatio="3/4"
                 objectPosition="object-top"
-                badgeText="THALA TRIBUTE"
+                badgeText="FOUNDER"
                 className="w-full h-full shadow-xl"
               />
               <div className="p-4 sm:p-6 rounded-xl bg-garage-black border border-racing-red/40 flex flex-col justify-center text-center h-full relative overflow-hidden shadow-xl">
