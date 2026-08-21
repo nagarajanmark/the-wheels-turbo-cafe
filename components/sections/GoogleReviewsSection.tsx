@@ -4,13 +4,10 @@ import React, { useState } from "react";
 import { GOOGLE_REVIEWS, GOOGLE_REVIEWS_SUMMARY, GoogleReview } from "@/data/reviewsData";
 import {
   Star,
-  ThumbsUp,
   CheckCircle,
   ExternalLink,
   Sparkles,
-  Award,
   Heart,
-  MessageCircle,
   ShieldCheck,
   Play,
   Pause,
@@ -40,17 +37,17 @@ const GoogleIcon: React.FC<{ className?: string }> = ({ className = "w-5 h-5" })
 );
 
 const ReviewCard: React.FC<{ rev: GoogleReview }> = ({ rev }) => (
-  <div className="w-[320px] sm:w-[380px] shrink-0 relative bg-garage-black border border-metallic-silver/20 hover:border-racing-red/80 rounded-2xl p-5 sm:p-6 transition-all duration-300 group shadow-xl flex flex-col justify-between select-none">
+  <div className="w-[280px] xs:w-[320px] sm:w-[350px] xl:w-[380px] shrink-0 relative bg-garage-black border border-metallic-silver/20 hover:border-racing-red/80 rounded-2xl p-4 sm:p-5 xl:p-6 transition-all duration-300 group shadow-xl flex flex-col justify-between select-none">
     {/* Top Corner Google 'G' watermark */}
-    <div className="absolute top-4 right-4 opacity-40 group-hover:opacity-100 transition-opacity">
-      <GoogleIcon className="w-4 h-4" />
+    <div className="absolute top-3 sm:top-4 right-3 sm:right-4 opacity-40 group-hover:opacity-100 transition-opacity">
+      <GoogleIcon className="w-3.5 sm:w-4 h-3.5 sm:h-4" />
     </div>
 
     <div>
       {/* Reviewer Header */}
-      <div className="flex items-center gap-3 mb-3">
+      <div className="flex items-center gap-2.5 sm:gap-3 mb-2.5 sm:mb-3">
         <div
-          className={`w-10 h-10 rounded-full bg-gradient-to-tr ${rev.avatarColor} text-white font-racing font-bold text-xs flex items-center justify-center shadow-lg shrink-0 border border-white/20`}
+          className={`w-9 sm:w-10 h-9 sm:h-10 rounded-full bg-gradient-to-tr ${rev.avatarColor} text-white font-racing font-bold text-xs flex items-center justify-center shadow-lg shrink-0 border border-white/20`}
         >
           {rev.avatarText}
         </div>
@@ -59,35 +56,35 @@ const ReviewCard: React.FC<{ rev: GoogleReview }> = ({ rev }) => (
           <h4 className="font-display font-bold text-xs sm:text-sm text-performance-white uppercase tracking-wider group-hover:text-velocity-yellow transition-colors line-clamp-1">
             {rev.author}
           </h4>
-          <p className="text-[10px] font-sans text-metallic-silver/70 line-clamp-1">
+          <p className="text-[9.5px] sm:text-[10px] font-sans text-metallic-silver/70 line-clamp-1">
             {rev.role}
           </p>
         </div>
       </div>
 
       {/* Star Rating & Time */}
-      <div className="flex items-center justify-between mb-3 border-b border-white/5 pb-2.5">
+      <div className="flex items-center justify-between mb-2.5 sm:mb-3 border-b border-white/5 pb-2">
         <div className="flex items-center gap-0.5">
           {[...Array(rev.rating)].map((_, i) => (
             <Star
               key={i}
-              className="w-3.5 h-3.5 fill-amber-400 text-amber-400 drop-shadow-[0_0_4px_rgba(251,191,36,0.5)]"
+              className="w-3 sm:w-3.5 h-3 sm:h-3.5 fill-amber-400 text-amber-400 drop-shadow-[0_0_4px_rgba(251,191,36,0.5)]"
             />
           ))}
         </div>
-        <span className="text-[10px] font-mono text-metallic-silver/60">
+        <span className="text-[9px] sm:text-[10px] font-mono text-metallic-silver/60">
           {rev.timeAgo}
         </span>
       </div>
 
       {/* Review Text */}
-      <p className="font-sans text-xs text-metallic-silver/90 leading-relaxed mb-4 line-clamp-4">
+      <p className="font-sans text-[11px] sm:text-xs text-metallic-silver/90 leading-relaxed mb-3 sm:mb-4 line-clamp-4">
         &ldquo;{rev.content}&rdquo;
       </p>
 
       {/* Sub-Ratings Tag if available */}
       {rev.ratingsBreakdown && (
-        <div className="flex items-center gap-2 mb-3 text-[10px] font-mono text-metallic-silver/70 bg-turbo-black/60 px-2.5 py-1 rounded border border-white/5">
+        <div className="flex items-center gap-2 mb-2.5 sm:mb-3 text-[9.5px] sm:text-[10px] font-mono text-metallic-silver/70 bg-turbo-black/60 px-2.5 py-1 rounded border border-white/5">
           <span>Food: <strong className="text-emerald-400 font-racing">5/5</strong></span>
           <span>•</span>
           <span>Service: <strong className="text-emerald-400 font-racing">5/5</strong></span>
@@ -98,10 +95,10 @@ const ReviewCard: React.FC<{ rev: GoogleReview }> = ({ rev }) => (
     </div>
 
     {/* Bottom Section: Highlights & Owner Response */}
-    <div className="space-y-2.5 pt-2">
+    <div className="space-y-2 pt-1.5 sm:pt-2">
       {/* Highlighted Dish */}
       {rev.highlightDish && (
-        <div className="flex items-center gap-1.5 text-[10px] font-racing text-velocity-yellow">
+        <div className="flex items-center gap-1.5 text-[9.5px] sm:text-[10px] font-racing text-velocity-yellow">
           <Sparkles className="w-3 h-3 text-velocity-yellow shrink-0" />
           <span className="uppercase tracking-wider line-clamp-1">
             HIGHLIGHT: {rev.highlightDish}
@@ -111,24 +108,24 @@ const ReviewCard: React.FC<{ rev: GoogleReview }> = ({ rev }) => (
 
       {/* Owner Response Box */}
       {rev.ownerResponse && (
-        <div className="p-2.5 rounded-xl bg-turbo-black/95 border border-racing-red/30 space-y-0.5">
-          <div className="flex items-center justify-between text-[10px] font-racing">
+        <div className="p-2 sm:p-2.5 rounded-xl bg-turbo-black/95 border border-racing-red/30 space-y-0.5">
+          <div className="flex items-center justify-between text-[9px] sm:text-[10px] font-racing">
             <span className="text-racing-red flex items-center gap-1 font-bold">
               <ShieldCheck className="w-3 h-3 text-racing-red" />
               THE WHEELS TURBO CAFE (OWNER)
             </span>
-            <span className="text-[9px] font-mono text-metallic-silver/50">
+            <span className="text-[8.5px] sm:text-[9px] font-mono text-metallic-silver/50">
               {rev.ownerResponse.timeAgo}
             </span>
           </div>
-          <p className="text-[11px] font-sans text-metallic-silver/90 italic line-clamp-2">
+          <p className="text-[10px] sm:text-[11px] font-sans text-metallic-silver/90 italic line-clamp-2">
             &ldquo;{rev.ownerResponse.text}&rdquo;
           </p>
         </div>
       )}
 
       {/* Bottom Card Footer */}
-      <div className="border-t border-white/10 pt-2 flex items-center justify-between text-[10px] font-mono text-metallic-silver/60">
+      <div className="border-t border-white/10 pt-2 flex items-center justify-between text-[9.5px] sm:text-[10px] font-mono text-metallic-silver/60">
         <span className="inline-flex items-center gap-1 text-emerald-400">
           <CheckCircle className="w-3 h-3" />
           Google Verified
@@ -154,32 +151,31 @@ export const GoogleReviewsSection: React.FC = () => {
   const track2Reviews = [...GOOGLE_REVIEWS.slice(half), ...GOOGLE_REVIEWS.slice(half)];
 
   return (
-    <section className="relative py-20 overflow-hidden select-none">
+    <section className="relative py-16 sm:py-20 overflow-hidden select-none">
       {/* Background Ambient Glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-racing-red/10 blur-[180px] pointer-events-none" />
 
       {/* Header Container */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 sm:mb-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-garage-black border border-velocity-yellow/40 text-velocity-yellow text-xs font-racing font-bold tracking-[0.2em] uppercase mb-4 shadow-[0_0_15px_rgba(255,196,0,0.2)]">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-garage-black border border-velocity-yellow/40 text-velocity-yellow text-xs font-racing font-bold tracking-[0.2em] uppercase mb-3 sm:mb-4 shadow-[0_0_15px_rgba(255,196,0,0.2)]">
               <GoogleIcon className="w-4 h-4 shrink-0" />
               <span>LIVE GOOGLE REVIEWS TELEMETRY</span>
             </div>
 
-            <h2 className="font-display font-black text-3xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-performance-white leading-none">
+            <h2 className="font-display font-black text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl uppercase tracking-tight text-performance-white leading-none">
               WHAT OUR <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-velocity-yellow via-turbo-orange to-racing-red">
                 GUESTS SAY.
               </span>
             </h2>
-          
           </div>
 
           {/* Rating Score Summary Widget */}
-          <div className="p-5 rounded-2xl bg-garage-black border border-white/15 shadow-2xl flex items-center gap-6 shrink-0">
-            <div className="text-center border-r border-white/10 pr-6">
-              <div className="font-display font-black text-4xl text-velocity-yellow">
+          <div className="p-4 sm:p-5 rounded-2xl bg-garage-black border border-white/15 shadow-2xl flex items-center gap-4 sm:gap-6 shrink-0">
+            <div className="text-center border-r border-white/10 pr-4 sm:pr-6">
+              <div className="font-display font-black text-3xl sm:text-4xl text-velocity-yellow">
                 {GOOGLE_REVIEWS_SUMMARY.overallRating}
               </div>
               <div className="flex items-center gap-0.5 my-1 text-amber-400">

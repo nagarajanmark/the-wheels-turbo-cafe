@@ -20,9 +20,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/logo.png",
-        width: 1774,
-        height: 887,
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        type: "image/jpeg",
         alt: "The Wheels Turbo Cafe Location in Coimbatore",
       },
     ],
@@ -32,7 +33,14 @@ export const metadata: Metadata = {
     title: "Contact & Location | The Wheels Turbo Cafe Coimbatore",
     description:
       "Find The Wheels Turbo Cafe on West Arokiasamy Road (Opposite Yamaha Showroom), RS Puram, Coimbatore. Contact details, maps radar, and track hours.",
-    images: ["/logo.png"],
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "The Wheels Turbo Cafe Location in Coimbatore",
+      },
+    ],
   },
 };
 

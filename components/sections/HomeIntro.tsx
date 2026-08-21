@@ -4,8 +4,7 @@ import React from "react";
 import { ImagePlaceholder } from "../ui/ImagePlaceholder";
 import { SectionHeading } from "../ui/SectionHeading";
 import { MagneticButton } from "../ui/MagneticButton";
-import { Gauge, Flame, Wrench, Shield, CheckCircle2 } from "lucide-react";
-import { motion } from "framer-motion";
+import { Flame, CheckCircle2 } from "lucide-react";
 
 export const HomeIntro: React.FC = () => {
   return (
@@ -30,21 +29,21 @@ export const HomeIntro: React.FC = () => {
         />
 
         {/* Editorial Split Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center">
           {/* Left Column: Story & High-Tech Features */}
-          <div className="lg:col-span-6 space-y-8">
-            <div className="p-6 md:p-8 rounded-2xl bg-carbon-black border border-metallic-silver/20 backdrop-blur-md relative overflow-hidden">
+          <div className="lg:col-span-6 space-y-6 lg:space-y-8">
+            <div className="p-5 sm:p-7 md:p-8 rounded-2xl bg-carbon-black border border-metallic-silver/20 backdrop-blur-md relative overflow-hidden">
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-racing-red to-turbo-orange" />
               
-              <h3 className="font-display font-black text-2xl uppercase tracking-wider text-performance-white mb-4">
+              <h3 className="font-display font-black text-xl sm:text-2xl uppercase tracking-wider text-performance-white mb-3 sm:mb-4">
                 THE PADDOCK CULTURE
               </h3>
               
-              <p className="font-sans text-sm md:text-base text-metallic-silver/80 leading-relaxed mb-6">
+              <p className="font-sans text-xs sm:text-sm md:text-base text-metallic-silver/80 leading-relaxed mb-5 sm:mb-6">
                 We didn&apos;t build a typical cafe with generic tables. We engineered an immersive racing theme restaurant and unique cafe in Coimbatore. Custom-fabricated brake rotor tables, race-spec bucket seating, authentic helmet galleries, and turbocharger sculptures bring the paddock straight to your dining experience.
               </p>
 
-              <div className="grid grid-cols-2 gap-4 border-t border-white/10 pt-6 font-racing text-xs tracking-wider">
+              <div className="grid grid-cols-1 xs:grid-cols-2 gap-3 sm:gap-4 border-t border-white/10 pt-5 sm:pt-6 font-racing text-[11px] sm:text-xs tracking-wider">
                 <div className="flex items-center gap-2 text-metallic-silver">
                   <CheckCircle2 className="w-4 h-4 text-racing-red shrink-0" />
                   <span>KARI SPEEDWAY PROXIMITY</span>
@@ -89,15 +88,15 @@ export const HomeIntro: React.FC = () => {
               />
 
               {/* Floating Telemetry Metric Card */}
-              <div className="absolute -bottom-6 -left-6 sm:bottom-4 sm:left-4 z-20 p-4 rounded-xl bg-turbo-black/90 border border-racing-red/40 backdrop-blur-xl shadow-2xl max-w-[220px]">
-                <div className="flex items-center gap-2 text-[10px] font-racing font-bold text-velocity-yellow uppercase mb-1">
+              <div className="absolute -bottom-4 -left-4 sm:bottom-4 sm:left-4 z-20 p-3 sm:p-4 rounded-xl bg-turbo-black/90 border border-racing-red/40 backdrop-blur-xl shadow-2xl max-w-[200px] sm:max-w-[220px]">
+                <div className="flex items-center gap-1.5 text-[9px] sm:text-[10px] font-racing font-bold text-velocity-yellow uppercase mb-0.5 sm:mb-1">
                   <Flame className="w-3.5 h-3.5 text-racing-red" />
                   MOTORSPORT DNA
                 </div>
-                <div className="font-display font-black text-xl text-performance-white">
+                <div className="font-display font-black text-lg sm:text-xl text-performance-white">
                   100% PASSION
                 </div>
-                <p className="text-[10px] text-metallic-silver/70 font-sans mt-0.5">
+                <p className="text-[9.5px] sm:text-[10px] text-metallic-silver/70 font-sans mt-0.5">
                   Inspired by circuit racing and Thala Ajith&apos;s relentless spirit.
                 </p>
               </div>

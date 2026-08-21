@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useMemo, useEffect } from "react";
+import Image from "next/image";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { MagneticButton } from "@/components/ui/MagneticButton";
@@ -174,39 +175,53 @@ export function MenuClient() {
   return (
     <div className="w-full bg-turbo-black text-performance-white select-none min-h-screen">
       {/* 1. HERO SECTION */}
-      <section className="relative min-h-[55vh] flex flex-col justify-center pt-32 pb-16 px-4 sm:px-6 lg:px-8 bg-carbon-black overflow-hidden border-b border-white/10">
-        <div className="absolute inset-0 bg-carbon-pattern opacity-50" />
-        <div className="absolute top-1/2 left-1/3 w-[500px] h-[500px] rounded-full bg-turbo-orange/15 blur-[160px] pointer-events-none" />
+      <section className="relative min-h-[60vh] sm:min-h-[65vh] flex flex-col justify-center pt-32 pb-16 px-4 sm:px-6 lg:px-8 bg-carbon-black overflow-hidden border-b border-white/10">
+        {/* Background Image Layer */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/menu/juicy-crispy-chicken-wrap-coimbatore.jpg"
+            alt="Juicy crispy chicken wrap and authentic menu dishes at The Wheels Turbo Cafe Coimbatore"
+            fill
+            priority
+            quality={90}
+            sizes="100vw"
+            className="object-cover object-[center_45%] opacity-80"
+          />
+          {/* Subtle Directional Gradients for Readability without washing out image */}
+          <div className="absolute inset-0 bg-gradient-to-r from-turbo-black/95 via-turbo-black/75 to-turbo-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-turbo-black via-transparent to-turbo-black/40" />
+          <div className="absolute top-1/2 left-1/3 w-[500px] h-[500px] rounded-full bg-turbo-orange/15 blur-[160px] pointer-events-none" />
+        </div>
 
         <div className="max-w-7xl mx-auto w-full relative z-10">
           {/* Fan Dedication & Cafe Badge */}
-          <div className="flex flex-wrap items-center gap-3 mb-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-garage-black border border-racing-red/40 text-racing-red text-xs font-racing font-bold tracking-[0.25em] uppercase">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+            <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-garage-black border border-racing-red/40 text-racing-red text-[10px] sm:text-xs font-racing font-bold tracking-[0.2em] sm:tracking-[0.25em] uppercase">
               <span className="w-2 h-2 rounded-full bg-racing-red animate-ping" />
               AUTHENTIC FOOD & DRINKS MENU // COIMBATORE
             </div>
 
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-velocity-yellow/10 border border-velocity-yellow/30 text-velocity-yellow text-[11px] font-racing font-bold tracking-wider uppercase">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-velocity-yellow/10 border border-velocity-yellow/30 text-velocity-yellow text-[10px] sm:text-[11px] font-racing font-bold tracking-wider uppercase">
               <Heart className="w-3 h-3 text-racing-red fill-racing-red" />
               CURATED WITH LOVE BY AN AJITH KUMAR FAN GIRL
             </div>
           </div>
 
-          <h1 className="font-display font-black text-5xl sm:text-7xl lg:text-8xl uppercase tracking-tight text-performance-white leading-none">
+          <h1 className="font-display font-black text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl uppercase tracking-tight text-performance-white leading-tight">
             FUEL FOR <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-racing-red via-turbo-orange to-velocity-yellow text-glow-red">
               THE JOURNEY.
             </span>
           </h1>
 
-          <p className="mt-6 font-sans text-base sm:text-xl text-metallic-silver/90 max-w-2xl leading-relaxed border-l-2 border-racing-red pl-4">
+          <p className="mt-3 sm:mt-5 font-sans text-xs sm:text-sm md:text-base text-metallic-silver/90 max-w-xl leading-relaxed border-l-2 border-racing-red pl-3 sm:pl-4">
             A high-octane culinary tribute in Coimbatore. Explore all {MENU_ITEMS.length} dishes, coolers, and desserts fresh from our turbo kitchen.
           </p>
         </div>
       </section>
 
       {/* 2. PIT STOP PICKS (VIP Items) */}
-      <section className="relative py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <section className="relative py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <SectionHeading
           sectorNumber="01"
           tag="CHEF SIGNATURES"
@@ -222,15 +237,15 @@ export function MenuClient() {
           highlightGold={true}
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {featuredPicks.slice(0, 6).map((item) => (
             <div
               key={item.id}
-              className="relative bg-garage-black border-2 border-velocity-yellow/40 hover:border-velocity-yellow rounded-2xl p-5 sm:p-6 transition-all duration-500 group shadow-[0_0_35px_rgba(255,196,0,0.12)] flex flex-col justify-between"
+              className="relative bg-garage-black border-2 border-velocity-yellow/40 hover:border-velocity-yellow rounded-2xl p-4 sm:p-5 xl:p-6 transition-all duration-500 group shadow-[0_0_35px_rgba(255,196,0,0.12)] flex flex-col justify-between"
             >
               <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="font-racing font-black text-xs tracking-widest text-velocity-yellow bg-turbo-black px-2.5 py-1 rounded border border-velocity-yellow/30">
+                <div className="flex items-center justify-between mb-3 sm:mb-4">
+                  <span className="font-racing font-black text-xs tracking-widest text-velocity-yellow bg-turbo-black px-2.5 py-0.5 sm:py-1 rounded border border-velocity-yellow/30">
                     {item.raceNo}
                   </span>
                   <span className="text-[10px] font-racing font-bold text-turbo-orange uppercase flex items-center gap-1">
@@ -822,7 +837,7 @@ export function MenuClient() {
           </div>
         ) : (
           <>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 xl:gap-8">
               <AnimatePresence mode="popLayout">
                 {paginatedItems.map((item) => (
                   <motion.div
@@ -832,22 +847,22 @@ export function MenuClient() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.25 }}
-                    className="bg-garage-black border border-metallic-silver/20 hover:border-racing-red/80 rounded-2xl p-5 sm:p-6 group transition-all duration-500 shadow-xl flex flex-col justify-between relative overflow-hidden"
+                    className="bg-garage-black border border-metallic-silver/20 hover:border-racing-red/80 rounded-2xl p-4 sm:p-5 xl:p-6 group transition-all duration-500 shadow-xl flex flex-col justify-between relative overflow-hidden"
                   >
                     {/* Racing Line on hover */}
                     <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-racing-red to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
 
                     <div>
-                      <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-center justify-between mb-2.5 sm:mb-3">
                         <span className="font-racing font-black text-xs tracking-widest text-turbo-orange">
                           {item.raceNo}
                         </span>
-                        <span className="text-[10px] font-mono text-velocity-yellow px-2 py-0.5 rounded bg-turbo-black border border-velocity-yellow/30 uppercase">
+                        <span className="text-[9px] sm:text-[10px] font-mono text-velocity-yellow px-2 py-0.5 rounded bg-turbo-black border border-velocity-yellow/30 uppercase">
                           {item.octaneRating}
                         </span>
                       </div>
 
-                      <div className="mb-4 overflow-hidden rounded-xl">
+                      <div className="mb-3 sm:mb-4 overflow-hidden rounded-xl">
                         <ImagePlaceholder
                           src={item.imageSrc}
                           alt={`${item.name} - Best ${item.category} in Coimbatore | The Wheels Turbo Cafe RS Puram`}
@@ -857,26 +872,26 @@ export function MenuClient() {
                         />
                       </div>
 
-                      <div className="flex items-baseline justify-between gap-2 mb-2">
-                        <h3 className="font-display font-black text-lg uppercase tracking-wider text-performance-white group-hover:text-turbo-orange transition-colors">
+                      <div className="flex items-baseline justify-between gap-2 mb-1.5 sm:mb-2">
+                        <h3 className="font-display font-black text-base sm:text-lg uppercase tracking-wider text-performance-white group-hover:text-turbo-orange transition-colors">
                           {item.name}
                         </h3>
-                        <span className="font-racing font-black text-xl text-velocity-yellow shrink-0">
+                        <span className="font-racing font-black text-lg sm:text-xl text-velocity-yellow shrink-0">
                           ₹{item.price}
                         </span>
                       </div>
 
-                      <p className="font-sans text-xs text-metallic-silver/80 leading-relaxed mb-4">
+                      <p className="font-sans text-[11px] sm:text-xs text-metallic-silver/80 leading-relaxed mb-3 sm:mb-4">
                         {item.description}
                       </p>
 
                       {item.variants && (
-                        <div className="flex flex-wrap items-center gap-1.5 mb-4 bg-turbo-black/70 p-2 rounded-lg border border-white/5">
-                          <span className="text-[10px] font-racing text-metallic-silver/60 uppercase">OPTIONS:</span>
+                        <div className="flex flex-wrap items-center gap-1.5 mb-3 sm:mb-4 bg-turbo-black/70 p-2 rounded-lg border border-white/5">
+                          <span className="text-[9.5px] sm:text-[10px] font-racing text-metallic-silver/60 uppercase">OPTIONS:</span>
                           {item.variants.map((v) => (
                             <span
                               key={v.label}
-                              className="text-[10px] font-mono px-2 py-0.5 rounded bg-garage-black border border-white/10 text-metallic-silver"
+                              className="text-[9.5px] sm:text-[10px] font-mono px-2 py-0.5 rounded bg-garage-black border border-white/10 text-metallic-silver"
                             >
                               {v.label}: <strong className="text-velocity-yellow font-racing">₹{v.price}</strong>
                             </span>
@@ -886,10 +901,10 @@ export function MenuClient() {
                     </div>
 
                     {/* Card Telemetry Footer */}
-                    <div className="border-t border-white/10 pt-4 flex items-center justify-between mt-2">
+                    <div className="border-t border-white/10 pt-3 sm:pt-4 flex items-center justify-between mt-2">
                       <div className="flex items-center gap-2">
                         <span
-                          className={`inline-flex items-center gap-1.5 text-[10px] font-racing font-bold px-2.5 py-1 rounded border ${
+                          className={`inline-flex items-center gap-1.5 text-[9.5px] sm:text-[10px] font-racing font-bold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded border ${
                             item.dietary === "VEG"
                               ? "text-emerald-400 border-emerald-500/30 bg-emerald-950/40"
                               : item.dietary === "NON-VEG"
@@ -910,7 +925,7 @@ export function MenuClient() {
                         </span>
                       </div>
 
-                      <div className="text-[11px] font-racing font-bold tracking-wider text-metallic-silver/80 group-hover:text-turbo-orange transition-colors uppercase flex items-center gap-1.5">
+                      <div className="text-[10px] sm:text-[11px] font-racing font-bold tracking-wider text-metallic-silver/80 group-hover:text-turbo-orange transition-colors uppercase flex items-center gap-1.5">
                         <span>{item.category}</span>
                         <Flame className="w-3.5 h-3.5 text-racing-red group-hover:text-turbo-orange transition-colors" />
                       </div>

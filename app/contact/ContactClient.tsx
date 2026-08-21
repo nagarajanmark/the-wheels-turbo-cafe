@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { MagneticButton } from "@/components/ui/MagneticButton";
@@ -167,56 +168,70 @@ export function ContactClient() {
   return (
     <div className="w-full bg-turbo-black text-performance-white select-none min-h-screen">
       {/* 1. HERO SECTION */}
-      <section className="relative min-h-[60vh] flex flex-col justify-center pt-32 pb-16 px-4 sm:px-6 lg:px-8 bg-carbon-black overflow-hidden border-b border-white/10">
-        <div className="absolute inset-0 bg-carbon-pattern opacity-50" />
-        <div className="absolute top-1/2 right-1/4 w-[500px] h-[500px] rounded-full bg-racing-red/15 blur-[160px] pointer-events-none" />
+      <section className="relative min-h-[60vh] sm:min-h-[65vh] flex flex-col justify-center pt-32 pb-16 px-4 sm:px-6 lg:px-8 bg-carbon-black overflow-hidden border-b border-white/10">
+        {/* Background Image Layer */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/gallery/coimbatore-motorsport-cafe-indoor-dining-ambience.jpg"
+            alt="The Wheels Turbo Cafe RS Puram Coimbatore Paddock Location & Dining Atmosphere"
+            fill
+            priority
+            quality={90}
+            sizes="100vw"
+            className="object-cover object-[center_35%] opacity-80"
+          />
+          {/* Subtle Directional Gradients for Readability without washing out image */}
+          <div className="absolute inset-0 bg-gradient-to-r from-turbo-black/95 via-turbo-black/75 to-turbo-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-turbo-black via-transparent to-turbo-black/40" />
+          <div className="absolute top-1/2 right-1/4 w-[500px] h-[500px] rounded-full bg-racing-red/15 blur-[160px] pointer-events-none" />
+        </div>
 
         <div className="max-w-7xl mx-auto w-full relative z-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-garage-black border border-racing-red/40 text-racing-red text-xs font-racing font-bold tracking-[0.25em] uppercase mb-6">
+          <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-garage-black border border-racing-red/40 text-racing-red text-[10px] sm:text-xs font-racing font-bold tracking-[0.2em] sm:tracking-[0.25em] uppercase mb-4 sm:mb-6">
             <Radio className="w-4 h-4 text-turbo-orange animate-pulse" />
             PADDOCK COMMS FREQUENCY // 108.4 MHZ
           </div>
 
-          <h1 className="font-display font-black text-5xl sm:text-7xl lg:text-8xl uppercase tracking-tight text-performance-white leading-none">
+          <h1 className="font-display font-black text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl uppercase tracking-tight text-performance-white leading-tight">
             YOUR NEXT <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-racing-red via-turbo-orange to-velocity-yellow text-glow-red">
               PIT STOP.
             </span>
           </h1>
 
-          <p className="mt-6 font-sans text-base sm:text-xl text-metallic-silver/90 max-w-2xl leading-relaxed border-l-2 border-turbo-orange pl-4">
+          <p className="mt-3 sm:mt-5 font-sans text-xs sm:text-sm md:text-base text-metallic-silver/90 max-w-xl leading-relaxed border-l-2 border-turbo-orange pl-3 sm:pl-4">
             Connect with our paddock crew in RS Puram, Coimbatore for table reservations, car club meetups, or track-day catering.
           </p>
         </div>
       </section>
 
       {/* 2. MAIN COMMS PANEL & DETAILS */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
+      <section className="relative py-14 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-10 sm:space-y-12">
         {/* Top Row: Contact Form (Left) & Contact Details (Right) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
           {/* Left Column: Motorsport Communication Panel (Contact Form) */}
           <div className="lg:col-span-7">
-            <div className="relative bg-garage-black border-2 border-metallic-silver/20 rounded-2xl p-6 sm:p-10 shadow-[0_0_50px_rgba(0,0,0,0.8)] overflow-hidden h-full">
+            <div className="relative bg-garage-black border-2 border-metallic-silver/20 rounded-2xl p-5 sm:p-8 xl:p-10 shadow-[0_0_50px_rgba(0,0,0,0.8)] overflow-hidden h-full">
               {/* Corner Calipers */}
-              <div className="absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-racing-red" />
-              <div className="absolute top-3 right-3 w-4 h-4 border-t-2 border-r-2 border-racing-red" />
-              <div className="absolute bottom-3 left-3 w-4 h-4 border-b-2 border-l-2 border-racing-red" />
-              <div className="absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 border-racing-red" />
+              <div className="absolute top-3 left-3 w-3.5 h-3.5 border-t-2 border-l-2 border-racing-red" />
+              <div className="absolute top-3 right-3 w-3.5 h-3.5 border-t-2 border-r-2 border-racing-red" />
+              <div className="absolute bottom-3 left-3 w-3.5 h-3.5 border-b-2 border-l-2 border-racing-red" />
+              <div className="absolute bottom-3 right-3 w-3.5 h-3.5 border-b-2 border-r-2 border-racing-red" />
 
               {!isSuccess ? (
                 <div>
-                  <div className="mb-8">
-                    <div className="inline-flex items-center gap-2 text-xs font-racing font-bold text-velocity-yellow uppercase tracking-widest bg-turbo-black px-3 py-1 rounded border border-velocity-yellow/30 mb-3">
+                  <div className="mb-6 sm:mb-8">
+                    <div className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-racing font-bold text-velocity-yellow uppercase tracking-widest bg-turbo-black px-2.5 sm:px-3 py-1 rounded border border-velocity-yellow/30 mb-2.5 sm:mb-3">
                       <Radio className="w-3.5 h-3.5 text-racing-red" />
                       RADIO TELEMETRY FORM
                     </div>
-                    <h2 className="font-display font-black text-3xl sm:text-4xl text-performance-white uppercase">
+                    <h2 className="font-display font-black text-2xl xs:text-3xl sm:text-4xl text-performance-white uppercase">
                       SEND <br />
                       <span className="text-transparent bg-clip-text bg-gradient-to-r from-racing-red to-turbo-orange">
                         A SIGNAL.
                       </span>
                     </h2>
-                    <p className="text-xs sm:text-sm text-metallic-silver/80 mt-2 font-sans">
+                    <p className="text-xs sm:text-sm text-metallic-silver/80 mt-1.5 sm:mt-2 font-sans">
                       Fill out the comms telemetry below to transmit your message directly to our Coimbatore team.
                     </p>
                   </div>

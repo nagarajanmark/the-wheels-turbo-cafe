@@ -5,7 +5,7 @@ import { ImagePlaceholder } from "../ui/ImagePlaceholder";
 import { SectionHeading } from "../ui/SectionHeading";
 import { MagneticButton } from "../ui/MagneticButton";
 import { MENU_ITEMS } from "@/data/menuData";
-import { Flame, Gauge, Zap, Sparkles } from "lucide-react";
+import { Flame } from "lucide-react";
 
 export const HomeMenuPreview: React.FC = () => {
   // Grab top 4 iconic highlights
@@ -50,25 +50,25 @@ export const HomeMenuPreview: React.FC = () => {
         </div>
 
         {/* 4 Dashboard Item Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {previewItems.map((item) => (
             <div
               key={item.id}
-              className="bg-garage-black border border-metallic-silver/20 hover:border-racing-red/70 rounded-xl p-5 transition-all duration-500 group shadow-xl flex flex-col justify-between"
+              className="bg-garage-black border border-metallic-silver/20 hover:border-racing-red/70 rounded-xl p-4 sm:p-5 transition-all duration-500 group shadow-xl flex flex-col justify-between"
             >
               <div>
                 {/* Race Number Tag */}
-                <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center justify-between mb-2.5 sm:mb-3">
                   <span className="font-racing font-black text-xs tracking-widest text-turbo-orange">
                     {item.raceNo}
                   </span>
-                  <span className="text-[10px] font-mono text-velocity-yellow px-2 py-0.5 rounded bg-turbo-black border border-velocity-yellow/30 uppercase">
+                  <span className="text-[9px] sm:text-[10px] font-mono text-velocity-yellow px-2 py-0.5 rounded bg-turbo-black border border-velocity-yellow/30 uppercase">
                     {item.octaneRating}
                   </span>
                 </div>
 
                 {/* Image Placeholder */}
-                <div className="mb-4">
+                <div className="mb-3 sm:mb-4">
                   <ImagePlaceholder
                     src={item.imageSrc}
                     alt={`${item.name} served fresh at The Wheels Turbo Cafe in RS Puram Coimbatore`}
@@ -79,26 +79,26 @@ export const HomeMenuPreview: React.FC = () => {
                 </div>
 
                 {/* Item Name & Price */}
-                <div className="flex items-baseline justify-between gap-2 mb-2">
-                  <h3 className="font-display font-black text-base sm:text-lg uppercase tracking-wider text-performance-white group-hover:text-turbo-orange transition-colors line-clamp-1">
+                <div className="flex items-baseline justify-between gap-2 mb-1.5 sm:mb-2">
+                  <h3 className="font-display font-black text-sm sm:text-base xl:text-lg uppercase tracking-wider text-performance-white group-hover:text-turbo-orange transition-colors line-clamp-1">
                     {item.name}
                   </h3>
-                  <span className="font-racing font-black text-lg text-velocity-yellow shrink-0">
+                  <span className="font-racing font-black text-base sm:text-lg xl:text-xl text-velocity-yellow shrink-0">
                     ₹{item.price}
                   </span>
                 </div>
 
                 {/* Description */}
-                <p className="font-sans text-xs text-metallic-silver/70 line-clamp-2 leading-relaxed mb-4">
+                <p className="font-sans text-[11px] sm:text-xs text-metallic-silver/70 line-clamp-2 leading-relaxed mb-3 sm:mb-4">
                   {item.description}
                 </p>
               </div>
 
               {/* Culinary & Octane Telemetry Badges */}
-              <div className="border-t border-white/10 pt-3 flex items-center justify-between">
+              <div className="border-t border-white/10 pt-2.5 sm:pt-3 flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <span
-                    className={`inline-flex items-center gap-1 text-[10px] font-racing font-bold px-2 py-0.5 rounded border ${
+                    className={`inline-flex items-center gap-1 text-[9px] sm:text-[10px] font-racing font-bold px-2 py-0.5 rounded border ${
                       item.dietary === "VEG"
                         ? "text-emerald-400 border-emerald-500/30 bg-emerald-950/40"
                         : item.dietary === "NON-VEG"
@@ -119,7 +119,7 @@ export const HomeMenuPreview: React.FC = () => {
                   </span>
                 </div>
 
-                <div className="text-[10px] font-racing font-bold tracking-widest text-metallic-silver/70 group-hover:text-turbo-orange transition-colors uppercase flex items-center gap-1">
+                <div className="text-[9.5px] sm:text-[10px] font-racing font-bold tracking-widest text-metallic-silver/70 group-hover:text-turbo-orange transition-colors uppercase flex items-center gap-1">
                   <span>{item.category}</span>
                   <Flame className="w-3.5 h-3.5 text-racing-red group-hover:text-turbo-orange transition-colors" />
                 </div>

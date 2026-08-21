@@ -3,7 +3,7 @@
 import React from "react";
 import { ImagePlaceholder } from "../ui/ImagePlaceholder";
 import { MagneticButton } from "../ui/MagneticButton";
-import { ChevronDown, Gauge, Flame, Sparkles } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 
 export const HomeHero: React.FC = () => {
@@ -27,12 +27,12 @@ export const HomeHero: React.FC = () => {
       </div>
 
       {/* Top Telemetry Sector Badge */}
-      <div className="relative z-10 max-w-7xl mx-auto w-full pt-4">
+      <div className="relative z-10 max-w-7xl mx-auto w-full pt-2 sm:pt-4">
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-garage-black/90 border border-racing-red/40 backdrop-blur-md text-racing-red text-xs font-racing font-bold tracking-[0.25em] uppercase shadow-[0_0_20px_rgba(225,6,0,0.2)]"
+          className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-garage-black/90 border border-racing-red/40 backdrop-blur-md text-racing-red text-[10px] sm:text-xs font-racing font-bold tracking-[0.2em] sm:tracking-[0.25em] uppercase shadow-[0_0_20px_rgba(225,6,0,0.2)]"
         >
           <span className="w-2 h-2 rounded-full bg-racing-red animate-ping" />
           <span>DESTINATION COIMBATORE // RS PURAM</span>
@@ -40,14 +40,14 @@ export const HomeHero: React.FC = () => {
       </div>
 
       {/* Main Headline Block */}
-      <div className="relative z-10 max-w-7xl mx-auto w-full my-auto py-12">
-        <div className="max-w-4xl space-y-6">
+      <div className="relative z-10 max-w-7xl mx-auto w-full my-auto py-4 sm:py-6 md:py-8">
+        <div className="max-w-3xl space-y-3 sm:space-y-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h1 className="font-display font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tighter uppercase leading-[0.92] text-performance-white drop-shadow-2xl">
+            <h1 className="font-display font-black text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight uppercase leading-[0.96] text-performance-white drop-shadow-2xl">
               START <span className="text-transparent bg-clip-text bg-gradient-to-r from-racing-red via-turbo-orange to-velocity-yellow text-glow-red">
                 YOUR ENGINES.
               </span>
@@ -58,7 +58,7 @@ export const HomeHero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-base sm:text-xl md:text-2xl font-sans text-metallic-silver/90 max-w-2xl leading-relaxed border-l-2 border-racing-red pl-4"
+            className="text-xs sm:text-sm md:text-base font-sans text-metallic-silver/90 max-w-xl leading-relaxed border-l-2 border-racing-red pl-3 sm:pl-4"
           >
             Coimbatore&apos;s premier racing and Ajith Kumar themed cafe, created with sheer passion by an ardent racer Ajith fan girl. Entering an authentic racing garage that happens to serve extraordinary food in RS Puram.
           </motion.p>
@@ -67,10 +67,10 @@ export const HomeHero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="pt-4 flex flex-wrap items-center gap-4"
+            className="pt-1.5 sm:pt-3 flex flex-wrap items-center gap-2.5 sm:gap-4"
           >
             <MagneticButton
-              size="lg"
+              size="md"
               variant="primary"
               href="#hero-scroll"
               cursorLabel="START"

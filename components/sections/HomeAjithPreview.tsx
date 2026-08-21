@@ -3,9 +3,8 @@
 import React from "react";
 import Image from "next/image";
 import { ImagePlaceholder } from "../ui/ImagePlaceholder";
-import { SectionHeading } from "../ui/SectionHeading";
 import { MagneticButton } from "../ui/MagneticButton";
-import { Award, ShieldAlert, Zap, Flag, Trophy } from "lucide-react";
+import { ShieldAlert } from "lucide-react";
 
 export const HomeAjithPreview: React.FC = () => {
   return (
@@ -31,42 +30,42 @@ export const HomeAjithPreview: React.FC = () => {
           <span>INDEPENDENT MOTORSPORT FAN TRIBUTE // NOT AN OFFICIAL ENDORSEMENT</span>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center">
           {/* Left Column: Big Headline & Story */}
-          <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 text-xs font-racing font-bold tracking-[0.25em] text-racing-red uppercase">
+          <div className="lg:col-span-7 space-y-5 sm:space-y-6">
+            <div className="inline-flex items-center gap-2 text-[10px] sm:text-xs font-racing font-bold tracking-[0.25em] text-racing-red uppercase">
               <span className="w-2 h-2 rounded-full bg-racing-red animate-ping" />
               THE RACING LEGACY
             </div>
 
-            <h2 className="font-display font-black text-4xl sm:text-6xl lg:text-7xl uppercase tracking-tighter text-performance-white leading-none">
+            <h2 className="font-display font-black text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl uppercase tracking-tighter text-performance-white leading-tight drop-shadow-lg">
               PASSION HAS <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-racing-red via-turbo-orange to-velocity-yellow text-glow-red">
                 NO FINISH LINE.
               </span>
             </h2>
 
-            <p className="text-sm md:text-base font-sans text-metallic-silver/90 max-w-xl leading-relaxed">
+            <p className="text-xs sm:text-sm md:text-base font-sans text-metallic-silver/90 max-w-xl leading-relaxed">
               As a dedicated Ajith Kumar themed cafe in Coimbatore, we celebrate Thala&apos;s relentless pursuit of motorsport excellence—from British F3 and FIA Formula 2 to 24H Endurance GT racing across international circuits.
             </p>
 
             {/* Racing Credentials Badges */}
-            <div className="grid grid-cols-3 gap-3 pt-2 max-w-lg">
-              <div className="p-3.5 rounded-xl bg-carbon-black border border-white/10 text-center">
-                <div className="font-display font-black text-xl text-velocity-yellow">FIA F2</div>
-                <div className="text-[10px] font-racing text-metallic-silver/70 tracking-wider uppercase">Championship</div>
+            <div className="grid grid-cols-3 gap-2 sm:gap-3 pt-2 max-w-lg">
+              <div className="p-2.5 sm:p-3.5 rounded-xl bg-carbon-black border border-white/10 text-center">
+                <div className="font-display font-black text-lg sm:text-xl text-velocity-yellow">FIA F2</div>
+                <div className="text-[9px] sm:text-[10px] font-racing text-metallic-silver/70 tracking-wider uppercase">Championship</div>
               </div>
-              <div className="p-3.5 rounded-xl bg-carbon-black border border-white/10 text-center">
-                <div className="font-display font-black text-xl text-turbo-orange">BRITISH F3</div>
-                <div className="text-[10px] font-racing text-metallic-silver/70 tracking-wider uppercase">Podium Finisher</div>
+              <div className="p-2.5 sm:p-3.5 rounded-xl bg-carbon-black border border-white/10 text-center">
+                <div className="font-display font-black text-lg sm:text-xl text-turbo-orange">BRITISH F3</div>
+                <div className="text-[9px] sm:text-[10px] font-racing text-metallic-silver/70 tracking-wider uppercase">Podium Finisher</div>
               </div>
-              <div className="p-3.5 rounded-xl bg-carbon-black border border-white/10 text-center">
-                <div className="font-display font-black text-xl text-racing-red">24H GT</div>
-                <div className="text-[10px] font-racing text-metallic-silver/70 tracking-wider uppercase">Endurance Team</div>
+              <div className="p-2.5 sm:p-3.5 rounded-xl bg-carbon-black border border-white/10 text-center">
+                <div className="font-display font-black text-lg sm:text-xl text-racing-red">24H GT</div>
+                <div className="text-[9px] sm:text-[10px] font-racing text-metallic-silver/70 tracking-wider uppercase">Endurance Team</div>
               </div>
             </div>
 
-            <div className="pt-4">
+            <div className="pt-2 sm:pt-4">
               <MagneticButton
                 size="lg"
                 variant="primary"
@@ -94,7 +93,7 @@ export const HomeAjithPreview: React.FC = () => {
               </div>
 
               {/* Overlapping Secondary Card */}
-              <div className="hidden sm:block absolute -bottom-10 -right-6 w-3/5 transform rotate-3 hover:rotate-0 transition-transform duration-500 shadow-2xl z-20">
+              <div className="hidden sm:block absolute -bottom-8 -right-4 xl:-bottom-10 xl:-right-6 w-3/5 transform rotate-3 hover:rotate-0 transition-transform duration-500 shadow-2xl z-20">
                 <ImagePlaceholder
                   src="/images/ajith/ak-racing-team-porsche-on-track.jpg"
                   alt="Ajith Kumar Racing #901 Porsche on track tribute at The Wheels Turbo Cafe Coimbatore"

@@ -143,12 +143,12 @@ export const ExperienceSection: React.FC = () => {
       <div className="w-full overflow-x-auto lg:overflow-visible no-scrollbar relative z-10 pb-2 lg:pb-6 shrink-0">
         <div
           ref={scrollTrackRef}
-          className="flex flex-col lg:flex-row gap-5 px-4 sm:px-6 lg:px-8 lg:w-max items-stretch"
+          className="flex flex-col lg:flex-row gap-4 sm:gap-5 px-4 sm:px-6 lg:px-8 lg:w-max items-stretch"
         >
           {EXPERIENCES.map((exp) => (
             <div
               key={exp.id}
-              className="w-full lg:w-[390px] shrink-0 bg-garage-black border border-metallic-silver/20 hover:border-racing-red/60 rounded-xl p-4 sm:p-5 relative group transition-all duration-300 shadow-xl flex flex-col justify-between"
+              className="w-full lg:w-[320px] xl:w-[360px] 2xl:w-[390px] shrink-0 bg-garage-black border border-metallic-silver/20 hover:border-racing-red/60 rounded-xl p-4 sm:p-5 relative group transition-all duration-300 shadow-xl flex flex-col justify-between"
             >
               {/* Corner Calipers */}
               <div className="absolute top-2.5 left-2.5 w-2 h-2 border-t-2 border-l-2 border-racing-red/50 group-hover:border-racing-red transition-colors" />
@@ -176,7 +176,7 @@ export const ExperienceSection: React.FC = () => {
                 </div>
 
                 {/* Bay Title & Description */}
-                <h3 className="font-display font-black text-lg sm:text-xl uppercase tracking-wider text-performance-white mb-1.5 group-hover:text-turbo-orange transition-colors">
+                <h3 className="font-display font-black text-base sm:text-lg xl:text-xl uppercase tracking-wider text-performance-white mb-1.5 group-hover:text-turbo-orange transition-colors">
                   {exp.title}
                 </h3>
                 <p className="font-sans text-[11px] sm:text-xs text-metallic-silver/80 leading-relaxed mb-3 line-clamp-3">
@@ -189,7 +189,7 @@ export const ExperienceSection: React.FC = () => {
                 {exp.features.map((feat, fIdx) => (
                   <div
                     key={fIdx}
-                    className="flex items-center gap-2 text-[11px] font-racing text-metallic-silver"
+                    className="flex items-center gap-2 text-[10.5px] sm:text-[11px] font-racing text-metallic-silver"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-racing-red shrink-0" />
                     <span>{feat}</span>

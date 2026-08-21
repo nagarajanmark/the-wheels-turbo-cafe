@@ -20,9 +20,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/logo.png",
-        width: 1774,
-        height: 887,
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        type: "image/jpeg",
         alt: "The Wheels Turbo Cafe Menu - Coimbatore",
       },
     ],
@@ -32,7 +33,14 @@ export const metadata: Metadata = {
     title: "Best Food Cafe Menu | The Wheels Turbo Cafe Coimbatore",
     description:
       "Full menu of gourmet smash burgers, pizzas, artisan pastas, nitro brews, and coolers at Coimbatore's premier racing-themed cafe in RS Puram.",
-    images: ["/logo.png"],
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "The Wheels Turbo Cafe Menu - Coimbatore",
+      },
+    ],
   },
 };
 

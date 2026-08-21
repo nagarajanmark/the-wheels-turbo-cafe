@@ -201,19 +201,19 @@ export const HeroScrollSequence: React.FC = () => {
         ref={stage1Ref}
         className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-4"
       >
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-racing-red/10 border border-racing-red/40 text-racing-red text-[10px] sm:text-xs font-racing font-bold tracking-[0.25em] uppercase mb-4 sm:mb-6">
+        <div className="inline-flex items-center gap-2 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded bg-racing-red/10 border border-racing-red/40 text-racing-red text-[9px] sm:text-[11px] font-racing font-bold tracking-[0.2em] sm:tracking-[0.25em] uppercase mb-2 sm:mb-4">
           <Flame className="w-3.5 h-3.5 text-turbo-orange" />
           STAGE 01 // COLD START
         </div>
-        <h2 className="font-display font-black text-5xl sm:text-7xl lg:text-9xl uppercase tracking-tighter text-performance-white drop-shadow-[0_0_35px_rgba(225,6,0,0.5)]">
+        <h2 className="font-display font-black text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl uppercase tracking-tighter text-performance-white drop-shadow-[0_0_35px_rgba(225,6,0,0.5)] leading-tight">
           IGNITION ON.
         </h2>
-        <p className="mt-3 sm:mt-4 font-sans text-sm sm:text-lg text-metallic-silver/80 max-w-lg px-2">
+        <p className="mt-2 sm:mt-3 font-sans text-xs sm:text-sm md:text-base text-metallic-silver/80 max-w-md px-2">
           The throttle awakens. Spark plugs ignite high-octane passion in the heart of Coimbatore.
         </p>
-        <div className="mt-6 sm:mt-8 flex items-center gap-2 text-[11px] sm:text-xs font-racing tracking-widest text-turbo-orange animate-bounce">
+        <div className="mt-3 sm:mt-6 flex items-center gap-2 text-[10px] sm:text-xs font-racing tracking-widest text-turbo-orange animate-bounce">
           <span>SCROLL TO ACCELERATE</span>
-          <ChevronDown className="w-4 h-4" />
+          <ChevronDown className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
         </div>
       </div>
 
@@ -222,14 +222,14 @@ export const HeroScrollSequence: React.FC = () => {
         ref={stage2Ref}
         className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-4 opacity-0 pointer-events-none"
       >
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-turbo-orange/10 border border-turbo-orange/40 text-turbo-orange text-[10px] sm:text-xs font-racing font-bold tracking-[0.25em] uppercase mb-4 sm:mb-6">
+        <div className="inline-flex items-center gap-2 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded bg-turbo-orange/10 border border-turbo-orange/40 text-turbo-orange text-[9px] sm:text-[11px] font-racing font-bold tracking-[0.2em] sm:tracking-[0.25em] uppercase mb-2 sm:mb-4">
           <Zap className="w-3.5 h-3.5 text-velocity-yellow" />
           STAGE 02 // SPOOLING TURBO
         </div>
-        <h2 className="font-display font-black text-5xl sm:text-7xl lg:text-9xl uppercase tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-racing-red via-turbo-orange to-velocity-yellow text-glow-orange leading-none">
+        <h2 className="font-display font-black text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl uppercase tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-racing-red via-turbo-orange to-velocity-yellow text-glow-orange leading-tight">
           BUILDING SPEED.
         </h2>
-        <p className="mt-3 sm:mt-4 font-sans text-sm sm:text-lg text-metallic-silver/80 max-w-lg px-2">
+        <p className="mt-2 sm:mt-3 font-sans text-xs sm:text-sm md:text-base text-metallic-silver/80 max-w-md px-2">
           Boost pressure climbing. 2.0 Bar of pure adrenaline charging the atmosphere.
         </p>
       </div>
@@ -239,16 +239,16 @@ export const HeroScrollSequence: React.FC = () => {
         ref={stage3Ref}
         className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-4 opacity-0 pointer-events-none"
       >
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-white/10 border border-white/20 text-performance-white text-[10px] sm:text-xs font-racing font-bold tracking-[0.25em] uppercase mb-4 sm:mb-6">
+        <div className="inline-flex items-center gap-2 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded bg-white/10 border border-white/20 text-performance-white text-[9px] sm:text-[11px] font-racing font-bold tracking-[0.2em] sm:tracking-[0.25em] uppercase mb-2 sm:mb-4">
           STAGE 03 // APEX SHIFT
         </div>
-        <h2 className="font-display font-black text-4xl sm:text-7xl lg:text-9xl uppercase tracking-tighter leading-[0.95] text-performance-white">
+        <h2 className="font-display font-black text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl uppercase tracking-tighter leading-tight text-performance-white">
           THIS ISN&apos;T <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-racing-red to-turbo-orange">
             JUST A CAFE.
           </span>
         </h2>
-        <p className="mt-4 sm:mt-6 font-sans text-sm sm:text-lg text-metallic-silver/80 max-w-md px-2">
+        <p className="mt-2 sm:mt-3.5 font-sans text-xs sm:text-sm md:text-base text-metallic-silver/80 max-w-md px-2">
           A high-performance sanctuary engineered for the automotive soul.
         </p>
       </div>
@@ -258,11 +258,11 @@ export const HeroScrollSequence: React.FC = () => {
         ref={stage4Ref}
         className="absolute inset-0 z-20 flex flex-col items-center justify-center px-3 sm:px-6 opacity-0 pointer-events-none"
       >
-        <div className="text-center mb-3 sm:mb-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-velocity-yellow/10 border border-velocity-yellow/40 text-velocity-yellow text-[10px] sm:text-xs font-racing font-bold tracking-[0.25em] uppercase mb-1.5 sm:mb-3">
+        <div className="text-center mb-2 sm:mb-4">
+          <div className="inline-flex items-center gap-2 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded bg-velocity-yellow/10 border border-velocity-yellow/40 text-velocity-yellow text-[9px] sm:text-[11px] font-racing font-bold tracking-[0.2em] sm:tracking-[0.25em] uppercase mb-1 sm:mb-2">
             STAGE 04 // 4 CORNERS OF PASSION
           </div>
-          <h2 className="font-display font-black text-2xl sm:text-4xl lg:text-6xl uppercase tracking-tight text-performance-white">
+          <h2 className="font-display font-black text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl uppercase tracking-tight text-performance-white">
             THIS IS A DESTINATION FOR <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-racing-red via-turbo-orange to-velocity-yellow">
               PETROLHEADS.
@@ -270,7 +270,7 @@ export const HeroScrollSequence: React.FC = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4 w-full max-w-5xl">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3.5 lg:gap-4 w-full max-w-4xl">
           <div className="transform hover:scale-105 transition-transform">
             <ImagePlaceholder
               src="/images/hero/the-wheels-turbo-cafe-coimbatore-hero-speed-experience.jpg"
@@ -315,24 +315,24 @@ export const HeroScrollSequence: React.FC = () => {
         ref={stage5Ref}
         className="absolute inset-0 z-30 flex flex-col items-center justify-center text-center px-4 opacity-0 pointer-events-none"
       >
-        <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1 rounded bg-racing-red/20 border border-racing-red text-velocity-yellow text-[10px] sm:text-xs font-racing font-black tracking-[0.3em] uppercase mb-3 sm:mb-4 shadow-[0_0_20px_rgba(225,6,0,0.5)]">
+        <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-0.5 sm:py-1 rounded bg-racing-red/20 border border-racing-red text-velocity-yellow text-[9px] sm:text-[11px] font-racing font-black tracking-[0.25em] uppercase mb-2 sm:mb-3 shadow-[0_0_20px_rgba(225,6,0,0.5)]">
           <Flame className="w-3.5 h-3.5 text-racing-red" />
           STAGE 05 // MAXIMUM BOOST
         </div>
-        <h2 className="font-display font-black text-4xl sm:text-7xl lg:text-9xl uppercase tracking-tighter text-performance-white leading-none">
+        <h2 className="font-display font-black text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl uppercase tracking-tighter text-performance-white leading-tight">
           THE WHEELS <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-racing-red via-turbo-orange to-velocity-yellow text-glow-red">
             TURBO CAFE.
           </span>
         </h2>
-        <p className="mt-3 sm:mt-4 font-sans text-sm sm:text-lg text-metallic-silver/90 max-w-xl px-2">
+        <p className="mt-2 sm:mt-3 font-sans text-xs sm:text-sm md:text-base text-metallic-silver/90 max-w-lg px-2">
           Coimbatore&apos;s premier motorsport sanctuary. Step inside the racing garage and experience culinary horsepower.
         </p>
-        <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center gap-3 sm:gap-4 relative z-50 pointer-events-auto w-full sm:w-auto max-w-xs sm:max-w-none">
-          <MagneticButton size="lg" variant="gold" href="#garage-intro" cursorLabel="ENTER" className="w-full sm:w-auto">
+        <div className="mt-3.5 sm:mt-6 flex flex-col sm:flex-row items-center gap-2.5 sm:gap-3.5 relative z-50 pointer-events-auto w-full sm:w-auto max-w-xs sm:max-w-none">
+          <MagneticButton size="md" variant="gold" href="#garage-intro" cursorLabel="ENTER" className="w-full sm:w-auto">
             EXPLORE THE GARAGE
           </MagneticButton>
-          <MagneticButton size="lg" variant="secondary" href="/menu" cursorLabel="MENU" className="w-full sm:w-auto">
+          <MagneticButton size="md" variant="secondary" href="/menu" cursorLabel="MENU" className="w-full sm:w-auto">
             VIEW FULL MENU
           </MagneticButton>
         </div>

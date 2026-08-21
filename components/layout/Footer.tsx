@@ -95,7 +95,7 @@ export const Footer: React.FC = () => {
               <span className="w-2 h-2 rounded-full bg-racing-red animate-ping" />
               DESTINATION COIMBATORE
             </div>
-            <h2 className="font-display font-black text-4xl sm:text-6xl lg:text-7xl uppercase tracking-tight text-performance-white leading-none">
+            <h2 className="font-display font-black text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl uppercase tracking-tight text-performance-white leading-none">
               SEE YOU AT THE <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-racing-red via-turbo-orange to-velocity-yellow">
                 PIT STOP.

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { MagneticButton } from "@/components/ui/MagneticButton";
@@ -116,39 +117,65 @@ export function AboutClient() {
   return (
     <div className="w-full bg-turbo-black text-performance-white select-none">
       {/* 1. HERO SECTION */}
-      <section className="relative min-h-[75vh] flex flex-col justify-center pt-32 pb-16 px-4 sm:px-6 lg:px-8 bg-carbon-black overflow-hidden border-b border-white/10">
-        <div className="absolute inset-0 bg-carbon-pattern opacity-50" />
-        <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] rounded-full bg-racing-red/15 blur-[160px] pointer-events-none" />
+      <section className="relative min-h-[60vh] sm:min-h-[65vh] md:min-h-[70vh] flex flex-col justify-center pt-32 pb-16 px-4 sm:px-6 lg:px-8 bg-carbon-black overflow-hidden border-b border-white/10">
+        {/* Background Image Layer (Positioned on Right Side of Hero with Smooth Shadow Blending) */}
+        <div className="absolute top-0 bottom-0 right-0 w-full sm:w-[60%] md:w-[48%] lg:w-[42%] xl:w-[38%] 2xl:w-[35%] z-0 overflow-hidden pointer-events-none">
+          <Image
+            src="/images/owner/akhila-sundar-founder-the-wheels-turbo-cafe-coimbatore.jpg"
+            alt="Founder Akilandeshwari Sunder of The Wheels Turbo Cafe in RS Puram Coimbatore"
+            fill
+            priority
+            quality={95}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw"
+            className="object-cover object-[center_top] sm:object-[center_12%]"
+          />
+          {/* Smooth shadow & edge gradients blending cleanly into dark theme */}
+          <div className="absolute inset-y-0 left-0 w-24 sm:w-36 lg:w-48 bg-gradient-to-r from-carbon-black to-transparent" />
+          <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-carbon-black to-transparent opacity-80" />
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-carbon-black to-transparent" />
+          <div className="absolute inset-0 bg-carbon-black/10" />
+        </div>
+
+        {/* Ambient Left & Center Glows */}
+        <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] rounded-full bg-racing-red/15 blur-[160px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto w-full relative z-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-garage-black border border-racing-red/40 text-racing-red text-xs font-racing font-bold tracking-[0.25em] uppercase mb-6">
-            <span className="w-2 h-2 rounded-full bg-racing-red animate-ping" />
-            ABOUT THE GARAGE // RS PURAM, COIMBATORE
+          {/* Fan Dedication & Story Badge */}
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+            <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-garage-black border border-racing-red/40 text-racing-red text-[10px] sm:text-xs font-racing font-bold tracking-[0.2em] sm:tracking-[0.25em] uppercase">
+              <span className="w-2 h-2 rounded-full bg-racing-red animate-ping" />
+              FOUNDER STORY // THE WHEELS TURBO CAFE
+            </div>
+
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-velocity-yellow/10 border border-velocity-yellow/30 text-velocity-yellow text-[10px] sm:text-[11px] font-racing font-bold tracking-wider uppercase">
+              <Heart className="w-3 h-3 text-racing-red fill-racing-red" />
+              CURATED WITH LOVE BY AN AJITH KUMAR FAN GIRL
+            </div>
           </div>
 
-          <h1 className="font-display font-black text-5xl sm:text-7xl lg:text-8xl uppercase tracking-tight text-performance-white leading-none">
-            MORE THAN <br />
+          <h1 className="font-display font-black text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl uppercase tracking-tight text-performance-white leading-tight">
+            BORN FROM <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-racing-red via-turbo-orange to-velocity-yellow text-glow-red">
-              A CAFE.
+              PURE PASSION.
             </span>
           </h1>
 
-          <p className="mt-6 font-sans text-base sm:text-xl text-metallic-silver/90 max-w-2xl leading-relaxed border-l-2 border-turbo-orange pl-4">
-            A pioneering Hotwheels and Thala Ajith themed motorsport cafe in RS Puram, Coimbatore. Engineered where the energy of the track meets delicious culinary flavour.
+          <p className="mt-3 sm:mt-5 font-sans text-xs sm:text-sm md:text-base text-metallic-silver/90 max-w-xl leading-relaxed border-l-2 border-racing-red pl-3 sm:pl-4">
+            Founded by ardent motorsport racer and Ajith Kumar fan girl <strong className="text-performance-white">Akilandeshwari Sunder</strong>, The Wheels Turbo Cafe was built to give Coimbatore an authentic motorsport sanctuary where high-octane racing spirit meets handcrafted flavours.
           </p>
         </div>
       </section>
 
       {/* 2. THE STORY */}
-      <section className="relative py-24 md:py-36 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <section className="relative py-14 sm:py-20 md:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center">
           {/* Left Editorial Narrative */}
-          <div className="lg:col-span-6 space-y-6">
-            <div className="inline-flex items-center gap-2 text-xs font-racing font-bold tracking-[0.25em] text-turbo-orange uppercase">
+          <div className="lg:col-span-6 space-y-4 sm:space-y-6">
+            <div className="inline-flex items-center gap-2 text-[10px] sm:text-xs font-racing font-bold tracking-[0.25em] text-turbo-orange uppercase">
               SECTOR 01 // ORIGIN STORY
             </div>
 
-            <h2 className="font-display font-black text-3xl sm:text-5xl lg:text-6xl uppercase tracking-tighter text-performance-white leading-[1.05]">
+            <h2 className="font-display font-black text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl uppercase tracking-tight text-performance-white leading-tight">
               EVERY GREAT <br />
               JOURNEY <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-racing-red to-turbo-orange">
@@ -157,7 +184,7 @@ export function AboutClient() {
               A PASSION.
             </h2>
 
-            <div className="space-y-4 font-sans text-sm md:text-base text-metallic-silver/80 leading-relaxed pt-2">
+            <div className="space-y-3 sm:space-y-4 font-sans text-xs sm:text-sm md:text-base text-metallic-silver/80 leading-relaxed pt-1 sm:pt-2">
               <p>
                 Coimbatore holds a revered position in Indian motorsport history—the home of Kari Motor Speedway, legendary tuners, and generations of speed enthusiasts.
               </p>
@@ -171,7 +198,7 @@ export function AboutClient() {
           </div>
 
           {/* Right Dual Image Showcase */}
-          <div className="lg:col-span-6 space-y-6">
+          <div className="lg:col-span-6 space-y-4 sm:space-y-6">
             <ImagePlaceholder
               src="/images/gallery/best-motorsport-theme-cafe-in-coimbatore.jpeg"
               alt="Handcrafted racing tyre tables and ambient paddock seating at The Wheels Turbo Cafe in RS Puram, Coimbatore"
@@ -180,20 +207,25 @@ export function AboutClient() {
               badgeText="RS PURAM COIMBATORE"
               className="w-full shadow-2xl"
             />
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4 items-stretch">
               <ImagePlaceholder
-                src="/images/owner/akhila-sundar-founder-the-wheels-turbo-cafe-coimbatore.jpg"
-                alt="Portrait of Founder Akilandeshwari Sunder at The Wheels Turbo Cafe in RS Puram Coimbatore"
-                label="FOUNDER & RACING SPIRIT"
-                aspectRatio="4/3"
+                src="/images/owner/akhila-sundar-with-thala-ajith-kumar-tribute.png"
+                alt="Founder Akilandeshwari Sunder posing with Thala Ajith Kumar racing suit tribute standee at The Wheels Turbo Cafe in RS Puram Coimbatore"
+                label="FOUNDER & AJITH TRIBUTE"
+                aspectRatio="3/4"
                 objectPosition="object-top"
-                badgeText="FOUNDER PORTRAIT"
+                badgeText="THALA TRIBUTE"
+                className="w-full h-full shadow-xl"
               />
-              <div className="p-6 rounded-xl bg-garage-black border border-racing-red/40 flex flex-col justify-center text-center">
-                <span className="font-display font-black text-2xl sm:text-3xl text-velocity-yellow">
-                  RACING THEME
+              <div className="p-4 sm:p-6 rounded-xl bg-garage-black border border-racing-red/40 flex flex-col justify-center text-center h-full relative overflow-hidden shadow-xl">
+                <div className="w-2 h-2 rounded-full bg-velocity-yellow animate-ping mx-auto mb-3" />
+                <span className="font-display font-black text-xl sm:text-2xl xl:text-3xl text-velocity-yellow leading-tight">
+                  RACING <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-racing-red to-turbo-orange">
+                    THEME
+                  </span>
                 </span>
-                <span className="font-racing font-bold text-xs text-metallic-silver uppercase tracking-wider mt-1">
+                <span className="font-racing font-bold text-[10px] sm:text-xs text-metallic-silver uppercase tracking-widest mt-2">
                   PADDOCK CAFE IN COIMBATORE
                 </span>
               </div>
@@ -203,7 +235,7 @@ export function AboutClient() {
       </section>
 
       {/* 3. FOUNDER & OWNER STORY SPOTLIGHT */}
-      <section className="relative py-24 bg-carbon-black border-t border-b border-white/10 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-16 sm:py-24 bg-carbon-black border-t border-b border-white/10 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <SectionHeading
             sectorNumber="02"
@@ -219,33 +251,22 @@ export function AboutClient() {
             subtitle="From fearless passion to building Coimbatore's most talked-about motorsport cafe in RS Puram."
           />
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-garage-black/80 border border-white/10 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl relative overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center bg-garage-black/80 border border-white/10 rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 xl:p-12 shadow-2xl relative overflow-hidden">
             {/* Ambient Background Glow */}
             <div className="absolute top-0 right-0 w-80 h-80 bg-racing-red/10 rounded-full blur-[140px] pointer-events-none" />
 
             {/* Left: Founder Photos Grid */}
-            <div className="lg:col-span-6 space-y-6">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-metallic-silver/20 group">
-                  <ImagePlaceholder
-                    src="/images/owner/akhila-sundar-founder-the-wheels-turbo-cafe-coimbatore.jpg"
-                    alt="Portrait of Akilandeshwari Sunder founder of The Wheels Turbo Cafe in Coimbatore"
-                    label="FOUNDER AKILANDESHWARI SUNDER"
-                    aspectRatio="3/4"
-                    objectPosition="object-top"
-                    badgeText="CAFE FOUNDER"
-                  />
-                </div>
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-metallic-silver/20 group">
-                  <ImagePlaceholder
-                    src="/images/owner/akhila-sundar-with-thala-ajith-kumar-tribute.png"
-                    alt="Akilandeshwari Sunder founder of The Wheels Turbo Cafe in Coimbatore with Ajith Kumar Standee"
-                    label="FOUNDER WITH AJITH TRIBUTE"
-                    aspectRatio="3/4"
-                    objectPosition="object-top"
-                    badgeText="AJITH TRIBUTE"
-                  />
-                </div>
+            <div className="lg:col-span-6 space-y-4 sm:space-y-6">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-metallic-silver/20 group">
+                <ImagePlaceholder
+                  src="/images/owner/akhila-sundar-with-thala-ajith-kumar-tribute.png"
+                  alt="Akilandeshwari Sunder founder of The Wheels Turbo Cafe in Coimbatore with Ajith Kumar Standee"
+                  label="FOUNDER WITH AJITH TRIBUTE // RS PURAM"
+                  aspectRatio="3/4"
+                  objectPosition="object-top"
+                  badgeText="CAFE FOUNDER & RACER"
+                  className="w-full shadow-2xl"
+                />
               </div>
 
               {/* Newspaper Clipping Preview */}
@@ -260,22 +281,22 @@ export function AboutClient() {
                       "Dinamalar feature story: 'ரேசிங்கை ரசித்த பெண்... இன்று ரேசிங் கஃபே ஓனர்' documenting Akilandeshwari Sunder's inspiring story and the success of Wheels Turbo Cafe in RS Puram Coimbatore.",
                   })
                 }
-                className="p-4 rounded-xl bg-turbo-black/90 border border-velocity-yellow/30 hover:border-velocity-yellow flex items-center justify-between cursor-pointer group transition-all"
+                className="p-3 sm:p-4 rounded-xl bg-turbo-black/90 border border-velocity-yellow/30 hover:border-velocity-yellow flex items-center justify-between cursor-pointer group transition-all"
                 data-cursor-hover
                 data-cursor-text="READ NEWS"
                 role="button"
                 tabIndex={0}
                 aria-label="Read Dinamalar newspaper article about The Wheels Turbo Cafe"
               >
-                <div className="flex items-center gap-3">
-                  <div className="p-2.5 rounded-lg bg-velocity-yellow/10 text-velocity-yellow">
-                    <Newspaper className="w-5 h-5" />
+                <div className="flex items-center gap-2.5 sm:gap-3">
+                  <div className="p-2 sm:p-2.5 rounded-lg bg-velocity-yellow/10 text-velocity-yellow">
+                    <Newspaper className="w-4 sm:w-5 h-4 sm:h-5" />
                   </div>
                   <div>
-                    <div className="font-racing font-bold text-xs text-velocity-yellow uppercase tracking-wider">
+                    <div className="font-racing font-bold text-[10px] sm:text-xs text-velocity-yellow uppercase tracking-wider">
                       FEATURED IN DINAMALAR TAMIL DAILY
                     </div>
-                    <div className="font-sans text-xs text-metallic-silver/80">
+                    <div className="font-sans text-[11px] sm:text-xs text-metallic-silver/80 line-clamp-1">
                       &ldquo;ரேசிங்கை ரசித்த பெண்... இன்று ரேசிங் கஃபே ஓனர்&rdquo;
                     </div>
                   </div>
@@ -285,18 +306,18 @@ export function AboutClient() {
             </div>
 
             {/* Right: Inspiring Story Content */}
-            <div className="lg:col-span-6 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-racing-red/10 border border-racing-red/30 text-racing-red text-xs font-racing font-bold tracking-widest uppercase">
+            <div className="lg:col-span-6 space-y-4 sm:space-y-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-racing-red/10 border border-racing-red/30 text-racing-red text-[10px] sm:text-xs font-racing font-bold tracking-widest uppercase">
                 <Heart className="w-3.5 h-3.5 text-racing-red" />
                 <span>INSPIRING ENTREPRENEURIAL STORY</span>
               </div>
 
-              <h3 className="font-display font-black text-2xl sm:text-4xl uppercase tracking-tight text-performance-white leading-tight">
+              <h3 className="font-display font-black text-xl xs:text-2xl sm:text-3xl md:text-4xl uppercase tracking-tight text-performance-white leading-tight">
                 &ldquo;If You Turbocharge Your Dreams, <br />
                 <span className="text-turbo-orange">Life Itself Becomes A Race.&rdquo;</span>
               </h3>
 
-              <div className="space-y-4 font-sans text-sm md:text-base text-metallic-silver/80 leading-relaxed">
+              <div className="space-y-3 sm:space-y-4 font-sans text-xs sm:text-sm md:text-base text-metallic-silver/80 leading-relaxed">
                 <p>
                   Hailing from a village near Bengaluru, <strong className="text-performance-white">Akilandeshwari Sunder</strong> overcame immense personal life hurdles with sheer resilience and unwavering determination. For four years, she carved her own path, working in modeling while holding onto a burning dream: to create an unforgettable sanctuary built on speed and community.
                 </p>
@@ -308,14 +329,14 @@ export function AboutClient() {
                 </p>
               </div>
 
-              <div className="pt-2 flex flex-wrap gap-3 font-racing text-xs tracking-wider">
-                <span className="px-3 py-1.5 rounded-lg bg-turbo-black border border-white/15 text-metallic-silver">
-                  📍 WEST AROKIASAMY RD, RS PURAM (OPP. YAMAHA)
+              <div className="pt-2 flex flex-wrap gap-2 sm:gap-3 font-racing text-[10px] sm:text-xs tracking-wider">
+                <span className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-turbo-black border border-white/15 text-metallic-silver">
+                  📍 WEST AROKIASAMY RD, RS PURAM
                 </span>
-                <span className="px-3 py-1.5 rounded-lg bg-turbo-black border border-racing-red/30 text-racing-red">
+                <span className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-turbo-black border border-racing-red/30 text-racing-red">
                   🏁 HOTWHEELS & THALA THEMED
                 </span>
-                <span className="px-3 py-1.5 rounded-lg bg-turbo-black border border-velocity-yellow/30 text-velocity-yellow">
+                <span className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-turbo-black border border-velocity-yellow/30 text-velocity-yellow">
                   🍔 FRESH PREP ON ORDER
                 </span>
               </div>
@@ -325,7 +346,7 @@ export function AboutClient() {
       </section>
 
       {/* 4. INSIDE THE GARAGE (Interactive Tour) */}
-      <section className="relative py-24 bg-garage-black border-b border-white/10 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-16 sm:py-24 bg-garage-black border-b border-white/10 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <SectionHeading
             sectorNumber="03"
@@ -341,12 +362,12 @@ export function AboutClient() {
             subtitle="Explore the real automotive aesthetics, tribute walls, and custom engineering that make our Coimbatore cafe unique."
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {GARAGE_TOUR.map((item, idx) => (
               <div
                 key={idx}
                 onClick={() => setSelectedPhoto(item)}
-                className="bg-carbon-black border border-metallic-silver/20 hover:border-racing-red/80 rounded-xl p-4 cursor-pointer group transition-all duration-300 shadow-xl"
+                className="bg-carbon-black border border-metallic-silver/20 hover:border-racing-red/80 rounded-xl p-3.5 sm:p-4 cursor-pointer group transition-all duration-300 shadow-xl"
                 data-cursor-hover
                 data-cursor-text="INSPECT"
                 role="button"
@@ -363,10 +384,10 @@ export function AboutClient() {
                     badgeText={`ZONE 0${idx + 1}`}
                   />
                 </div>
-                <h3 className="font-display font-bold text-base text-performance-white uppercase group-hover:text-turbo-orange transition-colors">
+                <h3 className="font-display font-bold text-sm sm:text-base text-performance-white uppercase group-hover:text-turbo-orange transition-colors">
                   {item.title}
                 </h3>
-                <p className="font-sans text-xs text-metallic-silver/70 mt-1 line-clamp-2">
+                <p className="font-sans text-[11px] sm:text-xs text-metallic-silver/70 mt-1 line-clamp-2">
                   {item.caption}
                 </p>
               </div>
@@ -376,7 +397,7 @@ export function AboutClient() {
       </section>
 
       {/* 5. THE FOUR PILLARS */}
-      <section className="relative py-24 md:py-36 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <section className="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <SectionHeading
           sectorNumber="04"
           tag="CORE ETHOS"
@@ -392,29 +413,29 @@ export function AboutClient() {
           align="center"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {FOUR_PILLARS.map((pillar) => {
             const Icon = pillar.icon;
             return (
               <div
                 key={pillar.num}
-                className="relative bg-carbon-black border border-metallic-silver/20 hover:border-racing-red/80 rounded-2xl p-6 group transition-all duration-500 hover:-translate-y-2 shadow-2xl flex flex-col justify-between"
+                className="relative bg-carbon-black border border-metallic-silver/20 hover:border-racing-red/80 rounded-2xl p-5 sm:p-6 group transition-all duration-500 hover:-translate-y-1 sm:hover:-translate-y-2 shadow-2xl flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <span className="font-display font-black text-3xl text-metallic-silver/30 group-hover:text-turbo-orange transition-colors">
+                  <div className="flex items-center justify-between mb-4 sm:mb-6">
+                    <span className="font-display font-black text-2xl sm:text-3xl text-metallic-silver/30 group-hover:text-turbo-orange transition-colors">
                       {pillar.num}
                     </span>
-                    <div className="w-10 h-10 rounded-xl bg-garage-black border border-white/10 flex items-center justify-center text-racing-red group-hover:scale-110 transition-transform">
-                      <Icon className="w-5 h-5" />
+                    <div className="w-9 sm:w-10 h-9 sm:h-10 rounded-xl bg-garage-black border border-white/10 flex items-center justify-center text-racing-red group-hover:scale-110 transition-transform">
+                      <Icon className="w-4 sm:w-5 h-4 sm:h-5" />
                     </div>
                   </div>
 
-                  <h3 className="font-display font-black text-3xl text-performance-white uppercase tracking-wider mb-2">
+                  <h3 className="font-display font-black text-2xl sm:text-3xl text-performance-white uppercase tracking-wider mb-1.5 sm:mb-2">
                     {pillar.title}
                   </h3>
 
-                  <div className="text-xs font-racing font-bold text-velocity-yellow uppercase tracking-widest mb-4">
+                  <div className="text-[11px] sm:text-xs font-racing font-bold text-velocity-yellow uppercase tracking-widest mb-3 sm:mb-4">
                     {pillar.subtitle}
                   </div>
 
@@ -423,7 +444,7 @@ export function AboutClient() {
                   </p>
                 </div>
 
-                <div className="mt-8 pt-4 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-metallic-silver/50">
+                <div className="mt-6 sm:mt-8 pt-3 sm:pt-4 border-t border-white/10 flex items-center justify-between text-[9px] sm:text-[10px] font-mono text-metallic-silver/50">
                   <span>TELEMETRY ACTIVE</span>
                   <span className="text-racing-red">READY</span>
                 </div>

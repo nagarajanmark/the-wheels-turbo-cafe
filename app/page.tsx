@@ -26,9 +26,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/logo.png",
-        width: 1774,
-        height: 887,
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        type: "image/jpeg",
         alt: "The Wheels Turbo Cafe - Best Racing Theme Cafe in Coimbatore",
       },
     ],
@@ -38,7 +39,14 @@ export const metadata: Metadata = {
     title: "The Wheels Turbo Cafe | Best Racing Theme Cafe in Coimbatore",
     description:
       "A unique motorsport and Ajith Kumar themed cafe experience in RS Puram, Coimbatore. Delicious food, craft brews, and the best hangout place for motorsport enthusiasts.",
-    images: ["/logo.png"],
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "The Wheels Turbo Cafe - Best Racing Theme Cafe in Coimbatore",
+      },
+    ],
   },
 };
 

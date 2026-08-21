@@ -93,34 +93,34 @@ export function AjithKumarClient() {
 
         <div className="max-w-7xl mx-auto w-full relative z-10">
           {/* Fan Disclaimer Tag */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-garage-black/90 border border-racing-red/40 text-racing-red text-xs font-racing font-bold tracking-[0.2em] uppercase mb-8 shadow-[0_0_20px_rgba(225,6,0,0.2)]">
+          <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-garage-black/90 border border-racing-red/40 text-racing-red text-[10px] sm:text-xs font-racing font-bold tracking-[0.2em] uppercase mb-6 sm:mb-8 shadow-[0_0_20px_rgba(225,6,0,0.2)]">
             <ShieldAlert className="w-4 h-4 text-turbo-orange" />
             <span>INDEPENDENT FAN MOTORSPORT TRIBUTE // THE WHEELS TURBO CAFE COIMBATORE</span>
           </div>
 
-          <h1 className="font-display font-black text-5xl sm:text-7xl lg:text-9xl uppercase tracking-tighter text-performance-white leading-none">
+          <h1 className="font-display font-black text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl uppercase tracking-tighter text-performance-white leading-tight">
             PASSION HAS <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-racing-red via-turbo-orange to-velocity-yellow text-glow-red">
               NO FINISH LINE.
             </span>
           </h1>
 
-          <p className="mt-6 font-sans text-base sm:text-xl text-metallic-silver/90 max-w-2xl leading-relaxed border-l-2 border-velocity-yellow pl-4">
+          <p className="mt-3 sm:mt-5 font-sans text-xs sm:text-sm md:text-base text-metallic-silver/90 max-w-xl leading-relaxed border-l-2 border-velocity-yellow pl-3 sm:pl-4">
             Celebrating Thala Ajith Kumar&apos;s extraordinary pursuit of motorsport excellence—from national single-seaters to the global FIA Formula 2 and 24H GT endurance circuits.
           </p>
         </div>
       </section>
 
       {/* 2. THE INSPIRATION */}
-      <section className="relative py-24 md:py-36 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <section className="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center">
           {/* Left Narrative */}
-          <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 text-xs font-racing font-bold tracking-[0.25em] text-turbo-orange uppercase">
+          <div className="lg:col-span-7 space-y-4 sm:space-y-6">
+            <div className="inline-flex items-center gap-2 text-[10px] sm:text-xs font-racing font-bold tracking-[0.25em] text-turbo-orange uppercase">
               SECTOR 01 // THE INSPIRATION
             </div>
 
-            <h2 className="font-display font-black text-3xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-performance-white leading-[1.05]">
+            <h2 className="font-display font-black text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-[2.75rem] xl:text-6xl uppercase tracking-tight text-performance-white leading-tight">
               DRIVEN BY <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-racing-red to-turbo-orange">
                 COURAGE, DISCIPLINE &
@@ -128,7 +128,7 @@ export function AjithKumarClient() {
               RAW HORSEPOWER.
             </h2>
 
-            <div className="space-y-4 font-sans text-sm md:text-base text-metallic-silver/80 leading-relaxed">
+            <div className="space-y-3 sm:space-y-4 font-sans text-xs sm:text-sm md:text-base text-metallic-silver/80 leading-relaxed">
               <p>
                 In an era where many admire racing from afar, Ajith Kumar strapped himself into formula cockpits, braved intense lateral G-forces, and competed shoulder-to-shoulder with the finest drivers on the planet.
               </p>
@@ -140,27 +140,27 @@ export function AjithKumarClient() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4">
-              <div className="p-4 rounded-xl bg-garage-black border border-white/10">
-                <Trophy className="w-5 h-5 text-velocity-yellow mb-2" />
-                <div className="font-display font-bold text-sm text-performance-white">BRITISH F3</div>
-                <div className="text-[10px] text-metallic-silver/70 font-mono">PODIUM FINISHER</div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 pt-2 sm:pt-4">
+              <div className="p-3 sm:p-4 rounded-xl bg-garage-black border border-white/10">
+                <Trophy className="w-4 sm:w-5 h-4 sm:h-5 text-velocity-yellow mb-1.5 sm:mb-2" />
+                <div className="font-display font-bold text-xs sm:text-sm text-performance-white">BRITISH F3</div>
+                <div className="text-[9px] sm:text-[10px] text-metallic-silver/70 font-mono">PODIUM FINISHER</div>
               </div>
-              <div className="p-4 rounded-xl bg-garage-black border border-white/10">
-                <Flag className="w-5 h-5 text-turbo-orange mb-2" />
-                <div className="font-display font-bold text-sm text-performance-white">FIA F2</div>
-                <div className="text-[10px] text-metallic-silver/70 font-mono">WORLD CHAMPIONSHIP</div>
+              <div className="p-3 sm:p-4 rounded-xl bg-garage-black border border-white/10">
+                <Flag className="w-4 sm:w-5 h-4 sm:h-5 text-turbo-orange mb-1.5 sm:mb-2" />
+                <div className="font-display font-bold text-xs sm:text-sm text-performance-white">FIA F2</div>
+                <div className="text-[9px] sm:text-[10px] text-metallic-silver/70 font-mono">WORLD CHAMPIONSHIP</div>
               </div>
-              <div className="p-4 rounded-xl bg-garage-black border border-white/10">
-                <Flame className="w-5 h-5 text-racing-red mb-2" />
-                <div className="font-display font-bold text-sm text-performance-white">GT RACING</div>
-                <div className="text-[10px] text-metallic-silver/70 font-mono">24H ENDURANCE</div>
+              <div className="p-3 sm:p-4 rounded-xl bg-garage-black border border-white/10">
+                <Flame className="w-4 sm:w-5 h-4 sm:h-5 text-racing-red mb-1.5 sm:mb-2" />
+                <div className="font-display font-bold text-xs sm:text-sm text-performance-white">GT RACING</div>
+                <div className="text-[9px] sm:text-[10px] text-metallic-silver/70 font-mono">24H ENDURANCE</div>
               </div>
             </div>
           </div>
 
           {/* Right Dual Visuals */}
-          <div className="lg:col-span-5 space-y-6">
+          <div className="lg:col-span-5 space-y-4 sm:space-y-6">
             <ImagePlaceholder
               src="/images/ajith/thala-ajith-kumar-international-motorsport-racer.jpg"
               alt="Ajith Kumar Motorsport montage in racing suit and GT racecar - The Wheels Turbo Cafe Coimbatore"
@@ -169,11 +169,11 @@ export function AjithKumarClient() {
               badgeText="PADDOCK DISCIPLINE"
               className="w-full shadow-2xl"
             />
-            <div className="p-6 rounded-xl bg-carbon-black border border-racing-red/40 text-xs font-sans text-metallic-silver/90 space-y-2">
-              <span className="font-racing font-bold text-velocity-yellow text-sm tracking-wider uppercase block">
+            <div className="p-4 sm:p-6 rounded-xl bg-carbon-black border border-racing-red/40 text-xs font-sans text-metallic-silver/90 space-y-1.5 sm:space-y-2">
+              <span className="font-racing font-bold text-velocity-yellow text-xs sm:text-sm tracking-wider uppercase block">
                 &ldquo;NEVER GIVE UP ON THE DRIVE.&rdquo;
               </span>
-              <p>
+              <p className="text-[11px] sm:text-xs">
                 A core philosophy guiding our kitchen, our service, and our automotive sanctuary in Coimbatore.
               </p>
             </div>
@@ -182,7 +182,7 @@ export function AjithKumarClient() {
       </section>
 
       {/* 3. THE RACING SPIRIT (Interactive Asphalt Racetrack Timeline) */}
-      <section className="relative py-24 bg-garage-black border-t border-b border-white/10 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-16 sm:py-24 bg-garage-black border-t border-b border-white/10 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <SectionHeading
             sectorNumber="02"
@@ -199,31 +199,31 @@ export function AjithKumarClient() {
           />
 
           {/* Asphalt Track Container */}
-          <div className="relative border-l-2 border-racing-red/50 ml-4 sm:ml-8 pl-6 sm:pl-10 space-y-16">
+          <div className="relative border-l-2 border-racing-red/50 ml-3 sm:ml-8 pl-5 sm:pl-10 space-y-10 sm:space-y-16">
             {RACING_TIMELINE.map((milestone, idx) => (
               <div key={idx} className="relative group">
                 {/* Checkered Apex Marker on Track */}
-                <div className="absolute -left-[35px] sm:-left-[51px] top-0 w-6 h-6 rounded-full bg-turbo-black border-2 border-racing-red flex items-center justify-center text-velocity-yellow group-hover:scale-125 group-hover:bg-racing-red transition-all shadow-[0_0_15px_#e10600]">
-                  <div className="w-2 h-2 rounded-full bg-velocity-yellow" />
+                <div className="absolute -left-[31px] sm:-left-[51px] top-0 w-5 sm:w-6 h-5 sm:h-6 rounded-full bg-turbo-black border-2 border-racing-red flex items-center justify-center text-velocity-yellow group-hover:scale-125 group-hover:bg-racing-red transition-all shadow-[0_0_15px_#e10600]">
+                  <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-velocity-yellow" />
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-carbon-black border border-metallic-silver/20 hover:border-racing-red/80 rounded-2xl p-6 sm:p-8 transition-all duration-500 shadow-xl">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center bg-carbon-black border border-metallic-silver/20 hover:border-racing-red/80 rounded-2xl p-4 sm:p-6 lg:p-6 xl:p-8 transition-all duration-500 shadow-xl">
                   {/* Left Text */}
-                  <div className="lg:col-span-7 space-y-4">
-                    <div className="flex items-center gap-3">
-                      <span className="font-display font-black text-3xl sm:text-4xl text-velocity-yellow">
+                  <div className="lg:col-span-7 space-y-3 sm:space-y-4">
+                    <div className="flex items-center gap-2 sm:gap-3">
+                      <span className="font-display font-black text-2xl sm:text-3xl xl:text-4xl text-velocity-yellow">
                         {milestone.year}
                       </span>
-                      <span className="text-[10px] font-racing font-bold tracking-widest text-turbo-orange uppercase bg-turbo-black px-2.5 py-1 rounded border border-turbo-orange/30">
+                      <span className="text-[9px] sm:text-[10px] font-racing font-bold tracking-widest text-turbo-orange uppercase bg-turbo-black px-2 sm:px-2.5 py-0.5 sm:py-1 rounded border border-turbo-orange/30">
                         {milestone.stage}
                       </span>
                     </div>
 
-                    <h3 className="font-display font-black text-2xl uppercase tracking-wider text-performance-white">
+                    <h3 className="font-display font-black text-lg sm:text-xl xl:text-2xl uppercase tracking-wider text-performance-white">
                       {milestone.title}
                     </h3>
 
-                    <p className="font-racing text-xs text-metallic-silver font-semibold uppercase tracking-wider">
+                    <p className="font-racing text-[11px] sm:text-xs text-metallic-silver font-semibold uppercase tracking-wider">
                       {milestone.subtitle}
                     </p>
 
@@ -232,13 +232,13 @@ export function AjithKumarClient() {
                     </p>
 
                     {/* Stats */}
-                    <div className="grid grid-cols-3 gap-3 pt-3 border-t border-white/10 text-xs font-mono">
+                    <div className="grid grid-cols-3 gap-2 sm:gap-3 pt-2.5 sm:pt-3 border-t border-white/10 text-xs font-mono">
                       {milestone.stats.map((st, sIdx) => (
                         <div key={sIdx}>
-                          <span className="text-[10px] text-metallic-silver/50 uppercase block">
+                          <span className="text-[9px] sm:text-[10px] text-metallic-silver/50 uppercase block">
                             {st.label}
                           </span>
-                          <span className="font-bold text-performance-white text-xs">
+                          <span className="font-bold text-performance-white text-[11px] sm:text-xs">
                             {st.value}
                           </span>
                         </div>
@@ -266,7 +266,7 @@ export function AjithKumarClient() {
       </section>
 
       {/* 4. WALL OF MEMORIES */}
-      <section className="relative py-24 md:py-36 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <section className="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <SectionHeading
           sectorNumber="03"
           tag="COMMUNITY ARCHIVE"
@@ -281,12 +281,12 @@ export function AjithKumarClient() {
           subtitle="A visual tribute capturing iconic moments, cockpit telemetry, and racing milestones displayed at The Wheels Turbo Cafe in Coimbatore."
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {MEMORIES_WALL.map((mem) => (
             <div
               key={mem.id}
               onClick={() => setSelectedMemory(mem)}
-              className="bg-garage-black border border-metallic-silver/20 hover:border-racing-red/80 rounded-xl p-4 cursor-pointer group transition-all duration-300 shadow-xl"
+              className="bg-garage-black border border-metallic-silver/20 hover:border-racing-red/80 rounded-xl p-3.5 sm:p-4 cursor-pointer group transition-all duration-300 shadow-xl"
               data-cursor-hover
               data-cursor-text="ZOOM"
               role="button"
@@ -306,15 +306,15 @@ export function AjithKumarClient() {
               </div>
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="font-display font-bold text-sm text-performance-white uppercase group-hover:text-turbo-orange transition-colors">
+                  <h3 className="font-display font-bold text-xs sm:text-sm text-performance-white uppercase group-hover:text-turbo-orange transition-colors">
                     {mem.title}
                   </h3>
-                  <p className="font-sans text-xs text-metallic-silver/70 mt-1 line-clamp-1">
+                  <p className="font-sans text-[11px] sm:text-xs text-metallic-silver/70 mt-0.5 sm:mt-1 line-clamp-1">
                     {mem.caption}
                   </p>
                 </div>
-                <div className="p-2 rounded bg-turbo-black text-racing-red shrink-0 ml-2">
-                  <Maximize2 className="w-4 h-4" />
+                <div className="p-1.5 sm:p-2 rounded bg-turbo-black text-racing-red shrink-0 ml-2">
+                  <Maximize2 className="w-3.5 sm:w-4 h-3.5 sm:h-4" />
                 </div>
               </div>
             </div>

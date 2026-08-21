@@ -19,9 +19,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/gallery/wheels-turbo-cafe-rs-puram-garage-view.jpg",
+        url: "/og-image.png",
         width: 1200,
-        height: 675,
+        height: 630,
+        type: "image/jpeg",
         alt: "The Wheels Turbo Cafe RS Puram Coimbatore - Racing Themed Interior and Tyre Tables",
       },
     ],
@@ -31,7 +32,14 @@ export const metadata: Metadata = {
     title: "About Us | Best Racing Theme Cafe in Coimbatore",
     description:
       "The story of passion, endurance, and culinary horsepower in RS Puram, Coimbatore.",
-    images: ["/images/gallery/wheels-turbo-cafe-rs-puram-garage-view.jpg"],
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "The Wheels Turbo Cafe RS Puram Coimbatore",
+      },
+    ],
   },
 };
 

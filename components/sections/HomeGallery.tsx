@@ -5,7 +5,7 @@ import { ImagePlaceholder } from "../ui/ImagePlaceholder";
 import { SectionHeading } from "../ui/SectionHeading";
 import { LightboxModal } from "../ui/LightboxModal";
 import { GALLERY_ITEMS, PARALLAX_MATRIX_IMAGES, GalleryItem } from "@/data/galleryData";
-import { Maximize2, Flame } from "lucide-react";
+import { Maximize2 } from "lucide-react";
 
 import ThreeDParallaxGallery from "../ui/3d-parallax-unfurling-gallery";
 
@@ -48,25 +48,25 @@ export const HomeGallery: React.FC = () => {
       </div>
 
       {/* 3. Filterable Masonry Vault */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 md:pb-36 relative z-10">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10 border-b border-white/10 pb-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-24 md:pb-36 relative z-10">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4 mb-6 sm:mb-10 border-b border-white/10 pb-4 sm:pb-6">
           <div>
-            <h3 className="font-display font-black text-2xl text-performance-white tracking-wide">
+            <h3 className="font-display font-black text-xl sm:text-2xl text-performance-white tracking-wide">
               FILTER ARCHIVE BY CATEGORY
             </h3>
-            <p className="text-sm text-metallic-silver">
+            <p className="text-xs sm:text-sm text-metallic-silver mt-0.5 sm:mt-1">
               Explore garage ambience, artisanal menu items, racing tributes, and fan moments.
             </p>
           </div>
         </div>
 
         {/* Filter Pills */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-10 no-scrollbar" role="group" aria-label="Gallery category filters">
+        <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-3 sm:pb-4 mb-6 sm:mb-10 no-scrollbar" role="group" aria-label="Gallery category filters">
           {filterTags.map((tag) => (
             <button
               key={tag}
               onClick={() => setActiveFilter(tag)}
-              className={`px-4 py-2 rounded-full text-xs font-racing font-bold tracking-widest uppercase transition-all duration-300 shrink-0 ${
+              className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[11px] sm:text-xs font-racing font-bold tracking-wider sm:tracking-widest uppercase transition-all duration-300 shrink-0 ${
                 activeFilter === tag
                   ? "bg-gradient-to-r from-racing-red to-turbo-orange text-white shadow-[0_0_15px_rgba(225,6,0,0.5)] border-t border-white/30"
                   : "bg-garage-black text-metallic-silver hover:text-white border border-white/10 hover:border-racing-red/50"
@@ -80,7 +80,7 @@ export const HomeGallery: React.FC = () => {
         </div>
 
         {/* Masonry Asymmetrical Composition Grid */}
-        <div className="grid grid-cols-12 gap-6 items-stretch">
+        <div className="grid grid-cols-12 gap-4 sm:gap-6 items-stretch">
           {filteredItems.map((item) => (
             <div
               key={item.id}
@@ -92,7 +92,7 @@ export const HomeGallery: React.FC = () => {
               tabIndex={0}
               aria-label={`View full image: ${item.title}`}
             >
-              <div className="relative overflow-hidden w-full h-full flex-1 min-h-[280px]">
+              <div className="relative overflow-hidden w-full h-full flex-1 min-h-[220px] sm:min-h-[280px]">
                 <ImagePlaceholder
                   src={item.imageSrc}
                   alt={item.altText || item.title}
@@ -103,22 +103,22 @@ export const HomeGallery: React.FC = () => {
                 />
 
                 {/* Hover Reveal Details Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-turbo-black via-turbo-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 z-10">
+                <div className="absolute inset-0 bg-gradient-to-t from-turbo-black via-turbo-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 sm:p-6 z-10">
                   <div className="flex items-center justify-between">
                     <div>
-                      <span className="text-[10px] font-racing font-bold text-velocity-yellow tracking-widest uppercase">
+                      <span className="text-[9px] sm:text-[10px] font-racing font-bold text-velocity-yellow tracking-widest uppercase">
                         {item.tag}
                       </span>
-                      <h3 className="font-display font-black text-lg md:text-xl text-performance-white uppercase">
+                      <h3 className="font-display font-black text-base sm:text-lg md:text-xl text-performance-white uppercase">
                         {item.title}
                       </h3>
-                      <p className="text-xs text-metallic-silver/80 line-clamp-1 mt-1 font-sans">
+                      <p className="text-[11px] sm:text-xs text-metallic-silver/80 line-clamp-1 mt-0.5 sm:mt-1 font-sans">
                         {item.caption}
                       </p>
                     </div>
 
-                    <div className="p-3 rounded-full bg-racing-red text-white shadow-lg shrink-0 ml-4">
-                      <Maximize2 className="w-4 h-4" />
+                    <div className="p-2 sm:p-3 rounded-full bg-racing-red text-white shadow-lg shrink-0 ml-3 sm:ml-4">
+                      <Maximize2 className="w-3.5 sm:w-4 h-3.5 sm:h-4" />
                     </div>
                   </div>
                 </div>
