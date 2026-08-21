@@ -9,44 +9,31 @@ import { HomeAjithPreview } from "@/components/sections/HomeAjithPreview";
 import { HomeGallery } from "@/components/sections/HomeGallery";
 import { GoogleReviewsSection } from "@/components/sections/GoogleReviewsSection";
 
+import { SITE_URL, DEFAULT_OG_IMAGE } from "@/lib/site";
+
 export const metadata: Metadata = {
   title: "The Wheels Turbo Cafe | Best Racing Theme Cafe in Coimbatore",
   description:
     "Welcome to The Wheels Turbo Cafe in RS Puram — a unique racing and Ajith Kumar themed cafe created by an ardent racer Ajith fan girl in Coimbatore. Discover delicious food, signature smash burgers, and authentic motorsport tribute decor in Tamil Nadu.",
   alternates: {
-    canonical: "https://thewheelsturbocafe.com",
+    canonical: SITE_URL,
   },
   openGraph: {
     title: "The Wheels Turbo Cafe | Best Racing Theme Cafe in Coimbatore",
     description:
       "A unique motorsport and Ajith Kumar themed cafe experience in RS Puram, Coimbatore. Delicious food, craft brews, and the best hangout place for motorsport and car enthusiasts.",
-    url: "https://thewheelsturbocafe.com",
+    url: SITE_URL,
     siteName: "The Wheels Turbo Cafe",
     locale: "en_IN",
     type: "website",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        type: "image/jpeg",
-        alt: "The Wheels Turbo Cafe - Best Racing Theme Cafe in Coimbatore",
-      },
-    ],
+    images: [DEFAULT_OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
     title: "The Wheels Turbo Cafe | Best Racing Theme Cafe in Coimbatore",
     description:
       "A unique motorsport and Ajith Kumar themed cafe experience in RS Puram, Coimbatore. Delicious food, craft brews, and the best hangout place for motorsport enthusiasts.",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "The Wheels Turbo Cafe - Best Racing Theme Cafe in Coimbatore",
-      },
-    ],
+    images: [DEFAULT_OG_IMAGE],
   },
 };
 
@@ -54,13 +41,13 @@ export default function HomePage() {
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "@id": "https://thewheelsturbocafe.com/#website",
-    url: "https://thewheelsturbocafe.com",
+    "@id": `${SITE_URL}/#website`,
+    url: SITE_URL,
     name: "The Wheels Turbo Cafe",
     description:
       "Best racing theme cafe and unique hangout place in Coimbatore, Tamil Nadu created by an ardent racer Ajith Kumar fan girl.",
     publisher: {
-      "@id": "https://thewheelsturbocafe.com/#restaurant",
+      "@id": `${SITE_URL}/#restaurant`,
     },
     inLanguage: "en-IN",
   };
