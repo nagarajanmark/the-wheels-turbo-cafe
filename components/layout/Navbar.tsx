@@ -5,10 +5,18 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BrandLogo } from "../ui/BrandLogo";
 import { MagneticButton } from "../ui/MagneticButton";
-import { Menu, X, Flame, MapPin, Clock, Calendar, CheckCircle2, Phone, User, Users } from "lucide-react";
+import { Menu, X, Flame, MapPin, Clock, Calendar, CheckCircle2, Phone, User, Users, Mail } from "lucide-react";
 import { CAFE_DATA } from "@/data/cafeData";
 import { motion, AnimatePresence } from "framer-motion";
 import confetti from "canvas-confetti";
+import {
+  filterLettersOnly,
+  filterNumbersOnly,
+  validateName,
+  validatePhone,
+  validateDate,
+  validateEmail,
+} from "@/lib/validations";
 
 const NAV_LINKS = [
   { name: "HOME", href: "/" },
@@ -187,24 +195,135 @@ export const Navbar: React.FC = () => {
 // Table Booking Modal
 const BookingModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [serverError, setServerError] = useState<string | null>(null);
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
+    email: "",
     guests: "2",
     date: "",
     timeSlot: "19:30",
     seatingArea: "RACING SIMULATOR BAY",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const todayStr = new Date().toISOString().split("T")[0];
+
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const sanitized = filterLettersOnly(e.target.value);
+    setFormData((prev) => ({ ...prev, name: sanitized }));
+    if (touched.name) {
+      const val = validateName(sanitized);
+      setErrors((prev) => ({ ...prev, name: val.error || "" }));
+    }
+  };
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const sanitized = filterNumbersOnly(e.target.value, 10);
+    setFormData((prev) => ({ ...prev, phone: sanitized }));
+    if (touched.phone) {
+      const val = validatePhone(sanitized);
+      setErrors((prev) => ({ ...prev, phone: val.error || "" }));
+    }
+  };
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = e.target.value;
+    setFormData((prev) => ({ ...prev, email: val }));
+    if (touched.email && val.trim()) {
+      const valRes = validateEmail(val);
+      setErrors((prev) => ({ ...prev, email: valRes.error || "" }));
+    }
+  };
+
+  const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = e.target.value;
+    setFormData((prev) => ({ ...prev, date: val }));
+    if (touched.date) {
+      const valRes = validateDate(val);
+      setErrors((prev) => ({ ...prev, date: valRes.error || "" }));
+    }
+  };
+
+  const handleBlur = (field: string) => {
+    setTouched((prev) => ({ ...prev, [field]: true }));
+    if (field === "name") {
+      const res = validateName(formData.name);
+      setErrors((prev) => ({ ...prev, name: res.error || "" }));
+    } else if (field === "phone") {
+      const res = validatePhone(formData.phone);
+      setErrors((prev) => ({ ...prev, phone: res.error || "" }));
+    } else if (field === "email" && formData.email.trim()) {
+      const res = validateEmail(formData.email);
+      setErrors((prev) => ({ ...prev, email: res.error || "" }));
+    } else if (field === "date") {
+      const res = validateDate(formData.date);
+      setErrors((prev) => ({ ...prev, date: res.error || "" }));
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    confetti({
-      particleCount: 80,
-      spread: 70,
-      origin: { y: 0.6 },
-      colors: ["#E10600", "#FF5A00", "#FFC400"],
-    });
+    setServerError(null);
+
+    const nameVal = validateName(formData.name);
+    const phoneVal = validatePhone(formData.phone);
+    const dateVal = validateDate(formData.date);
+
+    const newErrors: Record<string, string> = {};
+    if (!nameVal.isValid) newErrors.name = nameVal.error || "Invalid name";
+    if (!phoneVal.isValid) newErrors.phone = phoneVal.error || "Invalid phone";
+    if (!dateVal.isValid) newErrors.date = dateVal.error || "Invalid date";
+    if (formData.email.trim()) {
+      const emailVal = validateEmail(formData.email);
+      if (!emailVal.isValid) newErrors.email = emailVal.error || "Invalid email";
+    }
+
+    setTouched({ name: true, phone: true, date: true, email: true });
+    setErrors(newErrors);
+
+    if (Object.keys(newErrors).length > 0) {
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const res = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "reservation",
+          name: formData.name.trim(),
+          phone: formData.phone.trim(),
+          email: formData.email.trim() || undefined,
+          guests: formData.guests,
+          date: formData.date,
+          timeSlot: formData.timeSlot,
+          seatingArea: formData.seatingArea,
+        }),
+      });
+
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || "Failed to confirm reservation. Please try again.");
+      }
+
+      setSubmitted(true);
+      confetti({
+        particleCount: 90,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ["#E10600", "#FF5A00", "#FFC400"],
+      });
+    } catch (err: any) {
+      setServerError(err?.message || "Booking dispatch failed. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -224,7 +343,7 @@ const BookingModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 text-metallic-silver hover:text-white rounded-lg bg-turbo-black/60 border border-white/10"
+          className="absolute top-4 right-4 p-2 text-metallic-silver hover:text-white rounded-lg bg-turbo-black/60 border border-white/10 cursor-pointer"
         >
           <X className="w-5 h-5" />
         </button>
@@ -244,12 +363,21 @@ const BookingModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
               </p>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
+            {serverError && (
+              <div className="mb-4 p-3 rounded-lg bg-racing-red/10 border border-racing-red text-racing-red text-xs font-mono">
+                ⚠ {serverError}
+              </div>
+            )}
+
+            <form onSubmit={handleSubmit} noValidate className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-[11px] font-racing font-bold text-metallic-silver uppercase tracking-wider mb-1">
-                    Pilot Name
-                  </label>
+                  <div className="flex items-center justify-between mb-1">
+                    <label className="block text-[11px] font-racing font-bold text-metallic-silver uppercase tracking-wider">
+                      Pilot Name <span className="text-racing-red">*</span>
+                    </label>
+                    <span className="text-[9px] font-mono text-metallic-silver/50">LETTERS ONLY</span>
+                  </div>
                   <div className="relative">
                     <User className="absolute left-3 top-3 w-4 h-4 text-metallic-silver/50" />
                     <input
@@ -257,28 +385,69 @@ const BookingModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                       required
                       placeholder="e.g. Rahul Kumar"
                       value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full bg-carbon-black border border-white/15 rounded px-3 py-2.5 pl-9 text-xs text-performance-white focus:border-racing-red focus:outline-none"
+                      onChange={handleNameChange}
+                      onBlur={() => handleBlur("name")}
+                      className={`w-full bg-carbon-black border rounded px-3 py-2.5 pl-9 text-xs text-performance-white focus:outline-none ${
+                        errors.name ? "border-racing-red shadow-[0_0_8px_rgba(225,6,0,0.3)]" : "border-white/15 focus:border-racing-red"
+                      }`}
                     />
                   </div>
+                  {errors.name && (
+                    <p className="mt-1 text-[10px] font-mono text-racing-red">⚠ {errors.name}</p>
+                  )}
                 </div>
 
                 <div>
-                  <label className="block text-[11px] font-racing font-bold text-metallic-silver uppercase tracking-wider mb-1">
-                    Contact Radio / Phone
-                  </label>
+                  <div className="flex items-center justify-between mb-1">
+                    <label className="block text-[11px] font-racing font-bold text-metallic-silver uppercase tracking-wider">
+                      Radio Phone <span className="text-racing-red">*</span>
+                    </label>
+                    <span className="text-[9px] font-mono text-velocity-yellow">{formData.phone.length}/10</span>
+                  </div>
                   <div className="relative">
                     <Phone className="absolute left-3 top-3 w-4 h-4 text-metallic-silver/50" />
                     <input
                       type="tel"
                       required
-                      placeholder="+91 98422 XXXXX"
+                      placeholder="9842212345"
+                      maxLength={10}
                       value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full bg-carbon-black border border-white/15 rounded px-3 py-2.5 pl-9 text-xs text-performance-white focus:border-racing-red focus:outline-none"
+                      onChange={handlePhoneChange}
+                      onBlur={() => handleBlur("phone")}
+                      className={`w-full bg-carbon-black border rounded px-3 py-2.5 pl-9 text-xs text-performance-white focus:outline-none ${
+                        errors.phone ? "border-racing-red shadow-[0_0_8px_rgba(225,6,0,0.3)]" : "border-white/15 focus:border-racing-red"
+                      }`}
                     />
                   </div>
+                  {errors.phone && (
+                    <p className="mt-1 text-[10px] font-mono text-racing-red">⚠ {errors.phone}</p>
+                  )}
                 </div>
+              </div>
+
+              {/* Optional Email for Booking Receipt */}
+              <div>
+                <div className="flex items-center justify-between mb-1">
+                  <label className="block text-[11px] font-racing font-bold text-metallic-silver uppercase tracking-wider">
+                    Email Dispatch <span className="text-metallic-silver/50 font-normal">(For Confirmation Receipt)</span>
+                  </label>
+                </div>
+                <div className="relative">
+                  <Mail className="absolute left-3 top-3 w-4 h-4 text-metallic-silver/50" />
+                  <input
+                    type="email"
+                    placeholder="pilot@example.com (to receive booking ticket)"
+                    value={formData.email}
+                    onChange={handleEmailChange}
+                    onBlur={() => handleBlur("email")}
+                    className={`w-full bg-carbon-black border rounded px-3 py-2.5 pl-9 text-xs text-performance-white focus:outline-none ${
+                      errors.email ? "border-racing-red shadow-[0_0_8px_rgba(225,6,0,0.3)]" : "border-white/15 focus:border-racing-red"
+                    }`}
+                  />
+                </div>
+                {errors.email && (
+                  <p className="mt-1 text-[10px] font-mono text-racing-red">⚠ {errors.email}</p>
+                )}
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -300,15 +469,22 @@ const BookingModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 
                 <div>
                   <label className="block text-[11px] font-racing font-bold text-metallic-silver uppercase tracking-wider mb-1">
-                    Race Date
+                    Race Date <span className="text-racing-red">*</span>
                   </label>
                   <input
                     type="date"
                     required
+                    min={todayStr}
                     value={formData.date}
-                    onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                    className="w-full bg-carbon-black border border-white/15 rounded px-3 py-2.5 text-xs text-performance-white focus:border-racing-red focus:outline-none"
+                    onChange={handleDateChange}
+                    onBlur={() => handleBlur("date")}
+                    className={`w-full bg-carbon-black border rounded px-3 py-2.5 text-xs text-performance-white focus:outline-none ${
+                      errors.date ? "border-racing-red shadow-[0_0_8px_rgba(225,6,0,0.3)]" : "border-white/15 focus:border-racing-red"
+                    }`}
                   />
+                  {errors.date && (
+                    <p className="mt-1 text-[10px] font-mono text-racing-red">⚠ {errors.date}</p>
+                  )}
                 </div>
 
                 <div>
@@ -347,10 +523,20 @@ const BookingModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
               <div className="pt-3">
                 <button
                   type="submit"
-                  className="w-full py-3.5 rounded bg-gradient-to-r from-racing-red via-turbo-orange to-velocity-yellow text-turbo-black font-racing font-black tracking-widest uppercase text-sm shadow-[0_0_30px_rgba(225,6,0,0.6)] hover:brightness-110 transition-all flex items-center justify-center gap-2"
+                  disabled={isSubmitting}
+                  className="w-full py-3.5 rounded bg-gradient-to-r from-racing-red via-turbo-orange to-velocity-yellow text-turbo-black font-racing font-black tracking-widest uppercase text-sm shadow-[0_0_30px_rgba(225,6,0,0.6)] hover:brightness-110 disabled:opacity-60 transition-all flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  <Flame className="w-4 h-4 fill-turbo-black" />
-                  CONFIRM PIT STOP RESERVATION
+                  {isSubmitting ? (
+                    <span className="flex items-center gap-2">
+                      <span className="w-4 h-4 border-2 border-turbo-black border-t-transparent rounded-full animate-spin" />
+                      DISPATCHING RESERVATION...
+                    </span>
+                  ) : (
+                    <>
+                      <Flame className="w-4 h-4 fill-turbo-black" />
+                      <span>CONFIRM PIT STOP RESERVATION</span>
+                    </>
+                  )}
                 </button>
               </div>
             </form>
@@ -368,19 +554,35 @@ const BookingModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                 SEE YOU ON THE GRID, {formData.name.toUpperCase() || "RACER"}!
               </h3>
               <p className="text-xs text-metallic-silver/80 max-w-sm mx-auto">
-                Your bay has been reserved at The Wheels Turbo Cafe Coimbatore for {formData.guests} guests.
+                Your reservation details have been dispatched to our team for {formData.guests} guests on {formData.date}.
               </p>
             </div>
 
             <div className="p-4 bg-turbo-black rounded-lg border border-white/10 text-left text-xs font-mono space-y-1 max-w-xs mx-auto text-metallic-silver">
-              <div>RADIO: {formData.phone}</div>
-              <div>EXPERIENCE: {formData.seatingArea}</div>
+              <div>PILOT: {formData.name}</div>
+              <div>RADIO: +91 {formData.phone}</div>
+              <div>DATE: {formData.date}</div>
               <div>SLOT: {formData.timeSlot} HRS</div>
+              <div>EXPERIENCE: {formData.seatingArea}</div>
             </div>
 
             <button
-              onClick={onClose}
-              className="px-6 py-2.5 rounded bg-garage-black border border-metallic-silver/30 text-performance-white font-racing font-bold text-xs uppercase tracking-widest hover:border-racing-red"
+              onClick={() => {
+                setSubmitted(false);
+                setFormData({
+                  name: "",
+                  phone: "",
+                  email: "",
+                  guests: "2",
+                  date: "",
+                  timeSlot: "19:30",
+                  seatingArea: "RACING SIMULATOR BAY",
+                });
+                setTouched({});
+                setErrors({});
+                onClose();
+              }}
+              className="px-6 py-2.5 rounded bg-garage-black border border-metallic-silver/30 text-performance-white font-racing font-bold text-xs uppercase tracking-widest hover:border-racing-red cursor-pointer"
             >
               CLOSE TELEMETRY
             </button>

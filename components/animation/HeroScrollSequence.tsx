@@ -274,7 +274,7 @@ export const HeroScrollSequence: React.FC = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-5xl">
           <div className="transform hover:scale-105 transition-transform">
             <ImagePlaceholder
-              src="/images/hero/hero-racing.jpg"
+              src="/images/hero/the-wheels-turbo-cafe-coimbatore-hero-speed-experience.jpg"
               alt="Circuit racing action representing motorsport speed at The Wheels Turbo Cafe"
               label="RACING"
               aspectRatio="4/3"
@@ -283,7 +283,7 @@ export const HeroScrollSequence: React.FC = () => {
           </div>
           <div className="transform hover:scale-105 transition-transform">
             <ImagePlaceholder
-              src="/images/menu/burger-01.jpg"
+              src="/images/menu/best-double-patty-chicken-burger-in-coimbatore.jpg"
               alt="Artisanal smash burgers and culinary flavours served at The Wheels Turbo Cafe in Coimbatore"
               label="FOOD"
               aspectRatio="4/3"
@@ -292,7 +292,7 @@ export const HeroScrollSequence: React.FC = () => {
           </div>
           <div className="transform hover:scale-105 transition-transform">
             <ImagePlaceholder
-              src="/images/ajith/racing-01.jpg"
+              src="/images/ajith/ajith-kumar-racing-porsche-gt3-cup-car.jpg"
               alt="Ajith Kumar international motorsport racing legacy tribute"
               label="PASSION"
               aspectRatio="4/3"
@@ -301,7 +301,7 @@ export const HeroScrollSequence: React.FC = () => {
           </div>
           <div className="transform hover:scale-105 transition-transform">
             <ImagePlaceholder
-              src="/images/gallery/gallery-01.jpg"
+              src="/images/gallery/coimbatore-trending-aesthetic-cafe-experience.jpg"
               alt="Petrolhead community and dining moments at The Wheels Turbo Cafe RS Puram Coimbatore"
               label="MEMORIES"
               aspectRatio="4/3"

@@ -76,17 +76,12 @@ export default function ThreeDParallaxGallery({
   const imageList = images && images.length > 0 ? images : DEFAULT_UNSPLASH_IMAGES;
 
   const colMedia = useMemo(() => {
-    const col1Base = imageList.filter((_, i) => i % 4 === 0);
-    const col2Base = imageList.filter((_, i) => i % 4 === 1);
-    const col3Base = imageList.filter((_, i) => i % 4 === 2);
-    const col4Base = imageList.filter((_, i) => i % 4 === 3);
+    const col1 = imageList.filter((_, i) => i % 4 === 0);
+    const col2 = imageList.filter((_, i) => i % 4 === 1);
+    const col3 = imageList.filter((_, i) => i % 4 === 2);
+    const col4 = imageList.filter((_, i) => i % 4 === 3);
 
-    return {
-      col1: [...col1Base, ...(col1Base.length < 4 ? col1Base : [])],
-      col2: [...col2Base, ...(col2Base.length < 4 ? col2Base : [])],
-      col3: [...col3Base, ...(col3Base.length < 4 ? col3Base : [])],
-      col4: [...col4Base, ...(col4Base.length < 4 ? col4Base : [])],
-    };
+    return { col1, col2, col3, col4 };
   }, [imageList]);
 
   // Framer Motion scroll hook (supports window scroll or custom wrapper)

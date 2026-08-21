@@ -14,7 +14,7 @@ const MEMORIES_WALL = [
     id: "mem-01",
     label: "PODIUM MOMENT // TRICOLOUR",
     title: "PODIUM CELEBRATION WITH INDIAN FLAG",
-    src: "/images/ajith/coimbatore-best-cafe-ajith-kumar-podium-indian-flag.jpg",
+    src: "/images/ajith/ajith-kumar-podium-finish-indian-flag-motorsport.jpg",
     alt: "Ajith Kumar celebrating on the international motorsport podium holding the Indian Tricolour flag",
     caption: "Holding the Indian tricolor aloft on the podium during international racing championships with showering confetti.",
   },
@@ -22,7 +22,7 @@ const MEMORIES_WALL = [
     id: "mem-02",
     label: "AKR #901 PORSCHE 911 GT3",
     title: "AKR #901 PORSCHE 911 GT3 RACECAR",
-    src: "/images/ajith/coimbatore-best-cafe-ajith-kumar-porsche-racecar.jpg",
+    src: "/images/ajith/ajith-kumar-racing-porsche-992-gt3-cup.jpg",
     alt: "Ajith Kumar standing with #901 Porsche 911 GT3 Cup racecar in the pitlane",
     caption: "Ajith Kumar standing proudly beside his #901 endurance racecar with helmet resting on the roof.",
   },
@@ -30,7 +30,7 @@ const MEMORIES_WALL = [
     id: "mem-03",
     label: "PORSCHE MOTORSPORT SUIT",
     title: "THALA AJITH PORSCHE MOTORSPORT SUIT",
-    src: "/images/ajith/coimbatore-best-cafe-thala-ajith-kumar-racing-suit.jpg",
+    src: "/images/ajith/thala-ajith-kumar-official-racing-driver-suit.jpg",
     alt: "Thala Ajith Kumar Porsche Motorsport racing suit and aerodynamic helmet tribute",
     caption: "Precision safety gear, HRX racing suit, and aerodynamic helmet design celebrating Thala's motorsport prowess.",
   },
@@ -38,7 +38,7 @@ const MEMORIES_WALL = [
     id: "mem-04",
     label: "24H GT ENDURANCE SERIES",
     title: "CREVENTIC 24H SERIES GT PREPARATION",
-    src: "/images/ajith/coimbatore-best-cafe-ajith-kumar-creventic-24h.jpg",
+    src: "/images/ajith/ajith-kumar-creventic-24h-endurance-series.jpg",
     alt: "Ajith Kumar 24H GT Endurance racing championship in the paddock",
     caption: "Leading the Ajith Kumar Racing GT squad through grueling endurance championships across international circuits.",
   },
@@ -46,7 +46,7 @@ const MEMORIES_WALL = [
     id: "mem-05",
     label: "24H SERIES TRIUMPH",
     title: "24H SERIES TRICOLOUR TRIUMPH",
-    src: "/images/ajith/coimbatore-best-cafe-ajith-kumar-24h-victory.jpg",
+    src: "/images/ajith/ajith-kumar-24h-dubai-race-victory-celebration.jpg",
     alt: "Ajith Kumar celebrating 24H Series GT victory with team",
     caption: "A montage of triumph, celebration, and devotion to motorsport excellence on the world stage.",
   },
@@ -54,7 +54,7 @@ const MEMORIES_WALL = [
     id: "mem-06",
     label: "MOTORSPORT COMMUNITY TRIBUTE",
     title: "PADDOCK PASSION & FAN DEVOTION",
-    src: "/images/ajith/coimbatore-best-cafe-ajith-kumar-fan-love-tribute.jpg",
+    src: "/images/ajith/ajith-kumar-fan-tribute-coimbatore-cafe.jpg",
     alt: "Ajith Kumar motorsport fan community tribute wall at The Wheels Turbo Cafe in RS Puram Coimbatore",
     caption: "Heartfelt tributes celebrating the deep bond between motorsport fans, Thala admirers, and racing culture in Coimbatore.",
   },
@@ -76,7 +76,7 @@ export function AjithKumarClient() {
         {/* Background Image Placeholder */}
         <div className="absolute inset-0 z-0">
           <ImagePlaceholder
-            src="/images/ajith/coimbatore-best-cafe-ajith-kumar-supercar-tribute.jpg"
+            src="/images/ajith/thala-ajith-supercar-racing-legacy-coimbatore.jpg"
             alt="Thala Ajith Kumar motorsport tribute at The Wheels Turbo Cafe Coimbatore"
             label="AJITH KUMAR MOTORSPORT HERO TRIBUTE"
             aspectRatio="auto"
@@ -157,7 +157,7 @@ export function AjithKumarClient() {
           {/* Right Dual Visuals */}
           <div className="lg:col-span-5 space-y-6">
             <ImagePlaceholder
-              src="/images/ajith/coimbatore-best-cafe-ajith-kumar-motorsport-montage.jpg"
+              src="/images/ajith/thala-ajith-kumar-international-motorsport-racer.jpg"
               alt="Ajith Kumar Motorsport montage in racing suit and GT racecar - The Wheels Turbo Cafe Coimbatore"
               label="AJITH KUMAR — MOTORSPORT ICON"
               aspectRatio="4/3"
@@ -247,8 +247,10 @@ export function AjithKumarClient() {
                       src={milestone.imageSrc}
                       alt={milestone.altText}
                       label={milestone.imageLabel}
-                      aspectRatio="16/9"
+                      aspectRatio="4/3"
+                      objectPosition={milestone.objectPosition || "object-center"}
                       badgeText={milestone.year}
+                      className="w-full shadow-2xl"
                     />
                   </div>
                 </div>
@@ -291,7 +293,8 @@ export function AjithKumarClient() {
                   src={mem.src}
                   alt={mem.alt}
                   label={mem.label}
-                  aspectRatio="16/9"
+                  aspectRatio="4/3"
+                  objectPosition="object-top"
                   badgeText="ARCHIVE"
                   className="w-full transition-transform duration-500 group-hover:scale-105"
                 />

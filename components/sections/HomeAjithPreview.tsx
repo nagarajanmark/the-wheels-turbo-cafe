@@ -12,7 +12,7 @@ export const HomeAjithPreview: React.FC = () => {
       {/* Background Hero Layer with dark motorsport lighting */}
       <div className="absolute inset-0 z-0">
         <ImagePlaceholder
-          src="/images/ajith/coimbatore-best-cafe-ajith-kumar-supercar-tribute.jpg"
+          src="/images/ajith/thala-ajith-supercar-racing-legacy-coimbatore.jpg"
           alt="Thala Ajith Kumar motorsport tribute at The Wheels Turbo Cafe Coimbatore"
           label="AJITH KUMAR MOTORSPORT TRIBUTE"
           aspectRatio="auto"
@@ -82,7 +82,7 @@ export const HomeAjithPreview: React.FC = () => {
               {/* Main Tribute Card */}
               <div className="transform sm:-rotate-2 hover:rotate-0 transition-transform duration-500 shadow-2xl">
                 <ImagePlaceholder
-                  src="/images/ajith/coimbatore-best-cafe-ajith-kumar-motorsport-montage.jpg"
+                  src="/images/gallery/best-motorsport-theme-cafe-in-coimbatore.jpeg"
                   alt="Ajith Kumar motorsport career montage tribute at The Wheels Turbo Cafe Coimbatore"
                   label="AJITH KUMAR — MOTORSPORT ICON"
                   aspectRatio="4/3"
@@ -94,7 +94,7 @@ export const HomeAjithPreview: React.FC = () => {
               {/* Overlapping Secondary Card */}
               <div className="hidden sm:block absolute -bottom-10 -right-6 w-3/5 transform rotate-3 hover:rotate-0 transition-transform duration-500 shadow-2xl z-20">
                 <ImagePlaceholder
-                  src="/images/ajith/coimbatore-best-cafe-akr-porsche-901-track.jpg"
+                  src="/images/ajith/ak-racing-team-porsche-on-track.jpg"
                   alt="Ajith Kumar Racing #901 Porsche on track tribute at The Wheels Turbo Cafe Coimbatore"
                   label="AKR 901 PORSCHE GT3"
                   aspectRatio="16/9"

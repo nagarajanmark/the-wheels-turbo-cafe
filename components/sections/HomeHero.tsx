@@ -12,7 +12,7 @@ export const HomeHero: React.FC = () => {
       {/* Background Hero Image with dark atmospheric overlay */}
       <div className="absolute inset-0 z-0">
         <ImagePlaceholder
-          src="/images/gallery/coimbatore-best-cafe-garage-ambience.jpeg"
+          src="/images/gallery/best-motorsport-theme-cafe-in-coimbatore.jpeg"
           alt="The Wheels Turbo Cafe racing garage interior and dining atmosphere in RS Puram Coimbatore"
           label="THE WHEELS TURBO CAFE // RS PURAM COIMBATORE"
           aspectRatio="auto"

@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import { Gauge, Flame, Camera, Sparkles } from "lucide-react";
+import { Gauge, Flame, Sparkles } from "lucide-react";
 
 interface ImagePlaceholderProps {
   src?: string;
@@ -13,6 +13,7 @@ interface ImagePlaceholderProps {
   priority?: boolean;
   fill?: boolean;
   objectFit?: "cover" | "contain";
+  objectPosition?: string;
   badgeText?: string;
   variant?: "default" | "gold" | "redline";
 }
@@ -26,31 +27,12 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
   priority = false,
   fill = true,
   objectFit = "cover",
+  objectPosition = "object-center",
   badgeText,
   variant = "default",
 }) => {
-  const [imageExists, setImageExists] = useState<boolean>(false);
-  const [checked, setChecked] = useState<boolean>(false);
-
-  useEffect(() => {
-    if (!src) {
-      setImageExists(false);
-      setChecked(true);
-      return;
-    }
-
-    // Verify if local image exists in public folder
-    const img = new window.Image();
-    img.src = src;
-    img.onload = () => {
-      setImageExists(true);
-      setChecked(true);
-    };
-    img.onerror = () => {
-      setImageExists(false);
-      setChecked(true);
-    };
-  }, [src]);
+  const [hasError, setHasError] = useState<boolean>(false);
+  const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
   const aspectRatioClasses = {
     "16/9": "aspect-[16/9]",
@@ -73,13 +55,15 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
     redline: "from-racing-red via-racing-red to-transparent",
   }[variant];
 
+  const showImage = Boolean(src && !hasError);
+
   return (
     <div
       className={`relative group overflow-hidden bg-carbon-black rounded-lg border ${variantBorders} transition-all duration-500 shadow-2xl ${aspectRatioClasses} ${className}`}
     >
       {/* Active Real Image if found */}
-      {imageExists && src ? (
-        <div className="relative w-full h-full">
+      {showImage && src ? (
+        <div className="relative w-full h-full bg-garage-black">
           <Image
             src={src}
             alt={alt}
@@ -87,12 +71,14 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             priority={priority}
             unoptimized={src.startsWith("http")}
-            className={`transition-transform duration-700 group-hover:scale-105 ${
-              objectFit === "contain" ? "object-contain" : "object-cover"
-            }`}
+            onLoad={() => setIsLoaded(true)}
+            onError={() => setHasError(true)}
+            className={`transition-all duration-700 group-hover:scale-105 ${
+              isLoaded ? "opacity-100" : "opacity-80"
+            } ${objectFit === "contain" ? "object-contain" : "object-cover"} ${objectPosition}`}
           />
           {/* Subtle Ambient Racing Vignette */}
-          <div className="absolute inset-0 bg-gradient-to-t from-turbo-black/90 via-transparent to-turbo-black/30 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-turbo-black/90 via-transparent to-turbo-black/20 pointer-events-none" />
         </div>
       ) : (
         /* Motorsport Telemetry Placeholder */
@@ -123,16 +109,11 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
             <div className="space-y-1 max-w-[85%]">
               <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-[10px] tracking-widest font-racing font-bold uppercase bg-racing-red/10 border border-racing-red/30 text-racing-red">
                 <Sparkles className="w-3 h-3 text-velocity-yellow" />
-                <span>IMAGE PLACEHOLDER</span>
+                <span>CHEF SPECIAL</span>
               </div>
               <h4 className="font-display font-bold text-xs md:text-sm tracking-wider text-performance-white group-hover:text-turbo-orange transition-colors uppercase line-clamp-2">
                 {label}
               </h4>
-              {src && (
-                <p className="text-[10px] tracking-widest font-mono text-metallic-silver/60 group-hover:text-metallic-silver transition-colors break-all">
-                  DROP IN: {src}
-                </p>
-              )}
             </div>
           </div>
 

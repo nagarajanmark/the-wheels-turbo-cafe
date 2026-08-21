@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     type: "article",
     images: [
       {
-        url: "/images/ajith/coimbatore-best-cafe-ajith-kumar-motorsport-montage.jpg",
+        url: "/images/ajith/ajith-kumar-fia-formula-racing-career-montage.jpg",
         width: 1200,
         height: 675,
         alt: "Ajith Kumar Themed Cafe and Racing Legacy Tribute at The Wheels Turbo Cafe Coimbatore",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     description:
       "Motorsport career timeline, British F3 podium memories, FIA F2 championships, and 24H endurance GT racing tribute.",
     images: [
-      "/images/ajith/coimbatore-best-cafe-ajith-kumar-motorsport-montage.jpg",
+      "/images/ajith/ajith-kumar-fia-formula-racing-career-montage.jpg",
     ],
   },
 };

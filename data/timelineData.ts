@@ -8,6 +8,7 @@ export interface TimelineMilestone {
   imageSrc: string;
   imageLabel: string;
   altText: string;
+  objectPosition?: string;
 }
 
 export const RACING_TIMELINE: TimelineMilestone[] = [
@@ -22,9 +23,10 @@ export const RACING_TIMELINE: TimelineMilestone[] = [
       { label: "Circuits", value: "Sepang & National" },
       { label: "Discipline", value: "Single-Seater" },
     ],
-    imageSrc: "/images/ajith/coimbatore-best-cafe-ajith-kumar-pitlane-portrait.jpg",
+    imageSrc: "/images/ajith/ajith-kumar-pitlane-racing-suit-portrait.jpg",
     imageLabel: "PITLANE FOCUS // FORMULA ASIA",
     altText: "Ajith Kumar in pitlane with racing helmet during single-seater championship",
+    objectPosition: "object-top",
   },
   {
     year: "2004",
@@ -37,9 +39,10 @@ export const RACING_TIMELINE: TimelineMilestone[] = [
       { label: "Podiums", value: "2 Podium Finishes" },
       { label: "Tracks", value: "Silverstone, Donington" },
     ],
-    imageSrc: "/images/ajith/coimbatore-best-cafe-ajith-kumar-podium-indian-flag.jpg",
+    imageSrc: "/images/ajith/ajith-kumar-podium-finish-indian-flag-motorsport.jpg",
     imageLabel: "BRITISH F3 PODIUM CELEBRATION",
     altText: "Ajith Kumar on the British F3 racing podium holding the Indian Tricolour flag",
+    objectPosition: "object-bottom",
   },
   {
     year: "2010",
@@ -52,7 +55,7 @@ export const RACING_TIMELINE: TimelineMilestone[] = [
       { label: "Power", value: "425 BHP @ 8500 RPM" },
       { label: "Circuits", value: "Monza, Spa, Valencia" },
     ],
-    imageSrc: "/images/ajith/coimbatore-best-cafe-ajith-kumar-creventic-24h.jpg",
+    imageSrc: "/images/ajith/ajith-kumar-creventic-24h-endurance-series.jpg",
     imageLabel: "FIA FORMULA 2 WORLD CHAMPIONSHIP",
     altText: "Ajith Kumar in FIA Formula 2 championship paddock with team",
   },
@@ -67,7 +70,7 @@ export const RACING_TIMELINE: TimelineMilestone[] = [
       { label: "Car", value: "Porsche 911 GT3 Cup" },
       { label: "Motto", value: "Never Give Up" },
     ],
-    imageSrc: "/images/ajith/coimbatore-best-cafe-ajith-kumar-porsche-racecar.jpg",
+    imageSrc: "/images/ajith/ajith-kumar-racing-porsche-992-gt3-cup.jpg",
     imageLabel: "AKR 24H GT PORSCHE 911",
     altText: "Ajith Kumar with #901 Porsche 911 GT3 Cup racecar in the international endurance paddock",
   },

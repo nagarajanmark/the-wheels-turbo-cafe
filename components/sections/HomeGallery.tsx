@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { ImagePlaceholder } from "../ui/ImagePlaceholder";
 import { SectionHeading } from "../ui/SectionHeading";
 import { LightboxModal } from "../ui/LightboxModal";
-import { GALLERY_ITEMS, GalleryItem } from "@/data/galleryData";
+import { GALLERY_ITEMS, PARALLAX_MATRIX_IMAGES, GalleryItem } from "@/data/galleryData";
 import { Maximize2, Flame } from "lucide-react";
 
 import ThreeDParallaxGallery from "../ui/3d-parallax-unfurling-gallery";
@@ -13,14 +13,12 @@ export const HomeGallery: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<string>("ALL");
   const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
 
-  const filterTags = ["ALL", "THE GARAGE", "THE FOOD", "THE MACHINES", "THE MOMENTS", "THE FANS"];
+  const filterTags = ["ALL", "THE GARAGE", "THE FOOD", "THE MACHINES", "THE MOMENTS"];
 
   const filteredItems =
     activeFilter === "ALL"
       ? GALLERY_ITEMS
       : GALLERY_ITEMS.filter((item) => item.tag === activeFilter);
-
-  const parallaxImages = GALLERY_ITEMS.map((item) => item.imageSrc);
 
   return (
     <section className="relative bg-turbo-black text-performance-white select-none">
@@ -46,7 +44,7 @@ export const HomeGallery: React.FC = () => {
 
       {/* 2. 3D Parallax Unfurling Gallery Matrix */}
       <div className="w-full relative my-8">
-        <ThreeDParallaxGallery images={parallaxImages} height="300vh" />
+        <ThreeDParallaxGallery images={PARALLAX_MATRIX_IMAGES} height="300vh" />
       </div>
 
       {/* 3. Filterable Masonry Vault */}
@@ -82,30 +80,30 @@ export const HomeGallery: React.FC = () => {
         </div>
 
         {/* Masonry Asymmetrical Composition Grid */}
-        <div className="grid grid-cols-12 gap-6">
+        <div className="grid grid-cols-12 gap-6 items-stretch">
           {filteredItems.map((item) => (
             <div
               key={item.id}
               onClick={() => setSelectedItem(item)}
-              className={`${item.colSpan || "col-span-12 md:col-span-6"} group cursor-pointer relative rounded-2xl overflow-hidden bg-garage-black border border-metallic-silver/20 hover:border-racing-red/70 transition-all duration-500 shadow-xl`}
+              className={`${item.colSpan || "col-span-12 md:col-span-6"} group cursor-pointer relative rounded-2xl overflow-hidden bg-garage-black border border-metallic-silver/20 hover:border-racing-red/70 transition-all duration-500 shadow-xl flex flex-col h-full`}
               data-cursor-hover
               data-cursor-text="ZOOM"
               role="button"
               tabIndex={0}
               aria-label={`View full image: ${item.title}`}
             >
-              <div className="relative overflow-hidden">
+              <div className="relative overflow-hidden w-full h-full flex-1 min-h-[280px]">
                 <ImagePlaceholder
                   src={item.imageSrc}
                   alt={item.altText || item.title}
                   label={item.imageLabel}
                   aspectRatio={item.aspectRatio}
                   badgeText={item.tag}
-                  className="w-full transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full min-h-full"
                 />
 
                 {/* Hover Reveal Details Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-turbo-black via-turbo-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                <div className="absolute inset-0 bg-gradient-to-t from-turbo-black via-turbo-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 z-10">
                   <div className="flex items-center justify-between">
                     <div>
                       <span className="text-[10px] font-racing font-bold text-velocity-yellow tracking-widest uppercase">

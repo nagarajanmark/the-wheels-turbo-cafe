@@ -115,17 +115,12 @@ export const Footer: React.FC = () => {
 
       {/* Footer Bottom Bar (3-Column Layout exactly like reference) */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] sm:text-xs text-neutral-400 font-sans relative z-10">
-        {/* Left: Small Circular Badge */}
-        <div className="flex items-center">
-          <div className="w-7 h-7 rounded-full border border-white/20 bg-white/[0.02] flex items-center justify-center text-[11px] font-bold text-white/90 hover:border-white/40 transition-colors">
-            W
-          </div>
-        </div>
+       
 
         {/* Center: Copyright Notice */}
         <div className="text-center text-neutral-400">
           ©{currentYear} The Wheels Turbo Cafe. All rights reserved. Made with{" "}
-          <span className="text-red-500 inline-block px-0.5">♥</span> in India.
+         
         </div>
 
         {/* Right: Credits */}
