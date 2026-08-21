@@ -23,7 +23,7 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
 
   useEffect(() => {
     const startTime = performance.now();
-    const duration = 1600; // 1.6s smooth tachometer rev to full 8800 RPM
+    const duration = 1200; // 1.2s rapid supercar throttle rev
     let animationFrameId: number;
 
     const animateRpm = (currentTime: number) => {
@@ -31,7 +31,7 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
       const progress = Math.min(1, elapsed / duration);
 
       // Supercar throttle ramp curve
-      const easeProgress = Math.pow(progress, 1.5);
+      const easeProgress = Math.pow(progress, 1.4);
       const currentRpm = Math.round(easeProgress * 8800);
 
       setRpm(currentRpm);
@@ -45,12 +45,8 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
       if (progress < 1) {
         animationFrameId = requestAnimationFrame(animateRpm);
       } else {
-        // Full RPM 8800 achieved! Hold peak redline briefly then reveal website
-        setRpm(8800);
-        setStage("REDLINE");
-        setTimeout(() => {
-          finishPreloader();
-        }, 220);
+        // Full RPM 8800 reached -> INSTANTLY dismiss preloader and reveal website!
+        finishPreloader();
       }
     };
 
@@ -59,13 +55,9 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
     return () => {
       if (animationFrameId) cancelAnimationFrame(animationFrameId);
     };
-  }, [finishPreloader, onComplete]);
-
-  if (!isVisible) return null;
+  }, [finishPreloader]);
 
   const rpmProgress = Math.min(100, (rpm / 8800) * 100);
-
-
 
   return (
     <AnimatePresence>
@@ -75,10 +67,10 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
           initial={{ opacity: 1 }}
           exit={{
             opacity: 0,
-            scale: 1.02,
-            transition: { duration: 0.4, ease: "easeOut" },
+            scale: 1.01,
+            transition: { duration: 0.2, ease: "easeOut" },
           }}
-          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-turbo-black overflow-hidden select-none"
+          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-turbo-black overflow-hidden select-none pointer-events-none"
         >
           {/* Ambient Red & Orange Radial Glow */}
           <div className="absolute w-[450px] h-[450px] sm:w-[600px] sm:h-[600px] rounded-full bg-gradient-to-tr from-racing-red/25 via-turbo-orange/15 to-transparent blur-[80px] pointer-events-none" />

@@ -13,7 +13,7 @@ export const HomeAjithPreview: React.FC = () => {
       {/* Background Hero Layer with motorsport lighting */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/ajith/thala-ajith-supercar-racing-legacy-coimbatore.jpg"
+          src="/images/ajith/ajithkumarracing.com-track-test-barcelona-akr-tracktest-13-scaled.jpg"
           alt="Thala Ajith Kumar motorsport tribute at The Wheels Turbo Cafe Coimbatore"
           fill
           sizes="100vw"
