@@ -129,11 +129,15 @@ export function AboutClient() {
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw"
             className="object-cover object-[center_top] sm:object-[center_12%]"
           />
-          {/* Smooth shadow & edge gradients blending cleanly into dark theme */}
-          <div className="absolute inset-y-0 left-0 w-24 sm:w-36 lg:w-48 bg-gradient-to-r from-carbon-black to-transparent" />
+          {/* Full dark shadow & gradient overlay on mobile for perfect readability */}
+          <div className="absolute inset-0 bg-carbon-black/85 sm:bg-carbon-black/10" />
+          <div className="absolute inset-0 bg-gradient-to-b from-carbon-black/95 via-carbon-black/85 to-carbon-black sm:hidden" />
+          <div className="absolute inset-0 bg-gradient-to-r from-carbon-black via-carbon-black/90 to-carbon-black/70 sm:hidden" />
+
+          {/* Smooth shadow & edge gradients blending cleanly into dark theme on desktop/laptop */}
+          <div className="absolute inset-y-0 left-0 w-24 sm:w-36 lg:w-48 bg-gradient-to-r from-carbon-black to-transparent hidden sm:block" />
           <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-carbon-black to-transparent opacity-80" />
           <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-carbon-black to-transparent" />
-          <div className="absolute inset-0 bg-carbon-black/10" />
         </div>
 
         {/* Ambient Left & Center Glows */}
@@ -209,7 +213,7 @@ export function AboutClient() {
             />
             <div className="grid grid-cols-2 gap-3 sm:gap-4 items-stretch">
               <ImagePlaceholder
-                src="/images/owner/akhila-sundar-with-thala-ajith-kumar-tribute.png"
+                src="/images/owner/akhila-sundar-founder-the-wheels-turbo-cafe-coimbatore.jpg"
                 alt="Founder Akilandeshwari Sunder posing with Thala Ajith Kumar racing suit tribute standee at The Wheels Turbo Cafe in RS Puram Coimbatore"
                 label="FOUNDER & AJITH TRIBUTE"
                 aspectRatio="3/4"
