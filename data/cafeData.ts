@@ -41,7 +41,7 @@ export const CAFE_DATA: CafeInfo = {
   },
   address: "West Arokiasamy Road, R.S. Puram, Coimbatore (Opposite to Yamaha Showroom), Tamil Nadu 641002, India",
   phone: "+91 81470 12883",
-  email: "pitstop@thewheelsturbocafe.com",
+  email: "thewheelsturbocafe@gmail.com",
   instagram: "@the_wheels_turbo_cafe",
   timing: {
     days: "Monday — Saturday (Sunday Closed)",
